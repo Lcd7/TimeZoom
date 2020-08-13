@@ -32,7 +32,7 @@ def check_token(func):
         if not token:
             retMsg['msg'] = '需要验证'
             return jsonify(retMsg)
-        user = tableUser.get_user_by_token(token)
+        user = tableUser.get_user_by(token = token)
         if not user:
             retMsg['msg'] = '验证信息错误'
             return jsonify(retMsg)
@@ -49,6 +49,8 @@ def get_user_info_when_login_and_register(func):
         g.phone_number = args.get('phone_number')
         g.password = args.get('password')
         g.email = args.get('email')
+        # 验证数据是否被篡改过
+            # pass
         return func()
     return wrapper
 
@@ -56,7 +58,7 @@ def get_user_info_when_login_and_register(func):
 def get_base_info():
     token = request.headers.get('token')
     if token:
-        user = tableUser.get_user_by_token(token)
+        user = tableUser.get_user_by(token = token)
         g.user = user
         g.token = token
     else:
@@ -77,9 +79,9 @@ class login(Resource):
         global retMsg
 
         # phone_number = request.get_json().get('phone_number')
-        user = tableUser.get_user_by_phone(g.phone_number)
+        user = tableUser.get_user_by(phone_number = g.phone_number)
         if not user:
-            user = tableUser.get_user_by_phone(g.email)
+            user = tableUser.get_user_by(email = g.email)
 
         if not user:
             retMsg['msg'] = '没有此用户'
@@ -109,8 +111,8 @@ class register(Resource):
     @get_user_info_when_login_and_register
     def post(self):
         # 验证手机号和邮箱是否存在
-        _resPhone, _ = tableUser.get_user_by_phone(g.phone_number)
-        _resEmail, _ = tableUser.get_user_by_email(g.email)
+        _resPhone, _ = tableUser.get_user_by(phone_number = g.phone_number)
+        _resEmail, _ = tableUser.get_user_by(email = g.email)
         if _resPhone or _resEmail:
             retMsg['msg'] = '账号已经被注册'
             return jsonify(retMsg)
@@ -128,7 +130,6 @@ class register(Resource):
             return jsonify(retMsg)
         
         return jsonify(retMsg)
-
 
 class user(Resource):
     '''

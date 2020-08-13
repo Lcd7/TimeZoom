@@ -18,28 +18,21 @@ def get_user(func):
     return wrapper
 
 @get_user
-def get_user_by_phone(phone_number):
+def get_user_by(phone_number = '', email = '', token = ''):
     '''
-    根据电话获取用户信息
+    查询用户信息
     '''
-    strSql = 'select * from [User] where phone_number=?'
-    return DB.ExecSqlQuery(strSql, phone_number)    
-
-@get_user
-def get_user_by_token(token):
-    '''
-    根据token查询用户信息
-    '''
-    strSql = 'select * from [User] where token=?'
-    return DB.ExecSqlQuery(strSql, token)
-
-@get_user
-def get_user_by_email(email):
-    '''
-    根据token查询用户信息
-    '''
-    strSql = 'select * from [User] where email=?'
-    return DB.ExecSqlQuery(strSql, email)
+    if phone_number:
+        strSql = 'select * from [User] where phone_number=?'
+        return DB.ExecSqlQuery(strSql, phone_number)
+    elif email:
+        strSql = 'select * from [User] where email=?'
+        return DB.ExecSqlQuery(strSql, email)
+    elif token:
+        strSql = 'select * from [User] where token=?'
+        return DB.ExecSqlQuery(strSql, token)
+    else:
+        pass
 
 def update_user(update_dct):
     '''
