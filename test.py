@@ -114,49 +114,79 @@ def GouZi():
     if __name__ == '__main__':
         app.run(host="0.0.0.0", port=80)
 
-def blueprint_test():
-    from flask import Flask
-    app = Flask(__name__)
+def test_AES_encrypt():
+    from Crypto.Cipher import AES
+    import base64
 
-    from flask import Blueprint
-    blue_index = Blueprint("index", __name__)
+    class Aescrypt():
+        '''
+        密钥（key）, 密斯偏移量（iv） CBC模式加密
+        '''
+        BLOCK_SIZE = 16  # Bytes
+
+        def __init__(self, key, model, iv):
+            self.key = key
+            self.model = model
+            self.iv = iv
+
+        def pad(self, data):
+            data = data + (self.BLOCK_SIZE - len(data) % self.BLOCK_SIZE) * \
+                    chr(self.BLOCK_SIZE - len(data) % self.BLOCK_SIZE)
+            return data
+        
+        def unpad(self, data):
+            return data[:-ord(data[len(data) - 1:])]
+
+        def AES_Encrypt(self, data):
+            # 字符串补位
+            data = self.pad(data)
+            
+            if self.model == AES.MODE_CBC:
+                cipher = AES.new(self.key.encode('utf8'), self.model, self.iv.encode('utf8'))
+            elif self.model == AES.MODE_ECB:
+                cipher = AES.new(self.key.encode('utf8'), self.model)
+
+            encryptedbytes = cipher.encrypt(data.encode('utf8'))
+
+            # 加密后得到的是bytes类型的数据，使用Base64进行编码,返回byte字符串
+            encodestrs = base64.b64encode(encryptedbytes)
+
+            # 对byte字符串按utf-8进行解码
+            enctext = encodestrs.decode('utf8')
+            print(enctext)
+            return enctext
+
+
+        def AES_Decrypt(self, data):
+            data = data.encode('utf8')
+            encodebytes = base64.decodebytes(data)
+
+            # 将加密数据转换位bytes类型数据
+            if self.model == AES.MODE_CBC:
+                cipher = AES.new(self.key.encode('utf8'), self.model, self.iv.encode('utf8'))
+            elif self.model == AES.MODE_ECB:
+                cipher = AES.new(self.key.encode('utf8'), self.model)
+
+            text_decrypted = cipher.decrypt(encodebytes)
+
+            # 去补位
+            text_decrypted = self.unpad(text_decrypted)
+            text_decrypted = text_decrypted.decode('utf8')
+            print(text_decrypted)
+            return text_decrypted
+
+    data = "holy"
+    iv = '0102030405060708'
+    key = 'lcd12345fp123456'
+    aescryptor = Aescrypt(key, AES.MODE_CBC, iv) # CBC模式
+    # aescryptor = Aescrypt(key, AES.MODE_ECB, "") # ECB模式
     
-    from flask_restful import Api, Resource, reqparse
-    api = Api(blue_index)
+    enctext = aescryptor.AES_Encrypt(data)
+    aescryptor.AES_Decrypt(enctext)
 
 
-    def before_main(func):
-        def wrapper(*args, **kwargs):
-            print('before_main')
-            return func(*args, **kwargs)
-        return wrapper
+if __name__ == "__main__":
+    import time
+    print(str(int(time.time())))
 
-
-    @blue_index.before_request
-    def before():
-        print("before")
-
-
-    @blue_index.route('/')
-    def yyy():
-        print('111')
-        return '111'
-
-    class main(Resource):
-        @before_main
-        def get(self):
-            print('hello')
-            return 'hello'
-
-
-    api.add_resource(main, '/main/', endpoint = 'main')
-    app.register_blueprint(blue_index)
-    app.run('0.0.0.0', 8058, debug = True)
-
-
-from flask import Blueprint
-blue_index = Blueprint("index", __name__, url_prefix = '/index')
-
-if __name__ == '__main__':
-    blueprint_test()
     

@@ -1,12 +1,12 @@
-from flask import request, jsonify, g
+from flask import request, jsonify, g, current_app
 from flask_restful import Api, Resource, reqparse
 from app.web import blue_index
-# from test import blue_index
-import time
+from app.libs import tableUser, validate
+from app.utils import get_hash, AES_Encrypt
 
-from app.libs import tableUser
-from app.utils import get_hash
-from app.libs import validate
+import time
+from Crypto.Cipher import AES
+import base64
 
 
 api = Api(blue_index)
@@ -16,6 +16,8 @@ parser.add_argument('email', type = str)
 parser.add_argument('password', type = str)
 parser.add_argument('pass2', type = str)
 parser.add_argument('nickname', type = str)
+parser.add_argument('sign', type = str)
+parser.add_argument('timenow', type = str)
 
 retMsg = {
     'code': 0,
@@ -42,16 +44,25 @@ def check_token(func):
 
 def get_user_info_when_login_and_register(func):
     '''
-    获取用户登录注册时的信息
+    获取用户登录、注册时的信息
     '''
-    def wrapper():
+    def wrapper(self):
         args = parser.parse_args()
         g.phone_number = args.get('phone_number')
         g.password = args.get('password')
         g.email = args.get('email')
+        g.sign = args.get('sign')
+        g.timenow = args.get('timenow')
+
         # 验证数据是否被篡改过
-            # pass
-        return func()
+        aescryptor = AES_Encrypt.Aescrypt(AES.MODE_CBC, current_app.config['AES_KEY'], current_app.config['IV'])
+        dec_sign = aescryptor.AES_Decrypt(g.sign)
+        dec_sign = dec_sign[:6]
+        if dec_sign == (g.phone_number[:3] + g.timenow[:3]):
+            return func(self)
+        else:
+            retMsg['msg'] = '信息被篡改，请求失败'
+            return jsonify(retMsg)
     return wrapper
 
 @blue_index.before_request
@@ -111,8 +122,8 @@ class register(Resource):
     @get_user_info_when_login_and_register
     def post(self):
         # 验证手机号和邮箱是否存在
-        _resPhone, _ = tableUser.get_user_by(phone_number = g.phone_number)
-        _resEmail, _ = tableUser.get_user_by(email = g.email)
+        _resPhone = tableUser.get_user_by(phone_number = g.phone_number)
+        _resEmail = tableUser.get_user_by(email = g.email)
         if _resPhone or _resEmail:
             retMsg['msg'] = '账号已经被注册'
             return jsonify(retMsg)
@@ -167,5 +178,6 @@ class logout(Resource):
 
 api.add_resource(hello_world, '/main', endpoint = 'hello_world')
 api.add_resource(login, '/login', endpoint = 'login')
+api.add_resource(register, '/register', endpoint = 'register')
 api.add_resource(user, '/user', endpoint = 'user')
 api.add_resource(logout, '/logout', endpoint = 'logout')

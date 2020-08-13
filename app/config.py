@@ -8,6 +8,11 @@ class BaseConfig:
     MODELS = {'User': User}
     # json 返回中文
     JSON_AS_ASCII = False
+    # AES密钥
+    AES_KEY = 'lcd12345fp123456'
+    # AES 偏移向量
+    IV = '0102030405060708'
+
 
 
 class DevelopmentConfig(BaseConfig):
