@@ -14,8 +14,10 @@ parser = reqparse.RequestParser()
 parser.add_argument('phone_number', type = str)
 parser.add_argument('email', type = str)
 parser.add_argument('password', type = str)
-parser.add_argument('pass2', type = str)
+parser.add_argument('passw2', type = str)
+parser.add_argument('newpassw', type = str)
 parser.add_argument('nickname', type = str)
+parser.add_argument('sex', type = str)
 parser.add_argument('sign', type = str)
 parser.add_argument('timenow', type = str)
 
@@ -38,6 +40,17 @@ def check_token(func):
         if not user:
             retMsg['msg'] = '验证信息错误'
             return jsonify(retMsg)
+
+        args = parser.parse_args()
+        g.phone_number = args.get('phone_number')
+        g.password = args.get('password')
+        g.email = args.get('email')
+        g.passw2 = args.get('passw2')
+        g.newpassw = args.get('newpassw')
+        g.nickname = args.get('nickname')
+        g.sex = args.get('sex')
+        g.sign = args.get('sign')
+        g.timenow = args.get('timenow')
 
         return func(*arg, **kwargs)
     return wrapper
@@ -77,7 +90,7 @@ def get_base_info():
 
     # return {}
 
-class hello_world(Resource):
+class helloWorld(Resource):
     def get(self):
         return 'Hello_world'
 
@@ -105,7 +118,7 @@ class login(Resource):
         token = get_hash.get_md5(g.phone_number, g.password, str(int(time.time())))
         # 将token保存到数据库
         _update_user_token_dict = {'token': token}
-        _res = tableUser.update_user(_update_user_token_dict)
+        _res = tableUser.update_user(user.seqid, _update_user_token_dict)
         if _res:
             retMsg['code'] = 1
             retMsg['msg'] = '成功登录'
@@ -129,7 +142,7 @@ class register(Resource):
             return jsonify(retMsg)
 
         # 验证密码
-        _resPassw = validate.vali_user_password(g.password, g.pass2)
+        _resPassw = validate.vali_user_password(g.password, g.passw2)
         if _resPassw:
             retMsg['msg'] = _resPassw
             return jsonify(retMsg)
@@ -142,22 +155,52 @@ class register(Resource):
         
         return jsonify(retMsg)
 
-class user(Resource):
+class chageUserInfo(Resource):
     '''
-    用户验证
+    修改用户信息
     '''
     global retMsg
 
     @check_token
     def get(self):
-        # args = parser.parse_args()
-        obj_user = g.user
-        phone_number = obj_user.phone_number
-        nickname = obj_user.nickname
-        retMsg['code'] = 1
-        retMsg['phone_number'] = phone_number
-        retMsg['nickname'] = nickname
-        return jsonify(retMsg)
+        if g.user:
+            # 修改密码
+            if g.password and g.passw2 and g.newpassw:
+                # 验证密码
+                _resPassw = validate.vali_user_password(g.password, g.passw2)
+                if not _resPassw:
+                    _tmpUpdateDict = {'password': g.password}
+                    if not tableUser.update_user(g.user.seqid, _tmpUpdateDict):
+                        retMsg['msg'] = '密码修改失败'
+                        return jsonify(retMsg)
+                else:
+                    retMsg['msg'] = _resPassw
+                    return jsonify(retMsg)
+
+            # 修改昵称
+            if g.nickname:
+                if tableUser.get_user_by('nickname'):
+                    retMsg['msg'] = '该昵称已存在'
+                    return jsonify(retMsg)
+                else:
+                    _tmpUpdateDict = {'nickname': g.nickname}
+                    if not tableUser.update_user(g.user.nickname, _tmpUpdateDict):
+                        retMsg['msg'] = '昵称修改失败'
+                        return jsonify(retMsg)
+
+            # 修改性别
+            if g.sex:
+                _tmpUpdateDict = {'sex': g.sex}
+                if not tableUser.update_user(g.user.seqid, _tmpUpdateDict):
+                    retMsg['msg'] = '性别修改失败'
+                    return jsonify(retMsg)
+
+            retMsg['code'] = 1 
+            retMsg['msg'] = '修改成功'
+            return jsonify(retMsg)
+        else:
+            retMsg['msg'] = '没有用户信息'
+            return jsonify(retMsg)
 
 class logout(Resource):
     '''
@@ -167,7 +210,7 @@ class logout(Resource):
     def get(self):
         user = g.user
         update_dict = {'token': user.token}
-        _ret = tableUser.update_user(update_dict)
+        _ret = tableUser.update_user(user.seqid, update_dict)
         if _ret:
             retMsg['code'] = 1
             retMsg['msg'] = '成功注销'
@@ -176,8 +219,8 @@ class logout(Resource):
         return jsonify(retMsg)
 
 
-api.add_resource(hello_world, '/main', endpoint = 'hello_world')
+api.add_resource(helloWorld, '/main', endpoint = 'helloWorld')
 api.add_resource(login, '/login', endpoint = 'login')
 api.add_resource(register, '/register', endpoint = 'register')
-api.add_resource(user, '/user', endpoint = 'user')
+api.add_resource(chageUserInfo, '/chageUserInfo', endpoint = 'chageUserInfo')
 api.add_resource(logout, '/logout', endpoint = 'logout')

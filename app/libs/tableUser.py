@@ -18,7 +18,7 @@ def get_user(func):
     return wrapper
 
 @get_user
-def get_user_by(phone_number = '', email = '', token = ''):
+def get_user_by(phone_number = '', email = '', token = '', nickname = ''):
     '''
     查询用户信息
     '''
@@ -31,20 +31,24 @@ def get_user_by(phone_number = '', email = '', token = ''):
     elif token:
         strSql = 'select * from [User] where token=?'
         return DB.ExecSqlQuery(strSql, token)
+    elif nickname:
+        strSql = 'select * from [User] where nickname=?'
+        return DB.ExecSqlQuery(strSql, nickname)
     else:
         pass
 
-def update_user(update_dct):
+def update_user(seqid, update_dct):
     '''
     更新用户数据
-    *kwargs: 更新字段字典
+    seqid: 用户id
+    update_dct: 更新字段字典
     return: 成功or失败
     '''
     _tempStr = ''
     for key, value in update_dct.items():
         _tempStr += f'{key}="{value}"'
 
-    strSql = f'update [User] where {_tempStr}'
+    strSql = f'update [User] set {_tempStr} where seqid = {int(_tempStr)}'
     return DB.ExecSqlNoQuery(strSql)
 
 def insert_user(phone_number, email, password, nickname):

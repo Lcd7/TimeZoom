@@ -1,0 +1,2 @@
+[2020-08-14 13:16:10,340]:[sqlserver.py]:[line:54]:ERROR: ('42000', '[42000] [Microsoft][SQL Server Native Client 11.0]Syntax error, permission violation, or other nonspecific error (0) (SQLExecDirectW)')
+[2020-08-14 13:18:26,303]:[sqlserver.py]:[line:54]:ERROR: ('42000', '[42000] [Microsoft][SQL Server Native Client 11.0]Syntax error, permission violation, or other nonspecific error (0) (SQLExecDirectW)')

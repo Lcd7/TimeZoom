@@ -1,6 +1,6 @@
 from Crypto.Cipher import AES
 import base64
-from flask import current_app
+# from flask import current_app
 
 class Aescrypt():
     '''
