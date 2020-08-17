@@ -111,8 +111,7 @@ def GouZi():
         print("视图函数被运行了")
         return "视图函数被运行了<br>"
 
-    if __name__ == '__main__':
-        app.run(host="0.0.0.0", port=80)
+
 
 def test_AES_encrypt():
     from Crypto.Cipher import AES

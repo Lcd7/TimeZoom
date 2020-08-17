@@ -29,8 +29,9 @@ class updateArticle(Resource):
             _tmp_art_id = tableArticle.insert_art(g.art_text, g.user.seqid)
             head_pic = '七牛云路径' + g.img_name
             # 保存图片
-            tableImg.insert_img(g.img_name, head_pic, g.user.seqid, _tmp_art_id)
-
+            _res = tableImg.insert_img(g.img_name, head_pic, g.user.seqid, _tmp_art_id)
+            if not _res:
+                retMsg['msg'] = '上传失败'
 
             retMsg['code'] = 1
             retMsg['msg'] = '上传成功'

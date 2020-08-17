@@ -52,5 +52,8 @@ class tableImg:
         head_pic: 图片地址
         img_user: 图片所属用户
         img_comment: 图片所属动态
-        '''
+        return True or False
+        ''' 
         img_type = 1
+        strSql = 'insert into Imgs (img_name,head_pic,img_type,img_user,img_comment) valuse (?,?,?,?,?)'
+        return DB.ExecSqlNoQuery(strSql, img_name, head_pic, img_type, img_user, img_comment)
