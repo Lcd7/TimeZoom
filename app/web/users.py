@@ -1,59 +1,14 @@
 from flask import request, jsonify, g, current_app
-from flask_restful import Api, Resource, reqparse
-from app.web import blue_index
-from app.libs import tableUser, validate
+from flask_restful import Api, Resource
+from app.web import blue_index, retMsg, parser
+from app.libs import tableUser, validator
 from app.utils import get_hash, AES_Encrypt
-
-import time
+from app.web import check_token
 from Crypto.Cipher import AES
-import base64
+import time
 
 
 api = Api(blue_index)
-parser = reqparse.RequestParser()
-parser.add_argument('phone_number', type = str)
-parser.add_argument('email', type = str)
-parser.add_argument('password', type = str)
-parser.add_argument('passw2', type = str)
-parser.add_argument('newpassw', type = str)
-parser.add_argument('nickname', type = str)
-parser.add_argument('sex', type = str)
-parser.add_argument('sign', type = str)
-parser.add_argument('timenow', type = str)
-
-retMsg = {
-    'code': 0,
-    'msg': ''
-}
-
-
-def check_token(func):
-    '''
-    验证token装饰器
-    '''
-    def wrapper(*arg, **kwargs):
-        token = request.headers.get('token')
-        if not token:
-            retMsg['msg'] = '需要验证'
-            return jsonify(retMsg)
-        user = tableUser.get_user_by(token = token)
-        if not user:
-            retMsg['msg'] = '验证信息错误'
-            return jsonify(retMsg)
-
-        args = parser.parse_args()
-        g.phone_number = args.get('phone_number')
-        g.password = args.get('password')
-        g.email = args.get('email')
-        g.passw2 = args.get('passw2')
-        g.newpassw = args.get('newpassw')
-        g.nickname = args.get('nickname')
-        g.sex = args.get('sex')
-        g.sign = args.get('sign')
-        g.timenow = args.get('timenow')
-
-        return func(*arg, **kwargs)
-    return wrapper
 
 def get_user_info_when_login_and_register(func):
     '''
@@ -78,18 +33,6 @@ def get_user_info_when_login_and_register(func):
             return jsonify(retMsg)
     return wrapper
 
-@blue_index.before_request
-def get_base_info():
-    token = request.headers.get('token')
-    if token:
-        user = tableUser.get_user_by(token = token)
-        g.user = user
-        g.token = token
-    else:
-        g.user = None
-
-    # return {}
-
 class helloWorld(Resource):
     def get(self):
         return 'Hello_world'
@@ -100,7 +43,7 @@ class login(Resource):
     '''
     @get_user_info_when_login_and_register
     def post(self):
-        global retMsg
+        # global retMsg
 
         # phone_number = request.get_json().get('phone_number')
         user = tableUser.get_user_by(phone_number = g.phone_number)
@@ -132,6 +75,8 @@ class register(Resource):
     '''
     用户注册
     '''
+    # global retMsg
+
     @get_user_info_when_login_and_register
     def post(self):
         # 验证手机号和邮箱是否存在
@@ -142,7 +87,7 @@ class register(Resource):
             return jsonify(retMsg)
 
         # 验证密码
-        _resPassw = validate.vali_user_password(g.password, g.passw2)
+        _resPassw = validator.vali_user_password(g.password, g.passw2)
         if _resPassw:
             retMsg['msg'] = _resPassw
             return jsonify(retMsg)
@@ -159,7 +104,7 @@ class chageUserInfo(Resource):
     '''
     修改用户信息
     '''
-    global retMsg
+    # global retMsg
 
     @check_token
     def get(self):
@@ -167,7 +112,7 @@ class chageUserInfo(Resource):
             # 修改密码
             if g.password and g.passw2 and g.newpassw:
                 # 验证密码
-                _resPassw = validate.vali_user_password(g.password, g.passw2)
+                _resPassw = validator.vali_user_password(g.password, g.passw2)
                 if not _resPassw:
                     _tmpUpdateDict = {'password': g.password}
                     if not tableUser.update_user(g.user.seqid, _tmpUpdateDict):

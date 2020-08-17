@@ -20,6 +20,10 @@ class DevelopmentConfig(BaseConfig):
     开发环境配置类
     """
     DATABASE_URI = r"DRIVER={SQL Server Native Client 11.0};SERVER=192.168.8.16;DATABASE=crawler_test;UID=sa;PWD=root123."
+    # 七牛服务器配置
+    BUCKET = ''
+    AK = ''
+    Sk = ''
     
 
 class TestConfig(BaseConfig):

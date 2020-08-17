@@ -1,0 +1,76 @@
+数据模型
+
+
+用户数据表User
+	seqied: 主键,自增
+    phone_number: 注册电话号码 not null
+    email: 邮箱 
+    password: 密码 not null
+    nickname: 昵称 not null
+    sex: 性别
+    relationships: 关联好友的seqid
+    register_time: 注册时间(datetime) not null
+    token: token
+	
+	用户之间可添加好友，使用relationships字段保存好友的seqid
+	用户的电话、昵称必须唯一
+	
+	
+已发表动态数据表Articles
+	seqid: 自增,主键
+	content: 内容 not null
+    relation_id: 评论 关联评论表的seqid
+    is_public: 是否公开，默认否
+    likes: 点赞数
+	do_time: 动态发布时间
+
+	用户发表的动态默认是不公开状态，布尔值表示
+	用户之间可以给动态点赞
+	动态的内容不能为空
+	用户只能给自己的动态评论，不能评论其他人的动态
+	relation_id是外键，关联User表的主键，表示该动态是哪位用户发布的
+	
+
+私信数据表Letter
+	seqid : 主键,自增
+    userid : 留言的主人的seqid, not null
+    friendid : 对方的ID, not null
+    senderid : 留言发送者ID, not null
+    receiverid : 留言接收者ID, not null
+    msg_type : 留言类型(普通消息1、系统消息0), not null
+    content : 留言内容, not null
+    send_time : 发送时间, datetime, not null
+    read_time : 阅读时间, datetime, not null
+    status : 留言状态(未读0，已读1), not null
+	
+	私信表保存用户之间私信的内容
+	一条私信保存两条记录，两条记录只有userid和friendid字段互换，目的是保证当一方删除自己的私信内容时，而另一方还是能够查看到与自己有关的那一条记录
+	senderid和receiverid字段的目的是能够查询用户的发送的私信和接收的私信，类似邮箱的收件箱和发件箱
+	msg_type字段表示私信的类型，用户私信类型有两种，系统消息和用户消息，布尔值表示
+	外键userid与User数据表的seqid字段关联
+	私信状态默认False，布尔值表示
+	
+
+评论数据表Comment
+	seqid: 主键,自增
+    text: 正文 not null
+    is_public: 是否公开
+    relation_articles_id: 外键约束 发表动态信息
+	
+	评论数据表外键relation_articles_id与动态数据表Articles主键关联
+	is_public 评论默认公开，布尔值表示
+	评论不能为空
+	
+	
+图片数据表Imgs
+	seqid: 主键,自增
+	img_name: 图片名    not null    
+    head_pic: 七牛服务器该图片的链接 not null
+    pic_value: 验证码图片的值
+    img_type: 图片的类型（1用户，0系统） not null
+    img_user: 图片所属的用户seqid
+    img_comment: 图片所属的文章seqid
+	
+	此表保存系统四位字符的验证码和用户发表动态附件的图片
+	如果是用户发表的图片，则必须存在img_user 和 img_comment字段
+	img_user 和 img_comment 分别是关联User 和 Comment 数据表的外键
