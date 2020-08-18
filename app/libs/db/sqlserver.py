@@ -17,7 +17,7 @@ class SqlServer:
         except Exception as ex:
             log.error(ex)
 
-    def ExecSqlQuery(self,strSql,*args):
+    def ExecSqlQuery(self, strSql, *args):
         '''
         数据库查询
         strSql: 查询语句
@@ -28,7 +28,7 @@ class SqlServer:
         err = None
         self.__lock.acquire()
         try:
-            self.__cursor.execute(strSql,*args)
+            self.__cursor.execute(strSql, *args)
             rows = self.__cursor.fetchall()
         except Exception as e:
             log.error(e)
@@ -37,7 +37,7 @@ class SqlServer:
         self.__lock.release()
         return rows, err
 
-    def ExecSqlNoQuery(self,strSql,*args):
+    def ExecSqlNoQuery(self, strSql, *args):
         '''
         数据库增删改操作
         strSql: 操作语句
@@ -47,7 +47,7 @@ class SqlServer:
         ret = False
         self.__lock.acquire()
         try:
-            self.__cursor.execute(strSql,*args)
+            self.__cursor.execute(strSql, *args)
             self.__conn.commit()
             ret = True
         except Exception as e:
@@ -56,6 +56,22 @@ class SqlServer:
         self.__lock.release()
         return ret
 
+    def ExecInsertGetLastId(self, strSql, *args):
+        ret = False
+        seqId = None
+        self.__lock.acquire()
+        try:
+            self.__cursor.execute(strSql,*args)
+            self.__conn.commit()
+            self.__cursor.execute("select @@identity")
+            row = self.__cursor.fetchone()
+            if row:
+                ret = True
+                seqId = row[0]
+        except Exception as ex:
+            log.error('数据库执行插入异常{}'.format(ex))
+        self.__lock.release()
+        return ret, seqId
 
 DB = SqlServer(DevelopmentConfig.DATABASE_URI)
 

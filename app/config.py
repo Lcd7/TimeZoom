@@ -8,6 +8,11 @@ class BaseConfig:
     MODELS = {'User': User}
     # json 返回中文
     JSON_AS_ASCII = False
+    # AES密钥
+    AES_KEY = 'lcd12345fp123456'
+    # AES 偏移向量
+    IV = '0102030405060708'
+
 
 
 class DevelopmentConfig(BaseConfig):
@@ -15,6 +20,10 @@ class DevelopmentConfig(BaseConfig):
     开发环境配置类
     """
     DATABASE_URI = r"DRIVER={SQL Server Native Client 11.0};SERVER=192.168.8.16;DATABASE=crawler_test;UID=sa;PWD=root123."
+    # 七牛服务器配置
+    BUCKET = ''
+    AK = ''
+    Sk = ''
     
 
 class TestConfig(BaseConfig):
