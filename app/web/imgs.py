@@ -1,10 +1,10 @@
-from app.web import blue_index, check_token, retMsg, parser
-from app.utils.qiniu import QiNiuImage
+from app.web import web_index, check_token, retMsg, parser
+from app.utils.qiNiu import QiNiuImage
 from app.libs import tableImg, tableArticle
 from flask import request, jsonify, g, current_app
 from flask_restful import Api, Resource
 
-api = Api(blue_index)
+api = Api(web_index)
 
 class pictures(Resource):
 

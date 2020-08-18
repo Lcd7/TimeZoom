@@ -8,5 +8,5 @@ def creat_app():
     return app
 
 def register_blueprints(app):
-    from app.web import blue_index
-    app.register_blueprint(blue_index)
+    from app.web import web_index
+    app.register_blueprint(web_index)

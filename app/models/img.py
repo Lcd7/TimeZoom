@@ -7,7 +7,7 @@ class Imgs:
     img_name: 图片名    not null    
     head_pic: 七牛服务器该图片的链接 not null
     pic_value: 验证码图片的值
-    img_type: 图片的类型（1用户，0系统） not null
+    img_type: 图片的类型（2用户头像，1用户动态，0系统） not null
     img_user: 图片所属的用户seqid
     img_comment: 图片所属的文章seqid
     '''

@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, g, current_app
-blue_index = Blueprint('blue_index', __name__, url_prefix = '/index')
+web_index = Blueprint('web_index', __name__, url_prefix = '/index')
+web_user = Blueprint('web_user', __name__, url_prefix = '/user')
 
 
 from flask_restful import reqparse
@@ -18,10 +19,13 @@ parser.add_argument('timenow', type = str)          # 用户当前时间戳
 parser.add_argument('img_name', type = str)         # 上传图片名
 parser.add_argument('img_path', type = str)         # 上传图片的本地路径
 parser.add_argument('art_text', type = str)         # 动态内容
+parser.add_argument('art_seqid', type = str)        # 动态id
+parser.add_argument('art_user_id', type = str)      # 动态所属用户id
 
 retMsg = {
     'code': 0,
-    'msg': ''
+    'msg': '',
+    'data': {}
 }
 
 def check_token(func):
@@ -29,11 +33,11 @@ def check_token(func):
     验证token装饰器
     '''
     def wrapper(*arg, **kwargs):
-        token = request.headers.get('token')
-        if not token:
+        # token = request.headers.get('token')
+        if not g.token:
             retMsg['msg'] = '需要验证'
             return jsonify(retMsg)
-        user = tableUser.get_user_by(token = token)
+        user = tableUser.get_user_by(token = g.token)
         if not user:
             retMsg['msg'] = '验证信息错误'
             return jsonify(retMsg)
@@ -52,12 +56,14 @@ def check_token(func):
         g.img_name = args.get('img_name')                   
         g.img_path = args.get('img_path')                   
         g.art_text = args.get('art_text')
+        g.art_seqid = args.get('art_seqid')
+        g.art_user_id = args.get('art_user_id')
 
         return func(*arg, **kwargs)
     return wrapper
 
 
-@blue_index.before_request
+@web_index.before_request
 def get_base_info():
     token = request.headers.get('token')
     if token:
@@ -69,4 +75,4 @@ def get_base_info():
     # return {}
 
 
-import app.web.users
+import app.web.index
