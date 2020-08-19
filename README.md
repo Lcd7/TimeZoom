@@ -59,4 +59,5 @@ TimeZoom 编码规范
     * 比如getName.py
     
 
+生成依赖命令：pipreqs ./ --encoding=utf8
 
