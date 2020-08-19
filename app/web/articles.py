@@ -1,13 +1,13 @@
-from app.web import web_index, check_token, retMsg, parser
+from app.web import webIndex, check_token, retMsg, parser
 from app.utils.qiNiu import QiNiuImage
-from app.libs import tableImg, tableArticle
+from app.libs import TableImg, TableArticle
 from flask import request, jsonify, g, current_app
 from flask_restful import Api, Resource
 
-api = Api(web_index)
+api = Api(webIndex)
 
 
-class getUpdateArticle(Resource):
+class GetUpdateArticle(Resource):
 
     @check_token
     def get(self):
@@ -18,26 +18,26 @@ class getUpdateArticle(Resource):
         status = request.args.get('status', 1)
         # 获取
         if status == 1:
-            if g.art_user_id:
-                _res = tableArticle.get_user_all_arts(g.art_user_id)
-                if _res:
+            if g.artUserId:
+                _tmpRes = TableArticle.get_user_all_arts(g.artUserId)
+                if _tmpRes:
                     retMsg['code'] = 1
-                    retMsg['data'] = _res
+                    retMsg['data'] = _tmpRes
                 else:
                     retMsg['msg'] = '动态获取失败'
 
-            elif g.art_seqid:
-                _res = tableArticle.get_user_one_art(g.art_seqid)
-                if _res:
+            elif g.artSeqid:
+                _tmpRes = TableArticle.get_user_one_art(g.artSeqid)
+                if _tmpRes:
                     retMsg['code'] = 1
-                    retMsg['data'] = _res
+                    retMsg['data'] = _tmpRes
                 else:
                     retMsg['msg'] = '动态获取失败'
         # 删除
         else:
-            if g.art_seqid:
-                _res = tableArticle.delete_art(g.art_seqid)
-                if not _res:
+            if g.artSeqid:
+                _tmpRes = TableArticle.delete_art(g.artSeqid)
+                if not _tmpRes:
                     retMsg['msg'] = '动态删除失败'
 
         return jsonify(retMsg)
@@ -48,23 +48,23 @@ class getUpdateArticle(Resource):
         发布动态
         '''
 
-        if g.art_text:
+        if g.artText:
             # 保存动态 获取评论seqid
-            _tmp_art_id = tableArticle.insert_art(g.art_text, g.user.seqid)
+            _tmpArtId = TableArticle.insert_art(g.artText, g.user.seqid)
 
             # 上传图片
-            if _tmp_art_id and g.img_name:
+            if _tmpArtId and g.imgName:
                 Q = QiNiuImage(current_app.config['BUCKET'], current_app.config['AK'], current_app.config['SK'])
-                _res_upload = Q.upload_image(g.img_name, g.img_path)
+                _tmpResUpload = Q.upload_image(g.imgName, g.imgPath)
 
                 # 保存图片链接
-                if _res_upload:
-                    head_pic = '七牛云路径' + g.img_name
-                    _res = tableImg.insert_img(g.img_name, head_pic, g.user.seqid, img_comment = _tmp_art_id)
-                    if not _res:
+                if _tmpResUpload:
+                    headPic = '七牛云路径' + g.imgName
+                    _tmpRes = TableImg.insert_img(g.imgName, headPic, g.user.seqid, imgComment = _tmpArtId)
+                    if not _tmpRes:
                         retMsg['msg'] = '动态上传失败'
             
-            elif not _tmp_art_id:
+            elif not _tmpArtId:
                 retMsg['msg'] = '动态上传失败'
             
             retMsg['code'] = 1
@@ -74,23 +74,47 @@ class getUpdateArticle(Resource):
         
         return jsonify(retMsg)
 
-class getLikes(Resource):
+class GetLikes(Resource):
     '''
     点赞
     '''
+    @check_token
     def get(self):
         artid = request.args.get('artid')
         # 是否点过赞
-        if not tableArticle.select_likes(g.user.seqid, artid):
-            _resLike = tableArticle.like_art(g.user.seqid, artid)
-            if _resLike:
+        if not TableArticle.select_likes(g.user.seqid, artid):
+            _tmpResLike = TableArticle.like_art(g.user.seqid, artid)
+            if _tmpResLike:
                 retMsg['code'] = 1
             else:
                 retMsg['msg'] = '点赞失败'
-                return jsonify(retMsg)
         else:
-            retMsg['code'] = 1
+            # 取消点赞
+            _tmpResResetLike = TableArticle.reset_like_art(g.user.seqid, artid)
+            if _tmpResResetLike:
+                retMsg['code'] = 1
+            else:
+                retMsg['msg'] = '取消点赞失败'
 
         return jsonify(retMsg)
 
-api.add_resource(getUpdateArticle, '/Article/get', '/Article/delete', 'Article/update', endpoint = 'getUpdateArticle')
+class SetPublicArt(Resource):
+    '''
+    设置动态公开效果
+    '''
+    @check_token
+    def get(self):
+        artid = request.args.get('artid')
+        artStatus = request.args.get('artStatus')
+        _tmpResSet = TableArticle.set_public_art(artid, artStatus)
+        if _tmpResSet:
+            retMsg['code'] = 1
+        else:
+            retMsg['msg'] = '动态状态设置失败'
+
+        return jsonify(retMsg)
+
+
+api.add_resource(GetUpdateArticle, '/Article/get', '/Article/delete', 'Article/update', endpoint = 'GetUpdateArticle')
+api.add_resource(GetLikes, '/Article/like', endpoint = 'GetLikes')
+api.add_resource(SetPublicArt, '/Article/set', endpoint = 'SetPublicArt')

@@ -53,10 +53,10 @@ class Aescrypt():
         elif self.MODEL == AES.MODE_ECB:
             cipher = AES.new(self.AES_KEY.encode('utf8'), self.MODEL)
 
-        text_decrypted = cipher.decrypt(encodebytes)
+        textDecrypted = cipher.decrypt(encodebytes)
 
         # 去补位
-        text_decrypted = self.unpad(text_decrypted)
-        text_decrypted = text_decrypted.decode('utf8')
-        # print(text_decrypted)
-        return text_decrypted
+        textDecrypted = self.unpad(textDecrypted)
+        textDecrypted = textDecrypted.decode('utf8')
+        # print(textDecrypted)
+        return textDecrypted

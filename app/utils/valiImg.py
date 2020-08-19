@@ -14,7 +14,7 @@ class Captcha(object):
     size = (100, 30)
     fontsize = 25
     #加入干扰线条数
-    line_number = 3
+    lineNumber = 3
 
     #构建一个验证码源文本
     SOURCE = list(string.ascii_letters)
@@ -30,8 +30,8 @@ class Captcha(object):
 
     # 用来绘制干扰点
     @classmethod
-    def __gene_points(cls, draw, point_chance, width, height):
-        chance = min(100, max(0, int(point_chance))) #大小限制在[0, 100]
+    def __gene_points(cls, draw, pointChance, width, height):
+        chance = min(100, max(0, int(pointChance))) #大小限制在[0, 100]
         for w in range(width):
             for h in range(height):
                 tmp = random.randint(0, 100)
@@ -72,12 +72,12 @@ class Captcha(object):
         font = ImageFont.truetype(cls.__gene_random_font(), cls.fontsize)
         draw = ImageDraw.Draw(image)
         text = cls.gene_text(cls.number)
-        font_width, font_height = font.getsize(text)
+        fontWidth, fontHeight = font.getsize(text)
         #画画
-        draw.text(((width - font_width) / 2, (height - font_height) / 2), text, font = font,
+        draw.text(((width - fontWidth) / 2, (height - fontHeight) / 2), text, font = font,
                   fill = cls.__gene_random_color(150, 255))
         #干扰线
-        for _ in range(0, cls.line_number):
+        for _ in range(0, cls.lineNumber):
             cls.__gene_line(draw, width, height)
         #绘制噪点
         cls.__gene_points(draw, 20, width, height)

@@ -1,6 +1,6 @@
 from app.libs import DB
 
-class Create_Table:
+class CreateTable:
     '''
     创建SQL数据表
     '''

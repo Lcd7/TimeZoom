@@ -30,22 +30,22 @@ def getlogger():
     logger.setLevel(logging.INFO)
     # 创建一个输出日志到控制台的StreamHandler
 
-    stream_handler = logging.StreamHandler()
+    streamHandler = logging.StreamHandler()
 
     fmt = '[%(asctime)s]:[%(filename)s]:[line:%(lineno)d]:%(levelname)s: %(message)s'
     formatter = logging.Formatter(fmt)
-    stream_handler.setFormatter(formatter)
+    streamHandler.setFormatter(formatter)
 
 
     #把log输出到当前目录下交usk.log的文件
     filename = '%s/app.log' % ('./log')
 
-    file_handler = TimedRotatingFileHandler(filename, when = 'D', interval = 1, backupCount = 7, encoding = 'utf-8')
-    file_handler.setLevel(logging.INFO)
-    file_handler.setFormatter(stream_handler)
+    fileHandler = TimedRotatingFileHandler(filename, when = 'D', interval = 1, backupCount = 7, encoding = 'utf-8')
+    fileHandler.setLevel(logging.INFO)
+    fileHandler.setFormatter(streamHandler)
 
-    logger.addHandler(stream_handler)#把日志打印到控制台
-    logger.addHandler(file_handler) #把日志打印到文件
+    logger.addHandler(streamHandler)#把日志打印到控制台
+    logger.addHandler(fileHandler) #把日志打印到文件
 
     coloredlogs.install(fmt = fmt, level = logging.INFO, logger = logger)
 

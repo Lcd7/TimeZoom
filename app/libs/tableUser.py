@@ -21,23 +21,23 @@ def get_user(func):
         rows, err = func(*args, **kwargs)
         if not err and rows:
             user.seqid = rows[0][0]
-            user.phone_number = rows[0][1]
+            user.phoneNumber = rows[0][1]
             user.email = rows[0][2]
             user.password = rows[0][3]
             user.nickname = rows[0][4]
             user.sex = rows[0][5]
             user.relationships = rows[0][6]
-            user.register_time = rows[0][7]
+            user.registerTime = rows[0][7]
             user.token = rows[0][8]
             return user
         return None
     return wrapper
 
-class tableUser:
+class TableUser:
 
     @get_user
     @classmethod
-    def get_user_by(cls, seqid = '', phone_number = '', email = '', token = '', nickname = ''):
+    def get_user_by(cls, seqid = '', phoneNumber = '', email = '', token = '', nickname = ''):
         '''
         查询用户信息
         return: 用户对象
@@ -45,9 +45,9 @@ class tableUser:
         if seqid:
             strSql = 'select * from [User] where seqid=?'
             return DB.ExecSqlQuery(strSql, seqid)
-        elif phone_number:
-            strSql = 'select * from [User] where phone_number=?'
-            return DB.ExecSqlQuery(strSql, phone_number)
+        elif phoneNumber:
+            strSql = 'select * from [User] where phoneNumber=?'
+            return DB.ExecSqlQuery(strSql, phoneNumber)
         elif email:
             strSql = 'select * from [User] where email=?'
             return DB.ExecSqlQuery(strSql, email)
@@ -72,23 +72,23 @@ class tableUser:
         for key, value in updateDict.items():
             _tempStr += f'{key}="{value}"'
 
-        strSql = f'update [User] set {_tempStr} where seqid = {int(_tempStr)}'
+        strSql = f'update [User] set {_tempStr} where seqid = {int(seqid)}'
         return DB.ExecSqlNoQuery(strSql)
 
     @classmethod
-    def insert_user(cls, phone_number, email, password, nickname):
+    def insert_user(cls, phoneNumber, email, password, nickname):
         '''
         插入新用户
-        phone_number: 电话
+        phoneNumber: 电话
         email: 邮箱
         password: 密码
         nickname: 昵称
         return: 成功or失败
         '''
-        strSql = 'insert into [User] (phone_number,email,password,nickname,register_time) values (?,?,?,?,?)'
+        strSql = 'insert into [User] (phoneNumber,email,password,nickname,registerTime) values (?,?,?,?,?)'
         return DB.ExecSqlNoQuery(
             strSql,
-            phone_number,
+            phoneNumber,
             email,
             password,
             nickname,
@@ -97,22 +97,53 @@ class tableUser:
 
     @get_friend_list
     @classmethod
-    def get_friends(cls, seqid):
+    def get_friends(cls, userid):
         '''
         获取所有好友
-        seqid: 用户seqid
+        userid: 用户seqid
         return 好友字典
         '''
-        strSql = f'select * from [RelationUsers] where userid in ({seqid})'
+        strSql = f'select * from RelationUsers where userid in ({userid})'
         return DB.ExecSqlQuery(strSql)
+
+    @classmethod
+    def get_friend(cls, userid, friendid):
+        '''
+        查询好友
+        userid: 用户seqid
+        return true or false
+        '''
+        strSql = 'select * from RelationUsers where userid=? and friendid=?'
+        rows, _ = DB.ExecSqlQuery(strSql, userid, friendid)
+        if rows:
+            return True
+        else:
+            return False
 
     @classmethod
     def add_friend(cls, userSeqid, friendSeqid):
         '''
         添加好友
         '''
-        strSql = 'insert into RelationUsers (userid,friendid) values (?,?)'
+        strSql = f'insert into RelationUsers (userid,friendid,isReceive) values ({userSeqid},{friendSeqid},1),({friendSeqid},{userSeqid},0)'
+        return DB.ExecSqlNoQuery(strSql)
+
+    @classmethod
+    def delete_friend(cls, userSeqid, friendSeqid):
+        '''
+        删除好友
+        '''
+        strSql = 'delete RelationUsers where userid=? and friendid=?'
         return DB.ExecSqlNoQuery(strSql, userSeqid, friendSeqid)
 
-if __name__ == "__main__":
-    pass
+    @classmethod
+    def answer_friend(cls, userSeqid, friendSeqid, answer):
+        '''
+        回应好友请求
+        '''
+        if answer:
+            strSql = 'update RelationUsers set isReceive=True where userid=? and friendid=?'
+            return DB.ExecSqlNoQuery(strSql, userSeqid, friendSeqid)
+        else:
+            return TableUser.delete_friend(userSeqid, friendSeqid)
+            

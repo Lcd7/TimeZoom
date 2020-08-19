@@ -1,4 +1,6 @@
 from app.models import User
+import os
+env_dist = os.environ
 
 class BaseConfig:
     """
@@ -8,10 +10,10 @@ class BaseConfig:
     MODELS = {'User': User}
     # json 返回中文
     JSON_AS_ASCII = False
-    # AES密钥
-    AES_KEY = 'lcd12345fp123456'
-    # AES 偏移向量
-    IV = '0102030405060708'
+    # AES密钥   16
+    AES_KEY = env_dist.get('AES_KEY')
+    # AES 偏移向量  16
+    IV = env_dist.get('IV')
 
 
 
@@ -21,9 +23,9 @@ class DevelopmentConfig(BaseConfig):
     """
     DATABASE_URI = r"DRIVER={SQL Server Native Client 11.0};SERVER=192.168.8.16;DATABASE=crawler_test;UID=sa;PWD=root123."
     # 七牛服务器配置
-    BUCKET = ''
-    AK = ''
-    Sk = ''
+    BUCKET = 'Lcdimg'
+    AK = 'khVENkO1bITYxmXsqGY0aqCuEZSNx0dXYHUMpgWn'
+    Sk = env_dist.get('QiNiuSK')
     
 
 class TestConfig(BaseConfig):

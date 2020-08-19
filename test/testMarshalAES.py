@@ -111,8 +111,6 @@ def GouZi():
         print("视图函数被运行了")
         return "视图函数被运行了<br>"
 
-
-
 def test_AES_encrypt():
     from Crypto.Cipher import AES
     import base64

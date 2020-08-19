@@ -1,0 +1,8 @@
+pyodbc==4.0.27
+Flask_RESTful==0.3.7
+coloredlogs==14.0
+qiniu==7.2.9
+Flask==1.1.1
+requests==2.22.0
+Pillow==7.2.0
+pycryptodome==3.9.8

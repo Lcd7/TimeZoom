@@ -2,7 +2,7 @@ import hashlib
 import time
 import re
 
-class validator:
+class Validator:
     @classmethod
     def vali_user_phone(cls, phone):
         '''
@@ -41,7 +41,3 @@ class validator:
             else:
                 return '两次密码不一致'
         return '密码长度要小于20'
-
-if __name__ == "__main__":
-    pass
-    # print(vali_user_email('1102@qq.com'))
