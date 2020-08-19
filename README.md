@@ -41,7 +41,6 @@ TimeZoom 编码规范
     * 私有方法添加一个下划线作为前导符  如： _function_name
 4. 变量
     * 驼峰+下划线，最长不超三个英语单词 如：varName, _tmpVarName
-    * >为避免变量名如实际类型出现歧义，故变量名中不推荐带有类型信息 如:numList 
     * 私有变量(private)：使用两个下划线作为前导符 如：__varName
     * 保护变量(protected)：使用一个下划线作为前导符 如： _varName
     * 全局变量以及常量名命规则：使用大写字母+下划线 如： GLOBAL_VAR_NAME
