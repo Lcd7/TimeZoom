@@ -26,9 +26,8 @@ def get_user(func):
             user.password = rows[0][3]
             user.nickname = rows[0][4]
             user.sex = rows[0][5]
-            user.relationships = rows[0][6]
-            user.registerTime = rows[0][7]
-            user.token = rows[0][8]
+            user.registerTime = rows[0][6]
+            user.token = rows[0][7]
             return user
         return None
     return wrapper
@@ -36,8 +35,7 @@ def get_user(func):
 class TableUser:
 
     @get_user
-    @classmethod
-    def get_user_by(cls, seqid = '', phoneNumber = '', email = '', token = '', nickname = ''):
+    def get_user_by(self, seqid = '', phoneNumber = '', email = '', token = '', nickname = ''):
         '''
         查询用户信息
         return: 用户对象
@@ -60,8 +58,7 @@ class TableUser:
         else:
             pass
     
-    @classmethod
-    def update_user(cls, seqid, updateDict):
+    def update_user(self, seqid, updateDict):
         '''
         更新用户数据
         seqid: 用户id
@@ -70,13 +67,12 @@ class TableUser:
         '''
         _tempStr = ''
         for key, value in updateDict.items():
-            _tempStr += f'{key}="{value}"'
+            _tempStr += f"{key}='{value}'"
 
-        strSql = f'update [User] set {_tempStr} where seqid = {int(seqid)}'
+        strSql = f"update [User] set {_tempStr} where seqid = {int(seqid)}"
         return DB.ExecSqlNoQuery(strSql)
 
-    @classmethod
-    def insert_user(cls, phoneNumber, email, password, nickname):
+    def insert_user(self, phoneNumber, email, password, nickname, sex):
         '''
         插入新用户
         phoneNumber: 电话
@@ -85,19 +81,19 @@ class TableUser:
         nickname: 昵称
         return: 成功or失败
         '''
-        strSql = 'insert into [User] (phoneNumber,email,password,nickname,registerTime) values (?,?,?,?,?)'
+        strSql = 'insert into [User] (phoneNumber,email,password,nickname,sex,registerTime) values (?,?,?,?,?,?)'
         return DB.ExecSqlNoQuery(
             strSql,
             phoneNumber,
             email,
             password,
             nickname,
+            sex,
             str(datetime.datetime.strptime(str(datetime.datetime.now()), '%Y-%m-%d %H:%M:%S.%f'))[:-3]
         )
 
     @get_friend_list
-    @classmethod
-    def get_friends(cls, userid):
+    def get_friends(self, userid):
         '''
         获取所有好友
         userid: 用户seqid
@@ -106,8 +102,7 @@ class TableUser:
         strSql = f'select * from RelationUsers where userid in ({userid})'
         return DB.ExecSqlQuery(strSql)
 
-    @classmethod
-    def get_friend(cls, userid, friendid):
+    def get_friend(self, userid, friendid):
         '''
         查询好友
         userid: 用户seqid
@@ -120,24 +115,21 @@ class TableUser:
         else:
             return False
 
-    @classmethod
-    def add_friend(cls, userSeqid, friendSeqid):
+    def add_friend(self, userSeqid, friendSeqid):
         '''
         添加好友
         '''
         strSql = f'insert into RelationUsers (userid,friendid,isReceive) values ({userSeqid},{friendSeqid},1),({friendSeqid},{userSeqid},0)'
         return DB.ExecSqlNoQuery(strSql)
 
-    @classmethod
-    def delete_friend(cls, userSeqid, friendSeqid):
+    def delete_friend(self, userSeqid, friendSeqid):
         '''
         删除好友
         '''
         strSql = 'delete RelationUsers where userid=? and friendid=?'
         return DB.ExecSqlNoQuery(strSql, userSeqid, friendSeqid)
 
-    @classmethod
-    def answer_friend(cls, userSeqid, friendSeqid, answer):
+    def answer_friend(self, userSeqid, friendSeqid, answer):
         '''
         回应好友请求
         '''
@@ -145,5 +137,5 @@ class TableUser:
             strSql = 'update RelationUsers set isReceive=True where userid=? and friendid=?'
             return DB.ExecSqlNoQuery(strSql, userSeqid, friendSeqid)
         else:
-            return TableUser.delete_friend(userSeqid, friendSeqid)
+            return self.delete_friend(userSeqid, friendSeqid)
             

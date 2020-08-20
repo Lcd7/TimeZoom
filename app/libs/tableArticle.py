@@ -48,9 +48,8 @@ def get_likes_list(func):
     return wrapper
 
 class TableArticle:
-
-    @classmethod
-    def insert_art(cls, text, userid, isPublic = False):
+    
+    def insert_art(self, text, userid, isPublic = False):
         '''
         新建动态
         text: 正文
@@ -67,8 +66,7 @@ class TableArticle:
             return ret
 
     @get_art_list
-    @classmethod
-    def get_all_art(cls, artNum):
+    def get_all_art(self, artNum):
         '''
         获取所有用户所有动态
         artNum: 获取的动态数量
@@ -78,8 +76,7 @@ class TableArticle:
         return DB.ExecSqlQuery(strSql)
 
     @get_art
-    @classmethod
-    def get_user_one_art(cls, artSeqid):
+    def get_user_one_art(self, artSeqid):
         '''
         获取单个动态
         artSeqid: 动态id
@@ -89,8 +86,7 @@ class TableArticle:
         return DB.ExecSqlQuery(strSql, artSeqid)
 
     @get_art_list
-    @classmethod
-    def get_user_all_arts(cls, relationUserId):
+    def get_user_all_arts(self, relationUserId):
         '''
         搜索某个用户所有动态
         relationUserId: 动态所属用户的id
@@ -99,8 +95,7 @@ class TableArticle:
         strSql = 'selcet * from Article where relationUserId=? order by doTime DESC'
         return DB.ExecSqlQuery(strSql, relationUserId)
 
-    @classmethod
-    def set_public_art(cls, artid, artStatus):
+    def set_public_art(self, artid, artStatus):
         '''
         设置动态是否公开
         artid: 动态id
@@ -109,8 +104,7 @@ class TableArticle:
         strSql = 'update Article set isPublic=? where seqid=?'
         return DB.ExecSqlNoQuery(strSql, artStatus, artid)
 
-    @classmethod
-    def delete_art(cls, seqid):
+    def delete_art(self, seqid):
         '''
         删除动态
         seqid: 动态id
@@ -120,8 +114,7 @@ class TableArticle:
         return DB.ExecSqlNoQuery(strSql, seqid)
 
     @get_likes_list
-    @classmethod
-    def select_likes(cls, seqid = '', artid = ''):
+    def select_likes(self, seqid = '', artid = ''):
         '''
         查询点赞记录
         seqid:  用户seqid
@@ -145,8 +138,7 @@ class TableArticle:
         else:
             pass
 
-    @classmethod
-    def like_art(cls, seqid, artid):
+    def like_art(self, seqid, artid):
         '''
         点赞动态
         seqid:  用户seqid
@@ -155,8 +147,7 @@ class TableArticle:
         strSql = 'insert into RelationLikes (userid,artid) values (?,?)'
         return DB.ExecSqlNoQuery(strSql, seqid, artid)
     
-    @classmethod
-    def reset_like_art(cls, seqid, artid):
+    def reset_like_art(self, seqid, artid):
         '''
         取消点赞
         seqid:  用户seqid

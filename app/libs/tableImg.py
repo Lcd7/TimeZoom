@@ -21,8 +21,7 @@ def get_img(func):
 class TableImg:
 
     @get_img
-    @classmethod
-    def get_img_by(cls, imgName = '', headPic = '', picValue = '', imgType = '', imgUser = '', imgComment = ''):
+    def get_img_by(self, imgName = '', headPic = '', picValue = '', imgType = '', imgUser = '', imgComment = ''):
         if imgName:
             strSql = 'select * from Img where imgName=?'
             return DB.ExecSqlQuery(strSql, imgName)
@@ -44,8 +43,7 @@ class TableImg:
         else:
             pass
 
-    @classmethod
-    def insert_img(cls, imgName, headPic, imgUser, imgComment = 0, imgType = 1):
+    def insert_img(self, imgName, headPic, imgUser, imgComment = 0, imgType = 1):
         '''
         imgName: 图片名
         headPic: 图片地址

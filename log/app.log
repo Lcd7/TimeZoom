@@ -1,2 +1,22 @@
-[2020-08-14 13:16:10,340]:[sqlserver.py]:[line:54]:ERROR: ('42000', '[42000] [Microsoft][SQL Server Native Client 11.0]Syntax error, permission violation, or other nonspecific error (0) (SQLExecDirectW)')
-[2020-08-14 13:18:26,303]:[sqlserver.py]:[line:54]:ERROR: ('42000', '[42000] [Microsoft][SQL Server Native Client 11.0]Syntax error, permission violation, or other nonspecific error (0) (SQLExecDirectW)')
+[2020-08-20 15:43:30,061]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-20 15:43:32,204]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-20 15:43:32,363]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 480-816-768
+[2020-08-20 15:43:32,802]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-20 15:44:51,221]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 15:44:51] "POST /index/register HTTP/1.1" 404 -
+[2020-08-20 15:46:21,560]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 15:46:21] "POST /index/register HTTP/1.1" 404 -
+[2020-08-20 15:50:22,602]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 15:50:22] "POST /index/register HTTP/1.1" 404 -
+[2020-08-20 15:50:57,417]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 15:50:57] "POST /register HTTP/1.1" 500 -
+[2020-08-20 15:51:56,113]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\index.py', reloading
+[2020-08-20 15:52:11,119]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-20 15:52:45,850]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-20 15:52:45,937]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 480-816-768
+[2020-08-20 15:52:46,052]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-20 15:54:56,015]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 15:54:56] "POST /register HTTP/1.1" 200 -
+[2020-08-20 15:58:27,970]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 15:58:27] "GET / HTTP/1.1" 404 -
+[2020-08-20 15:58:52,519]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 15:58:52] "GET /main HTTP/1.1" 200 -
+[2020-08-20 15:59:19,985]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 15:59:19] "GET /main HTTP/1.1" 200 -
+[2020-08-20 15:59:59,770]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 15:59:59] "GET /main HTTP/1.1" 200 -
+[2020-08-20 16:03:11,766]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 16:03:11] "GET /main HTTP/1.1" 200 -
+[2020-08-20 16:05:47,717]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 16:05:47] "GET /main HTTP/1.1" 200 -
+[2020-08-20 16:06:18,017]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 16:06:18] "GET /main HTTP/1.1" 200 -
+[2020-08-20 16:08:05,029]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [20/Aug/2020 16:08:05] "GET /main HTTP/1.1" 200 -

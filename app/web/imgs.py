@@ -1,4 +1,4 @@
-from app.web import webIndex, check_token, retMsg, parser
+from app.web import webIndex, check_token, parser
 from app.utils.qiNiu import QiNiuImage
 from app.libs import tableImg, tableArticle
 from flask import request, jsonify, g, current_app

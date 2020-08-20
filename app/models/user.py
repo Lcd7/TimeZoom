@@ -7,7 +7,6 @@ class User:
     password: 密码 not null
     nickname: 昵称 not null
     sex: 性别
-    relationships: 关联好友的seqid
     registerTime: 注册时间(datetime) not null
     token: token
     '''
@@ -17,6 +16,5 @@ class User:
     password = ''
     nickname = ''
     sex = ''
-    relationships = ''
     registerTime = ''
     token = ''

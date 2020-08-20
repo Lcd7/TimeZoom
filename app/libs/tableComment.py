@@ -37,8 +37,7 @@ def comment_body(func):
 
 class TableComment:
 
-    @classmethod
-    def add_comment(cls, text, isPublic, relationArtId):
+    def add_comment(self, text, isPublic, relationArtId):
         '''
         新增评论
         text: 评论正文
@@ -50,8 +49,7 @@ class TableComment:
         strSql = 'insert into T_Comment (text,isPublic,relationArticlesId,doTime) values (?,?,?,?)'
         return DB.ExecSqlNoQuery(strSql, text, isPublic, relationArtId, doTime)
 
-    @classmethod
-    def delete_comment(cls, seqid):
+    def delete_comment(self, seqid):
         '''
         删除评论
         seqid: 评论seqid
@@ -61,8 +59,7 @@ class TableComment:
         return DB.ExecSqlNoQuery(strSql, seqid)
 
     @comment_body
-    @classmethod
-    def get_comment(cls, seqid):
+    def get_comment(self, seqid):
         '''
         获取单个评论
         seqid: 评论seqid
@@ -72,8 +69,7 @@ class TableComment:
         return DB.ExecSqlQuery(strSql, seqid)
 
     @all_comments_body
-    @classmethod
-    def get_all_comments(cls, relationArtId):
+    def get_all_comments(self, relationArtId):
         '''
         获取动态所有的评论
         relationArtId: 评论关联的动态seqid

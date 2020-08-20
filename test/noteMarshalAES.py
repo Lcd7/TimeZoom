@@ -114,6 +114,8 @@ def GouZi():
 def test_AES_encrypt():
     from Crypto.Cipher import AES
     import base64
+    import os
+    env_dist = os.environ
 
     class Aescrypt():
         '''
@@ -173,8 +175,8 @@ def test_AES_encrypt():
             return text_decrypted
 
     data = "holy"
-    iv = '0102030405060708'
-    key = 'lcd12345fp123456'
+    iv = env_dist.get('IV')
+    key = env_dist.get('AES_KEY')
     aescryptor = Aescrypt(key, AES.MODE_CBC, iv) # CBC模式
     # aescryptor = Aescrypt(key, AES.MODE_ECB, "") # ECB模式
     
