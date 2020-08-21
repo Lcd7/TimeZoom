@@ -78,7 +78,7 @@ class ChangeAvatar(Resource):
             # 保存头像链接
             if _tmpResUpload:
                 # 先删除当前头像
-                g.tableImg.delete_img(g.user.seqid, imgType = 2)
+                # g.tableImg.delete_img(g.user.seqid, imgType = 2)
 
                 # 上传新头像
                 headPic = current_app.config['QN_URL'] + g.imgName
