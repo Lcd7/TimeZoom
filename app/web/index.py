@@ -43,6 +43,13 @@ class HelloWorld(Resource):
         g.retMsg['code'] = 110
         return jsonify(g.retMsg)
 
+    def post(self):
+        a = request.args.get('a')
+        b = request.form.get('b')
+        g.retMsg['a'] = a
+        g.retMsg['b'] = b
+        return jsonify(g.retMsg)
+
 class Login(Resource):
     '''
     用户登录
@@ -62,9 +69,9 @@ class Login(Resource):
             g.retMsg['msg'] = '密码错误'
             return jsonify(g.retMsg)
 
-        token = getHash.get_md5(g.phoneNumber, g.password, str(int(time.time())))
+        token = getHash.get_md5(g.phoneNumber, g.password, g.timenow)
         # 将token保存到数据库
-        _tmpTokenDict = {'token': token}
+        _tmpTokenDict = {'token': token, 'timenow': g.timenow}
         _tmpRes = g.tableUser.update_user(user.seqid, _tmpTokenDict)
         if _tmpRes:
             g.retMsg['code'] = 1

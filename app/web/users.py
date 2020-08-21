@@ -16,55 +16,48 @@ class ChageInfo(Resource):
     # global g.retMsg
 
     @check_token
-    def get(self):
-        if g.user:
-            # 修改密码
-            if g.password and g.passw2 and g.newpassw:
-                # 验证密码
-                _tmpResPassw = Validator.vali_user_password(g.password, g.passw2)
-                if not _tmpResPassw:
-                    _tmpUpdateDict = {'password': g.password}
-                    if not g.tableUser.update_user(g.user.seqid, _tmpUpdateDict):
-                        g.retMsg['msg'] = '密码修改失败'
-                        return jsonify(g.retMsg)
-                else:
-                    g.retMsg['msg'] = _tmpResPassw
-                    return jsonify(g.retMsg)
-
-            # 修改昵称
-            if g.nickname:
-                if g.tableUser.get_user_by('nickname'):
-                    g.retMsg['msg'] = '该昵称已存在'
-                    return jsonify(g.retMsg)
-                else:
-                    _tmpUpdateDict = {'nickname': g.nickname}
-                    if not g.tableUser.update_user(g.user.nickname, _tmpUpdateDict):
-                        g.retMsg['msg'] = '昵称修改失败'
-                        return jsonify(g.retMsg)
-
-            # 修改性别
-            if g.sex:
-                _tmpUpdateDict = {'sex': g.sex}
+    def post(self):
+        # 修改密码
+        if g.password and g.newpassw:
+            if g.user.password == g.password:
+                _tmpUpdateDict = {'password': g.newpassw}
                 if not g.tableUser.update_user(g.user.seqid, _tmpUpdateDict):
-                    g.retMsg['msg'] = '性别修改失败'
+                    g.retMsg['msg'] = '密码修改失败'
+                    return jsonify(g.retMsg)
+            else:
+                g.retMsg['msg'] = '原密码错误'
+                return jsonify(g.retMsg)
+
+        # 修改昵称
+        if g.nickname:
+            if g.tableUser.get_user_by('nickname'):
+                g.retMsg['msg'] = '该昵称已存在'
+                return jsonify(g.retMsg)
+            else:
+                _tmpUpdateDict = {'nickname': g.nickname}
+                if not g.tableUser.update_user(g.user.nickname, _tmpUpdateDict):
+                    g.retMsg['msg'] = '昵称修改失败'
                     return jsonify(g.retMsg)
 
-            g.retMsg['code'] = 1 
-            g.retMsg['msg'] = '修改成功'
-            return jsonify(g.retMsg)
-        else:
-            g.retMsg['msg'] = '没有用户信息'
-            return jsonify(g.retMsg)
+        # 修改性别
+        if g.sex:
+            _tmpUpdateDict = {'sex': g.sex}
+            if not g.tableUser.update_user(g.user.seqid, _tmpUpdateDict):
+                g.retMsg['msg'] = '性别修改失败'
+                return jsonify(g.retMsg)
 
+        g.retMsg['code'] = 1 
+        g.retMsg['msg'] = '修改成功'
+        return jsonify(g.retMsg)
+ 
 class Logout(Resource):
     '''
     用户注销
     '''
     @check_token
     def get(self):
-        user = g.user
-        _tmpUpdateDict = {'token': user.token}
-        _ret = g.tableUser.update_user(user.seqid, _tmpUpdateDict)
+        _tmpUpdateDict = {'token': ''}
+        _ret = g.tableUser.update_user(g.user.seqid, _tmpUpdateDict)
         if _ret:
             g.retMsg['code'] = 1
             g.retMsg['msg'] = '成功注销'
@@ -79,46 +72,57 @@ class ChangeAvatar(Resource):
     @check_token
     def post(self):
         if g.imgName:
-            Q = QiNiuImage(current_app.config['BUCKET'], current_app.config['AK'], current_app.config['SK'])
+            Q = QiNiuImage(current_app.config['QN_BUCKET'], current_app.config['QN_AK'], current_app.config['QN_KEY'])
             _tmpResUpload = Q.upload_image(g.imgName, g.imgPath)
 
             # 保存图片链接
             if _tmpResUpload:
-                headPic = '七牛云路径' + g.imgName
+                headPic = current_app.config['QN_URL'] + g.imgName
                 _tmpRes = g.tableImg.insert_img(g.imgName, headPic, g.user.seqid, imgType = 2)
                 if not _tmpRes:
-                    g.retMsg['msg'] = '动态上传失败'
+                    g.retMsg['msg'] = '头像上传失败'
                 else:
                     g.retMsg['code'] = 1
+        else:
+            g.retMsg['msg'] = '头像上传失败：没有文件名'
+
+        return jsonify(g.retMsg)
 
 class AddFriend(Resource):
     '''
     添加好友
     '''
     @check_token
-    def get(self):
+    def post(self):
         '''
         添加好友
         '''
-        friendId = request.args.get('seqid')
-        if len(g.tableUser.get_friends(g.user.seqid)) <= 50:
-            _tmpRes = g.tableUser.add_friend(g.user.seqid, friendId)
-            if not _tmpRes:
-                g.retMsg['msg'] = '添加好友失败'
+        friendId = request.args.get('friendSeqid')
+        if friendId:
+            if len(g.tableUser.get_friends(g.user.seqid)) <= 50:
+                _tmpRes = g.tableUser.add_friend(g.user.seqid, friendId)
+                if not _tmpRes:
+                    g.retMsg['msg'] = '添加好友失败'
+                    return jsonify(g.retMsg)
+            else:
+                g.retMsg['msg'] = '好友超过上限'
                 return jsonify(g.retMsg)
         else:
-            g.retMsg['msg'] = '好友超过上限'
-            return jsonify(g.retMsg)
+            g.retMsg['msg'] = f"无效id：'{friendId}'"
 
         g.retMsg['code'] = 1
         return jsonify(g.retMsg)
     
+class DeleteFriend(Resource):
+    '''
+    删除好友
+    '''
     @check_token
     def post(self):
         '''
         删除好友
         '''
-        friendId = request.args.get('seqid')
+        friendId = request.args.get('FriendSeqid')
         if g.tableUser.get_friend(g.user.seqid, friendId):
             _tmpRes = g.tableUser.delete_friend(g.user.seqid, friendId)
             if _tmpRes:
@@ -134,14 +138,14 @@ class AnswerFriend(Resource):
     '''
     @check_token
     def post(self):
-        friendId = request.args.get('seqid')
-        answer = request.args.get('answer')
+        friendId = int(request.args.get('friendSeqid'))
+        answer = bool(request.args.get('answer'))
         _tmpRes = g.tableUser.answer_friend(g.user.seqid, friendId, answer)
         if _tmpRes:
-            if _tmpRes:
-                g.retMsg['code'] = 1
-            else:
-                g.retMsg['msg'] = '请求失败'
+            g.retMsg['code'] = 1
+        else:
+            g.retMsg['msg'] = '请求失败'
+                
             
         return jsonify(g.retMsg)   
 
@@ -165,4 +169,6 @@ api.add_resource(ChageInfo, '/chageInfo', endpoint = 'ChageInfo')
 api.add_resource(Logout, '/logout', endpoint = 'Logout')
 api.add_resource(ChangeAvatar, '/changeAvatar', endpoint = 'ChangeAvatar')
 api.add_resource(AddFriend, '/addFriend', endpoint = 'AddFriend')
+api.add_resource(DeleteFriend, '/deleteFriend', endpoint = 'DeleteFriend')
+api.add_resource(AnswerFriend, '/answerFriend', endpoint = 'AnsweeFriend')
 api.add_resource(GetFriends, '/getFriends', endpoint = 'GetFriends')

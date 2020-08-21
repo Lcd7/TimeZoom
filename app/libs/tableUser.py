@@ -11,6 +11,8 @@ def get_friend_list(func):
             for row in rows:
                 friendsList.append(row[0])
             return friendsList
+        if not rows:
+            return friendsList
         log.error(err)
         return None
     return wrapper
@@ -28,6 +30,7 @@ def get_user(func):
             user.sex = rows[0][5]
             user.registerTime = rows[0][6]
             user.token = rows[0][7]
+            user.timenow = rows[0][8]
             return user
         return None
     return wrapper
@@ -67,7 +70,8 @@ class TableUser:
         '''
         _tempStr = ''
         for key, value in updateDict.items():
-            _tempStr += f"{key}='{value}'"
+            _tempStr += f"{key}='{value}',"
+        _tempStr = _tempStr[:-1]
 
         strSql = f"update [User] set {_tempStr} where seqid = {int(seqid)}"
         return DB.ExecSqlNoQuery(strSql)
@@ -134,7 +138,7 @@ class TableUser:
         回应好友请求
         '''
         if answer:
-            strSql = 'update RelationUsers set isReceive=True where userid=? and friendid=?'
+            strSql = 'update RelationUsers set isReceive=1 where userid=? and friendid=?'
             return DB.ExecSqlNoQuery(strSql, userSeqid, friendSeqid)
         else:
             return self.delete_friend(userSeqid, friendSeqid)

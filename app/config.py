@@ -23,9 +23,10 @@ class DevelopmentConfig(BaseConfig):
     """
     DATABASE_URI = r"DRIVER={SQL Server Native Client 11.0};SERVER=192.168.8.16;DATABASE=crawler_test;UID=sa;PWD=root123."
     # 七牛服务器配置
-    BUCKET = 'Lcdimg'
-    AK = 'khVENkO1bITYxmXsqGY0aqCuEZSNx0dXYHUMpgWn'
-    Sk = env_dist.get('QiNiuSK')
+    QN_BUCKET = 'lcdimg'
+    QN_AK = 'khVENkO1bITYxmXsqGY0aqCuEZSNx0dXYHUMpgWn'
+    QN_KEY = env_dist.get('QiNiuSK')
+    QN_URL = 'http://qf9fy6urv.hn-bkt.clouddn.com/'
     
 
 class TestConfig(BaseConfig):

@@ -54,9 +54,9 @@ class TableImg:
         ''' 
         # 动态图片
         if imgType == 1:
-            strSql = 'insert into Img (imgName,headPic,imgType,imgUser,imgComment) valuse (?,?,?,?,?)'
+            strSql = 'insert into Img (imgName,headPic,imgType,imgUser,imgComment) values (?,?,?,?,?)'
             return DB.ExecSqlNoQuery(strSql, imgName, headPic, imgType, imgUser, imgComment)
         # 头像图片
         elif imgType == 2:
-            strSql = 'insert into Img (imgName,headPic,imgType,imgUser) valuse (?,?,?,?)'
+            strSql = 'insert into Img (imgName,headPic,imgType,imgUser) values (?,?,?,?)'
             return DB.ExecSqlNoQuery(strSql, imgName, headPic, imgType, imgUser)

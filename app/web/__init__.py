@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, g, current_app
 webIndex = Blueprint('webIndex', __name__)
 
-
+import time
 from flask_restful import reqparse
 from app.libs import TableUser, TableArticle, TableComment, TableImg
 
@@ -29,7 +29,7 @@ def check_token(func):
     def wrapper(*arg, **kwargs):
         # token = request.headers.get('token')
         if not g.token:
-            g.retMsg['msg'] = '需要验证'
+            g.retMsg['msg'] = '请登录'
             return jsonify(g.retMsg)
         tableUser = TableUser()
         user = tableUser.get_user_by(token = g.token)
@@ -39,7 +39,8 @@ def check_token(func):
 
         g.tableArticle = TableArticle()
         g.tableComment = TableComment()
-        g.TableImg = TableImg()
+        g.tableImg = TableImg()
+        g.tableUser = tableUser
 
         args = parser.parse_args()
         g.user = user
@@ -73,9 +74,18 @@ def get_base_info():
     if token:
         tableUser = TableUser()
         user = tableUser.get_user_by(token = token)
-        g.user = user
-        g.token = token
+        if user:
+            if int(user.timenow) > (int(time.time()) - (3600 * 24)):
+                g.user = user
+                g.token = token
+            else:
+                g.retMsg['msg'] = '请重新登录'
+                return jsonify(g.retMsg)
+        else:
+            g.retMsg['msg'] = '请重新登录'
+            return jsonify(g.retMsg)
     else:
+        g.token = None
         g.user = None
     # return {}
 
