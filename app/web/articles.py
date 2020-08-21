@@ -12,33 +12,25 @@ class GetUpdateArticle(Resource):
     @check_token
     def get(self):
         '''
-        获取动态 和 删除动态
+        获取动态
         return 点赞数 评论数
         '''
-        status = request.args.get('status', 1)
         # 获取
-        if status == 1:
-            if g.artUserId:
-                _tmpRes = g.tableArticle.get_user_all_arts(g.artUserId)
-                if _tmpRes:
-                    g.retMsg['code'] = 1
-                    g.retMsg['data'] = _tmpRes
-                else:
-                    g.retMsg['msg'] = '动态获取失败'
+        if g.artUserId:
+            _tmpRes = g.tableArticle.get_user_all_arts(g.artUserId)
+            if _tmpRes:
+                g.retMsg['code'] = 1
+                g.retMsg['data'] = _tmpRes
+            else:
+                g.retMsg['msg'] = '动态获取失败'
 
-            elif g.artSeqid:
-                _tmpRes = g.tableArticle.get_user_one_art(g.artSeqid)
-                if _tmpRes:
-                    g.retMsg['code'] = 1
-                    g.retMsg['data'] = _tmpRes
-                else:
-                    g.retMsg['msg'] = '动态获取失败'
-        # 删除
-        else:
-            if g.artSeqid:
-                _tmpRes = g.tableArticle.delete_art(g.artSeqid)
-                if not _tmpRes:
-                    g.retMsg['msg'] = '动态删除失败'
+        elif g.artSeqid:
+            _tmpRes = g.tableArticle.get_user_one_art(g.artSeqid)
+            if _tmpRes:
+                g.retMsg['code'] = 1
+                g.retMsg['data'] = _tmpRes
+            else:
+                g.retMsg['msg'] = '动态获取失败'
 
         return jsonify(g.retMsg)
 
@@ -73,6 +65,17 @@ class GetUpdateArticle(Resource):
             g.retMsg['msg'] = '动态上传失败'
         
         return jsonify(g.retMsg)
+
+class DeleteArticle(Resource):
+    '''
+    删除动态
+    '''
+    @check_token
+    def post(self):
+        if g.artSeqid:
+            _tmpRes = g.tableArticle.delete_art(g.artSeqid)
+            if not _tmpRes:
+                g.retMsg['msg'] = '动态删除失败'
 
 class GetLikes(Resource):
     '''

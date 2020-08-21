@@ -75,8 +75,12 @@ class ChangeAvatar(Resource):
             Q = QiNiuImage(current_app.config['QN_BUCKET'], current_app.config['QN_AK'], current_app.config['QN_KEY'])
             _tmpResUpload = Q.upload_image(g.imgName, g.imgPath)
 
-            # 保存图片链接
+            # 保存头像链接
             if _tmpResUpload:
+                # 先删除当前头像
+                g.tableImg.delete_img(g.user.seqid, imgType = 2)
+
+                # 上传新头像
                 headPic = current_app.config['QN_URL'] + g.imgName
                 _tmpRes = g.tableImg.insert_img(g.imgName, headPic, g.user.seqid, imgType = 2)
                 if not _tmpRes:
