@@ -3,6 +3,9 @@ from app.models.img import Img
 from logger import log
 
 def get_avatar_img(func):
+    '''
+    返回图片对象
+    '''
     def wrapper(*args, **kwargs):
         img = Img()
         rows, err = func(*args, **kwargs)
@@ -79,6 +82,7 @@ class TableImg:
         '''
         获取头像
         userid: 用户id
+        return 图片对象 or false
         '''
         strSql = 'select * from Img where imgType=2 and imgUser=? order by seqid'
         return DB.ExecSqlQuery(strSql, userid)

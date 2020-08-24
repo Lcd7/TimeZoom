@@ -4,6 +4,9 @@ from logger import log
 import datetime
 
 def all_comments_body(func):
+    '''
+    返回多个评论的字典数据
+    '''
     def wrapper(*args):
         bodyDict = {}
         rows, err = func(*args)
@@ -14,6 +17,8 @@ def all_comments_body(func):
                 _tmpDict['text'] = row[1]
                 _tmpDict['isPublic'] = row[2]
                 _tmpDict['relationArticlesId'] = row[3]
+                _tmpDict['relationComment'] = row[4]
+                _tmpDict['doTime'] = row[5]
                 bodyDict['row[0]'] = _tmpDict
             return bodyDict
         log.error(err)
@@ -21,6 +26,9 @@ def all_comments_body(func):
     return wrapper
 
 def comment_body(func):
+    '''
+    返回单个评论的字典数据
+    '''
     def wrapper(*args):
         bodyDict = {}
         rows, err = func(*args)
@@ -29,6 +37,8 @@ def comment_body(func):
             bodyDict['text'] = rows[0][1]
             bodyDict['isPublic'] = rows[0][2]
             bodyDict['relationArticlesId'] = rows[0][3]
+            bodyDict['relationComment'] = rows[0][4]
+            bodyDict['doTime'] = rows[0][5]
             return bodyDict
         log.error(err)
         return None
@@ -37,17 +47,22 @@ def comment_body(func):
 
 class TableComment:
 
-    def add_comment(self, text, isPublic, relationArtId):
+    def add_comment(self, text, isPublic, relationArtId, commentSeqid = ''):
         '''
         新增评论
         text: 评论正文
         isPublic: 是否公开
         relationArtId: 关联的动态id
+        commentSeqid: 回复评论的id
         return true or false
         '''
         doTime = str(datetime.datetime.strptime(str(datetime.datetime.now()), '%Y-%m-%d %H:%M:%S.%f'))[:-3]
-        strSql = 'insert into T_Comment (text,isPublic,relationArticlesId,doTime) values (?,?,?,?)'
-        return DB.ExecSqlNoQuery(strSql, text, isPublic, relationArtId, doTime)
+        if commentSeqid:
+            strSql = 'insert into T_Comment (text,isPublic,relationArticlesId,relationComment,doTime) values (?,?,?,?,?)'
+            return DB.ExecSqlNoQuery(strSql, text, isPublic, relationArtId, commentSeqid, doTime)
+        else:
+            strSql = 'insert into T_Comment (text,isPublic,relationArticlesId,doTime) values (?,?,?,?)'
+            return DB.ExecSqlNoQuery(strSql, text, isPublic, relationArtId, doTime)
 
     def delete_comment(self, seqid):
         '''

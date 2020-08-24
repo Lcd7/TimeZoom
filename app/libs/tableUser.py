@@ -4,6 +4,9 @@ import datetime
 from logger import log
 
 def get_friend_list(func):
+    '''
+    返回用户seqid列表
+    '''
     def wrapper(*args, **kwargs):
         friendsList = []
         rows, err = func(*args, **kwargs)
@@ -18,6 +21,9 @@ def get_friend_list(func):
     return wrapper
 
 def get_user(func):
+    '''
+    返回单个用户对象
+    '''
     def wrapper(*args, **kwargs):
         user = User()
         rows, err = func(*args, **kwargs)
@@ -101,7 +107,7 @@ class TableUser:
         '''
         获取所有好友
         userid: 用户seqid
-        return 好友字典
+        return 好友seqid列表
         '''
         strSql = f'select * from RelationUsers where userid in ({userid})'
         return DB.ExecSqlQuery(strSql)

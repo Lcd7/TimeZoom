@@ -13,24 +13,38 @@ class ActComment(Resource):
     @check_token
     def post(self):
         '''
-        提交评论
+        提交评论 和 回复评论
+        params: commentSeqid  评论seqid
+        params: commentText
+        params: isPublic
+        params: articlesId
         '''
+        commentSeqid = request.args.get('commentSeqid')
         commentText = request.args.get('text')
         isPublic = request.args.get('isPublic')
-        relationArtId = request.args.get('relationArticlesId')
-        _tmpRes = g.tableComment.add_comment(commentText, isPublic, relationArtId)
+        relationArtId = request.args.get('articlesId')
+        
+        # 回复评论
+        if commentSeqid:
+            _tmpRes = g.tableComment.add_comment(commentText, isPublic, relationArtId, commentSeqid)
+
+        else:
+            _tmpRes = g.tableComment.add_comment(commentText, isPublic, relationArtId)
+
         if _tmpRes:
             g.retMsg['code'] = 1
         else:
             g.retMsg['msg'] = '评论提交失败'
+
         return jsonify(g.retMsg)
 
     @check_token
     def get(self):
         '''
         删除评论
+        params: commentSeqid  评论seqid
         '''
-        seqid = request.args.get('seqid')
+        seqid = request.args.get('commentSeqid')
         _tmpRes = g.tableComment.delete_comment(seqid)
         if _tmpRes:
             g.retMsg['code'] = 1
@@ -41,10 +55,12 @@ class ActComment(Resource):
 class GetComment(Resource):
     '''
     获取评论
+    params: commentSeqid  评论seqid
+    params: articlesId  动态seqid
     '''
     def get(self):
-        seqid = request.args.get('seqid')
-        relationArtId = request.args.get('relationArticlesId')
+        seqid = request.args.get('commentSeqid')
+        relationArtId = request.args.get('articlesId')
         if seqid:
             _tmpDict = g.tableComment.get_comment(seqid)
             if _tmpDict:
@@ -62,6 +78,7 @@ class GetComment(Resource):
                 g.retMsg['msg'] = '评论获取失败'
         
         return jsonify(g.retMsg)
+
 
 api.add_resource(ActComment, '/comment/act', endpoint = 'ActComment')
 api.add_resource(GetComment, '/comment/get', endpoint = 'GetComment')

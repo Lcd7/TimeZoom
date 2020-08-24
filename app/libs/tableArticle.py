@@ -13,12 +13,13 @@ def get_art(func):
             artDict['isPublic'] = rows[0][2]
             artDict['likes'] = rows[0][3]
             artDict['relationUserId'] = rows[0][4]
+            artDict['commentNum'] = len(rows)
             return artDict
         log.error(err)
         return None
     return wrapper
 
-def get_art_list(func):
+def get_art_dict(func):
     def wrapper(*args, **kwargs):
         artDict = {}
         rows, err = func(*args, **kwargs)
@@ -65,7 +66,7 @@ class TableArticle:
         else:
             return ret
 
-    @get_art_list
+    @get_art_dict
     def get_all_art(self, artNum):
         '''
         获取所有用户所有动态
@@ -83,9 +84,10 @@ class TableArticle:
         return 单个动态字典
         '''
         strSql = 'select * from Article where seqid=?'
+        # strSql = 'select * from Article full outer join T_Comment on Article.seqid=T_Comment.relationArticlesId where Article.seqid=?'
         return DB.ExecSqlQuery(strSql, artSeqid)
 
-    @get_art_list
+    @get_art_dict
     def get_user_all_arts(self, relationUserId):
         '''
         搜索某个用户所有动态
@@ -142,11 +144,19 @@ class TableArticle:
         '''
         点赞动态
         seqid:  用户seqid
-        srtid:  动态seqid
+        artid:  动态seqid
         '''
-        strSql = 'insert into RelationLikes (userid,artid) values (?,?)'
-        return DB.ExecSqlNoQuery(strSql, seqid, artid)
-    
+        strSql1 = 'insert into RelationLikes (userid,artid) values (?,?)'
+        if DB.ExecSqlNoQuery(strSql1, seqid, artid):
+            strSql2 = 'select likes from Article where seqid=?'
+            rows, err = DB.ExecSqlQuery(strSql2, artid)
+            if not err:
+                likeNum = int(rows[0][0]) + 1
+                strSql3 = 'update Article set likes=? where seqid=?'
+                return DB.ExecSqlNoQuery(strSql3, likeNum, artid)
+            return None
+        return None
+
     def reset_like_art(self, seqid, artid):
         '''
         取消点赞
@@ -154,4 +164,12 @@ class TableArticle:
         artid:  动态seqid
         '''
         strSql = 'delete RelationLikes where seqid=? and artid=?'
-        return DB.ExecSqlNoQuery(strSql, seqid, artid)
+        if DB.ExecSqlNoQuery(strSql, seqid, artid):
+            strSql2 = 'select likes from Article where seqid=?'
+            rows, err = DB.ExecSqlQuery(strSql2, artid)
+            if not err:
+                likeNum = int(rows[0][0]) - 1
+                strSql3 = 'update Article set likes=? where seqid=?'
+                return DB.ExecSqlNoQuery(strSql3, likeNum, artid)
+            return None
+        return None

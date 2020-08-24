@@ -8,12 +8,12 @@ api = Api(webIndex)
 
 
 class GetUpdateArticle(Resource):
-
     @check_token
     def get(self):
         '''
         获取动态
-        return 点赞数 评论数
+        params: artUserId   获取用户所有动态
+        params: artSeqid    获取单个动态
         '''
         # 获取
         if g.artUserId:
@@ -29,6 +29,7 @@ class GetUpdateArticle(Resource):
             if _tmpRes:
                 g.retMsg['code'] = 1
                 g.retMsg['data'] = _tmpRes
+                # 获取评论数
             else:
                 g.retMsg['msg'] = '动态获取失败'
 
@@ -38,8 +39,10 @@ class GetUpdateArticle(Resource):
     def post(self):
         '''
         发布动态
+        params: artText
+        params: *imgName
+        params: *imgPath
         '''
-
         if g.artText:
             # 保存动态 获取评论seqid
             _tmpArtId = g.tableArticle.insert_art(g.artText, g.user.seqid)
@@ -51,7 +54,7 @@ class GetUpdateArticle(Resource):
 
                 # 保存图片链接
                 if _tmpResUpload:
-                    headPic = '七牛云路径' + g.imgName
+                    headPic = current_app.config['QN_URL'] + g.imgName
                     _tmpRes = g.tableImg.insert_img(g.imgName, headPic, g.user.seqid, imgComment = _tmpArtId)
                     if not _tmpRes:
                         g.retMsg['msg'] = '动态上传失败'
@@ -69,6 +72,7 @@ class GetUpdateArticle(Resource):
 class DeleteArticle(Resource):
     '''
     删除动态
+    params: artSeqid
     '''
     @check_token
     def post(self):
@@ -80,20 +84,20 @@ class DeleteArticle(Resource):
 class GetLikes(Resource):
     '''
     点赞
+    params: artSeqid
     '''
     @check_token
-    def get(self):
-        artid = request.args.get('artid')
+    def post(self):
         # 是否点过赞
-        if not g.tableArticle.select_likes(g.user.seqid, artid):
-            _tmpResLike = g.tableArticle.like_art(g.user.seqid, artid)
+        if not g.tableArticle.select_likes(g.user.seqid, g.artSeqid):
+            _tmpResLike = g.tableArticle.like_art(g.user.seqid, g.artSeqid)
             if _tmpResLike:
                 g.retMsg['code'] = 1
             else:
                 g.retMsg['msg'] = '点赞失败'
         else:
             # 取消点赞
-            _tmpResResetLike = g.tableArticle.reset_like_art(g.user.seqid, artid)
+            _tmpResResetLike = g.tableArticle.reset_like_art(g.user.seqid, g.artSeqid)
             if _tmpResResetLike:
                 g.retMsg['code'] = 1
             else:
@@ -104,12 +108,12 @@ class GetLikes(Resource):
 class SetPublicArt(Resource):
     '''
     设置动态公开效果
+    params: artStatus 01
     '''
     @check_token
-    def get(self):
-        artid = request.args.get('artid')
+    def post(self):
         artStatus = request.args.get('artStatus')
-        _tmpResSet = g.tableArticle.set_public_art(artid, artStatus)
+        _tmpResSet = g.tableArticle.set_public_art(g.artSeqid, artStatus)
         if _tmpResSet:
             g.retMsg['code'] = 1
         else:
@@ -119,5 +123,6 @@ class SetPublicArt(Resource):
 
 
 api.add_resource(GetUpdateArticle, '/Article/get', '/Article/delete', '/Article/update', endpoint = 'GetUpdateArticle')
+api.add_resource(DeleteArticle, '/DeleteArticle', endpoint = 'DeleteArticle')
 api.add_resource(GetLikes, '/Article/like', endpoint = 'GetLikes')
 api.add_resource(SetPublicArt, '/Article/set', endpoint = 'SetPublicArt')

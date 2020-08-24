@@ -53,6 +53,9 @@ class HelloWorld(Resource):
 class Login(Resource):
     '''
     用户登录
+    params: *phoneNumber
+    params: *email
+    params: password
     '''
     @get_user_info_when_login_and_register
     def post(self):
@@ -85,8 +88,11 @@ class Login(Resource):
 class Register(Resource):
     '''
     用户注册
+    params: phoneNumber
+    params: *email
+    params: nickname
+    params: *sex
     '''
-    # global g.retMsg
 
     @get_user_info_when_login_and_register
     def post(self):

@@ -9,7 +9,7 @@ class Img:
     picValue: 验证码图片的值
     imgType: 图片的类型（2用户头像，1用户动态，0系统） not null
     imgUser: 图片所属的用户seqid
-    imgComment: 图片所属的文章seqid
+    imgArticle: 图片所属的文章seqid
     '''
     seqid = ''
     imgName = ''
@@ -17,4 +17,4 @@ class Img:
     picValue = ''
     imgType = ''
     imgUser = ''
-    imgComment = ''
+    imgArticle = ''

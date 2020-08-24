@@ -12,5 +12,6 @@ class Article:
     text = ''
     isPublic = False
     likes = 0
+    likesNum = 0
     relationUserId = -1
     doTime = ''

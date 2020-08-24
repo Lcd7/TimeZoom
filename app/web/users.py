@@ -9,12 +9,33 @@ from app.utils.qiNiu import QiNiuImage
 
 api = Api(webIndex)
 
+class getInfo(Resource):
+    '''
+    获取用户信息
+    params: none 
+    '''
+    @check_token
+    def get(self):
+        g.retMsg['data'] = {
+            'phoneNumber': g.user.phoneNumber,
+            'email': g.user.email,
+            'nickname': g.user.nickname,
+            'sex': g.user.sex,
+            }
+        avatar = g.tableImg.get_avatar(g.user.seqid)
+        if avatar:
+            g.retMsg['data']['avatar'] =  avatar.headPic,
+        
+        return jsonify(g.retMsg)
+
 class ChageInfo(Resource):
     '''
     修改用户信息
+    params: *password
+    params: *newpassw
+    params: *nickname
+    params: *sex
     '''
-    # global g.retMsg
-
     @check_token
     def post(self):
         # 修改密码
@@ -53,6 +74,7 @@ class ChageInfo(Resource):
 class Logout(Resource):
     '''
     用户注销
+    params: none
     '''
     @check_token
     def get(self):
@@ -68,6 +90,8 @@ class Logout(Resource):
 class ChangeAvatar(Resource):
     '''
     更换头像
+    params: imgName
+    params: imgPath
     '''
     @check_token
     def post(self):
@@ -95,6 +119,7 @@ class ChangeAvatar(Resource):
 class AddFriend(Resource):
     '''
     添加好友
+    params: friendSeqid
     '''
     @check_token
     def post(self):
@@ -120,12 +145,10 @@ class AddFriend(Resource):
 class DeleteFriend(Resource):
     '''
     删除好友
+    params: friendSeiqd
     '''
     @check_token
     def post(self):
-        '''
-        删除好友
-        '''
         friendId = request.args.get('FriendSeqid')
         if g.tableUser.get_friend(g.user.seqid, friendId):
             _tmpRes = g.tableUser.delete_friend(g.user.seqid, friendId)
@@ -139,6 +162,8 @@ class DeleteFriend(Resource):
 class AnswerFriend(Resource):
     '''
     回应好友请求
+    params: friendSeqid
+    params: answer
     '''
     @check_token
     def post(self):
@@ -156,6 +181,7 @@ class AnswerFriend(Resource):
 class GetFriends(Resource):
     '''
     获取好友列表
+    params: none
     '''
     @check_token
     def get(self):
