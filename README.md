@@ -15,6 +15,35 @@ TimeZoom 需求文档
     * 用户可修改头像
     * 用户可设置性别
 
+TimeZoom 接口文档
+================
+根据操作不同的数据表来分类接口
+1. 用户表
+	* 注册				Register				o
+	* 登录				Login					o
+    * 获取用户信息      getInfo        			o
+    * 修改用户信息      changeInfo      		o
+    * 更换头像          ChangeAvatar      		o
+    * 登出              Logout           		o
+    * 添加好友          AddFriend       		o
+    * 删除好友          DeleteFriend    		o
+    * 回应好友请求      AnswerFriend      		o
+	* 获取好友列表		GetFriends				o
+	
+2. 动态表
+	* 获取用户所有动态	GetUpdateArticle/get	o
+	* 获取单个动态		GetUpdateArticle/get	o
+	* 发布动态			GetUpdateArticle/post	o
+	* 删除动态			DeleteArticle			o
+	* 点赞动态			GetLikes				o
+	* 设置动态是否公开  SetPublicArt			o
+	
+3. 评论表
+	* 提交/回复评论		ActComment/post			o
+	* 删除评论			ActComment/get			o
+	* 获取动态所有评论	GetComment				o
+	* 获取单个评论		GetComment				o 
+    
 
 
 
