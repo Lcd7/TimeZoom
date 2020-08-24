@@ -15,6 +15,18 @@ TimeZoom 需求文档
     * 用户可修改头像
     * 用户可设置性别
 
+TimeZoom 接口文档
+================
+根据操作不同的数据表来分类接口
+1. 用户表
+    * 获取用户信息       getInfo        o
+    * 修改用户信息       changeInfo      o
+    * 更换头像          ChangeAvatar      o
+    * 登出              Logout           o
+    * 添加好友          AddFriend       o
+    * 删除好友          DeleteFriend    o
+    * 回应好友请求      AnswerFriend      o
+    
 
 
 
