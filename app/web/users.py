@@ -189,6 +189,7 @@ class GetFriends(Resource):
         if not _tmpRes:
             g.retMsg['msg'] = '查询失败'
         else:
+            _tmpRes = [str(x) for x in _tmpRes]
             g.retMsg['data'] = ','.join(_tmpRes)
             g.retMsg['code'] = 1
         return jsonify(g.retMsg)

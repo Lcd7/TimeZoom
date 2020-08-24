@@ -15,17 +15,29 @@ class GetUpdateArticle(Resource):
         params: artUserId   获取用户所有动态
         params: artSeqid    获取单个动态
         '''
+        isPublic = request.args.get('isPublic')
+        if not isPublic:
+            if g.user.seqid != int(g.artUserId):
+                isPublic = 1
+            else:
+                isPublic = 2
+        else:
+            isPublic = int(isPublic)
+
         # 获取
-        if g.artUserId:
-            _tmpRes = g.tableArticle.get_user_all_arts(g.artUserId)
+        if g.artUserId and not g.artSeqid:            
+            _tmpRes = g.tableArticle.get_user_all_arts(g.artUserId, isPublic)
             if _tmpRes:
                 g.retMsg['code'] = 1
                 g.retMsg['data'] = _tmpRes
+            elif isinstance(_tmpRes, str):
+                g.retMsg['code'] = 1
+                g.retMsg['msg'] = '暂无动态'
             else:
                 g.retMsg['msg'] = '动态获取失败'
 
         elif g.artSeqid:
-            _tmpRes = g.tableArticle.get_user_one_art(g.artSeqid)
+            _tmpRes = g.tableArticle.get_user_one_art(g.artSeqid, isPublic)
             if _tmpRes:
                 g.retMsg['code'] = 1
                 g.retMsg['data'] = _tmpRes
@@ -40,12 +52,17 @@ class GetUpdateArticle(Resource):
         '''
         发布动态
         params: artText
+        params: *isPublic
         params: *imgName
         params: *imgPath
         '''
+        isPublic = request.form.get('isPublic')
         if g.artText:
             # 保存动态 获取评论seqid
-            _tmpArtId = g.tableArticle.insert_art(g.artText, g.user.seqid)
+            if isPublic:
+                _tmpArtId = g.tableArticle.insert_art(g.artText, g.user.seqid, isPublic)
+            else:
+                _tmpArtId = g.tableArticle.insert_art(g.artText, g.user.seqid)
 
             # 上传图片
             if _tmpArtId and g.imgName:
@@ -120,6 +137,26 @@ class SetPublicArt(Resource):
             g.retMsg['msg'] = '动态状态设置失败'
 
         return jsonify(g.retMsg)
+
+class GetAllArt(Resource):
+    '''
+    获取所有动态
+    '''
+    def get(self):
+        '''
+        params: 获取动态的个数
+        '''
+        artNum = request.args.get('artNum')
+        if artNum:
+            _tmpRes = g.tableArticle.getAllArt(artNum)
+            if _tmpRes:
+                g.retMsg['code'] = 1
+                g.retMsg['data'] = _tmpRes
+            elif isinstance(_tmpRes, str):
+                g.retMsg['code'] = 1
+                g.retMsg['msg'] = '暂无动态'
+            else:
+                g.retMsg['msg'] = '动态获取失败'
 
 
 api.add_resource(GetUpdateArticle, '/Article/get', '/Article/delete', '/Article/update', endpoint = 'GetUpdateArticle')

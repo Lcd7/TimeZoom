@@ -2,7 +2,7 @@ from flask import request, jsonify, g, current_app
 from flask_restful import Api, Resource
 from app.web import webIndex, parser
 from app.libs import TableUser, Validator
-from app.utils import getHash, aesEncrypt
+from app.utils import getHash, aesEncrypt, valiImg
 from app.web import check_token
 from Crypto.Cipher import AES
 import time
@@ -39,8 +39,15 @@ def get_user_info_when_login_and_register(func):
 
 class HelloWorld(Resource):
     def get(self):
+        '''
+        登录表单页
+        params: none
+        '''
         print(request.args.get('a'))
-        g.retMsg['code'] = 110
+        img_text, image_base64 = valiImg.Captcha.gene_graph_captcha()
+        g.retMsg['img_text'] = img_text
+        g.retMsg['img_base64'] = image_base64
+        g.retMsg['code'] = 1
         return jsonify(g.retMsg)
 
     def post(self):
@@ -56,6 +63,7 @@ class Login(Resource):
     params: *phoneNumber
     params: *email
     params: password
+    params: timenow
     '''
     @get_user_info_when_login_and_register
     def post(self):

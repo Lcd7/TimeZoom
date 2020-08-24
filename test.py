@@ -17,13 +17,13 @@ testPyDict = {
 
 if __name__ == "__main__":
     testPyDict['Login']()
-    testPyDict['Regist']()
-    testPyDict['change_info']()
-    testPyDict['logout']()
-    imgName = 'lcd.jpeg'
-    imgPath = 'C:/Users/user/Desktop/lcd.jpeg'
-    testPyDict['change_avatar'](imgName, imgPath)
-    testPyDict['add_friend']()
-    testPyDict['answer_friend']()
-    testPyDict['delete_friend']()
-    testPyDict['get_friend']()
+    # testPyDict['Regist']()
+    # testPyDict['change_info']()
+    # testPyDict['logout']()
+    # imgName = 'lcd.jpeg'
+    # imgPath = 'C:/Users/user/Desktop/lcd.jpeg'
+    # testPyDict['change_avatar'](imgName, imgPath)
+    # testPyDict['add_friend']()
+    # testPyDict['answer_friend']()
+    # testPyDict['delete_friend']()
+    # testPyDict['get_friend']()

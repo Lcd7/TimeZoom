@@ -1,0 +1,215 @@
+[2020-08-24 15:39:17,670]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 15:39:19,896]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 15:39:19,978]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 15:39:20,295]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 15:39:36,328]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:39:36] "GET /index/maing?a=sdfg HTTP/1.1" 404 -
+[2020-08-24 15:39:47,016]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:39:47] "GET /index/main?a=sdfg HTTP/1.1" 404 -
+[2020-08-24 15:39:57,609]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:39:57] "GET /main?a=sdfg HTTP/1.1" 500 -
+[2020-08-24 15:41:16,039]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:41:16] "GET /main?a=sdfg HTTP/1.1" 500 -
+[2020-08-24 15:41:48,011]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\utils\\valiImg.py', reloading
+[2020-08-24 15:41:49,332]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:41:49] "GET /main?a=sdfg HTTP/1.1" 500 -
+[2020-08-24 15:41:51,705]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 15:41:53,993]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 15:41:54,016]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 15:41:54,056]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 15:42:00,887]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:42:00] "GET /main?a=sdfg HTTP/1.1" 200 -
+[2020-08-24 15:42:19,127]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:42:19] "GET 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 HTTP/1.1" 404 -
+[2020-08-24 15:43:16,374]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:43:16] "GET /main?a=11111 HTTP/1.1" 200 -
+[2020-08-24 15:43:36,632]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:43:36] "GET /main?a=123 HTTP/1.1" 200 -
+[2020-08-24 15:43:52,021]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:43:52] "POST /main?a=123 HTTP/1.1" 200 -
+[2020-08-24 15:44:30,426]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:44:30] "POST /main?aa=123 HTTP/1.1" 200 -
+[2020-08-24 15:44:42,314]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:44:42] "POST /main?aa=123 HTTP/1.1" 200 -
+[2020-08-24 15:45:26,111]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\index.py', reloading
+[2020-08-24 15:45:29,443]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 15:45:31,696]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 15:45:31,718]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 15:45:31,773]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 15:52:00,391]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:52:00] "POST /login1 HTTP/1.1" 404 -
+[2020-08-24 15:52:44,981]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\index.py', reloading
+[2020-08-24 15:52:48,079]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 15:52:55,745]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 15:52:55,819]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 15:52:55,950]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 15:53:03,753]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:53:03] "POST /login HTTP/1.1" 200 -
+[2020-08-24 15:55:36,944]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:55:36] "POST /login HTTP/1.1" 200 -
+[2020-08-24 15:57:32,698]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 15:57:32] "POST /answerFriend?friendSeqid=1&answer=1 HTTP/1.1" 200 -
+[2020-08-24 16:00:16,436]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:00:16] "GET /getFriends HTTP/1.1" 200 -
+[2020-08-24 16:01:02,644]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:01:02] "GET /getFriends HTTP/1.1" 500 -
+[2020-08-24 16:03:02,749]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:03:02] "GET /getFriends HTTP/1.1" 500 -
+[2020-08-24 16:05:05,579]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:05:05] "GET /getFriends HTTP/1.1" 500 -
+[2020-08-24 16:05:07,469]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\users.py', reloading
+[2020-08-24 16:05:11,802]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:05:17,370]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:05:17,398]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:05:17,476]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:05:18,881]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:05:18] "GET /getFriends HTTP/1.1" 200 -
+[2020-08-24 16:08:50,628]:[sqlserver.py]:[line:34]:ERROR: ('42000', '[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]“*”附近有语法错误。 (102) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)')
+[2020-08-24 16:08:50,671]:[tableArticle.py]:[line:36]:ERROR: ('42000', '[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]“*”附近有语法错误。 (102) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)')
+[2020-08-24 16:08:50,690]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:08:50] "GET /Article/get?artUserId=1 HTTP/1.1" 200 -
+[2020-08-24 16:09:36,121]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-24 16:09:41,075]:[sqlserver.py]:[line:34]:ERROR: ('42000', '[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]“*”附近有语法错误。 (102) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)')
+[2020-08-24 16:09:41,076]:[tableArticle.py]:[line:36]:ERROR: ('42000', '[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]“*”附近有语法错误。 (102) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)')
+[2020-08-24 16:09:42,694]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:09:42] "GET /Article/get?artUserId=1 HTTP/1.1" 200 -
+[2020-08-24 16:09:43,378]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:09:45,621]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:09:45,651]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:09:45,709]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:09:49,151]:[tableArticle.py]:[line:36]:ERROR: None
+[2020-08-24 16:09:49,153]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:09:49] "GET /Article/get?artUserId=1 HTTP/1.1" 200 -
+[2020-08-24 16:09:57,970]:[tableArticle.py]:[line:36]:ERROR: None
+[2020-08-24 16:12:07,635]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:12:07] "GET /Article/get?artUserId=1 HTTP/1.1" 200 -
+[2020-08-24 16:14:31,879]:[tableArticle.py]:[line:36]:ERROR: None
+[2020-08-24 16:14:31,885]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:14:31] "GET /Article/get?artUserId=1 HTTP/1.1" 200 -
+[2020-08-24 16:16:19,017]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-24 16:16:21,747]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:16:24,075]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:16:24,098]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:16:24,158]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:16:29,164]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:16:29] "GET /Article/get?artUserId=1 HTTP/1.1" 200 -
+[2020-08-24 16:21:50,027]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-24 16:21:52,039]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:21:54,159]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:21:54,182]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:21:54,202]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:22:09,391]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-24 16:22:12,019]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:22:14,128]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:22:14,150]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:22:14,187]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:31:33,145]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-24 16:31:35,341]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:31:40,917]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:31:40,961]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:31:41,080]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:43:04,845]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-24 16:43:07,129]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:43:09,373]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:43:09,396]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:43:09,414]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:43:28,999]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-24 16:43:31,219]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:43:33,124]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:43:33,146]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:43:33,166]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:45:13,627]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:45:13] "POST /Article/get?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-24 16:47:38,644]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-24 16:47:42,177]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:47:44,250]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:47:44,273]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:47:44,291]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:48:33,156]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-24 16:48:36,511]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:48:38,687]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:48:38,720]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:48:38,739]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:50:26,090]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:50:26] "POST /Article/get HTTP/1.1" 200 -
+[2020-08-24 16:52:43,725]:[sqlserver.py]:[line:34]:ERROR: ('42000', "[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]关键字 'where' 附近有语法错误。 (156) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-24 16:52:43,727]:[tableArticle.py]:[line:38]:ERROR: ('42000', "[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]关键字 'where' 附近有语法错误。 (156) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-24 16:52:43,781]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:52:43] "GET /Article/get?artUserId=1&isPublic HTTP/1.1" 200 -
+[2020-08-24 16:54:14,096]:[sqlserver.py]:[line:34]:ERROR: ('42000', "[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]关键字 'where' 附近有语法错误。 (156) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-24 16:54:14,110]:[tableArticle.py]:[line:38]:ERROR: ('42000', "[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]关键字 'where' 附近有语法错误。 (156) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-24 16:54:14,114]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:54:14] "GET /Article/get?artUserId=1&isPublic HTTP/1.1" 200 -
+[2020-08-24 16:54:14,559]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-24 16:54:16,900]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:54:19,359]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:54:19,387]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:54:19,420]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:54:20,545]:[sqlserver.py]:[line:34]:ERROR: ('42000', "[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]关键字 'where' 附近有语法错误。 (156) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-24 16:54:20,546]:[tableArticle.py]:[line:38]:ERROR: ('42000', "[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]关键字 'where' 附近有语法错误。 (156) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-24 16:54:20,605]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:54:20] "GET /Article/get?artUserId=1&isPublic HTTP/1.1" 200 -
+[2020-08-24 16:54:53,647]:[sqlserver.py]:[line:34]:ERROR: ('42000', "[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]关键字 'where' 附近有语法错误。 (156) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-24 16:55:28,139]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-24 16:55:40,677]:[tableArticle.py]:[line:38]:ERROR: ('42000', "[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]关键字 'where' 附近有语法错误。 (156) (SQLExecDirectW); [42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-24 16:55:40,682]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:55:40] "GET /Article/get?artUserId=1&isPublic HTTP/1.1" 200 -
+[2020-08-24 16:55:41,385]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:55:43,609]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:55:43,633]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:55:43,659]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:55:47,036]:[sqlserver.py]:[line:34]:ERROR: ('42S22', "[42S22] [Microsoft][SQL Server Native Client 11.0][SQL Server]列名 'True' 无效。 (207) (SQLExecDirectW); [42S22] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-24 16:55:47,040]:[tableArticle.py]:[line:38]:ERROR: ('42S22', "[42S22] [Microsoft][SQL Server Native Client 11.0][SQL Server]列名 'True' 无效。 (207) (SQLExecDirectW); [42S22] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-24 16:55:47,044]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:55:47] "GET /Article/get?artUserId=1&isPublic HTTP/1.1" 200 -
+[2020-08-24 16:56:01,099]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-24 16:56:02,687]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:56:04,571]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:56:04,593]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:56:04,615]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:56:05,179]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:56:05] "GET /Article/get?artUserId=1&isPublic HTTP/1.1" 200 -
+[2020-08-24 16:56:33,866]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-24 16:56:35,281]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 16:56:37,277]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 16:56:37,312]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 16:56:37,335]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 16:57:42,619]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:57:42] "GET /Article/get?artSeqid&artUserId=&isPublic HTTP/1.1" 200 -
+[2020-08-24 16:57:49,328]:[tableArticle.py]:[line:18]:ERROR: None
+[2020-08-24 16:57:49,329]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:57:49] "GET /Article/get?artSeqid=1&artUserId=&isPublic HTTP/1.1" 200 -
+[2020-08-24 16:59:12,241]:[tableArticle.py]:[line:18]:ERROR: None
+[2020-08-24 16:59:12,243]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:59:12] "GET /Article/get?artSeqid=1&artUserId=&isPublic HTTP/1.1" 200 -
+[2020-08-24 16:59:52,493]:[tableArticle.py]:[line:18]:ERROR: None
+[2020-08-24 16:59:52,504]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 16:59:52] "GET /Article/get?artSeqid=1&artUserId=&isPublic HTTP/1.1" 200 -
+[2020-08-24 17:01:08,629]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-24 17:01:10,453]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 17:01:12,527]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 17:01:12,558]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 17:01:12,575]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 17:01:19,675]:[tableArticle.py]:[line:18]:ERROR: None
+[2020-08-24 17:01:27,001]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:01:27] "GET /Article/get?artSeqid=1&artUserId=&isPublic HTTP/1.1" 200 -
+[2020-08-24 17:01:36,698]:[tableArticle.py]:[line:18]:ERROR: None
+[2020-08-24 17:01:36,701]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:01:36] "GET /Article/get?artSeqid=1&artUserId=&isPublic HTTP/1.1" 200 -
+[2020-08-24 17:02:17,400]:[tableArticle.py]:[line:18]:ERROR: None
+[2020-08-24 17:02:17,403]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:02:17] "GET /Article/get?artSeqid=1&artUserId=&isPublic HTTP/1.1" 200 -
+[2020-08-24 17:03:20,261]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-24 17:03:22,644]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 17:03:25,106]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 17:03:25,140]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 17:03:25,158]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 17:03:29,017]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:03:29] "GET /Article/get?artSeqid=1&artUserId=&isPublic HTTP/1.1" 200 -
+[2020-08-24 17:03:55,543]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:03:55] "GET /Article/get?artSeqid=1&artUserId=1&isPublic HTTP/1.1" 200 -
+[2020-08-24 17:04:39,355]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:04:39] "GET /Article/get?artSeqid=1&artUserId=1&isPublic HTTP/1.1" 200 -
+[2020-08-24 17:04:46,477]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:04:46] "GET /Article/get?artSeqid=1&artUserId=1&isPublic HTTP/1.1" 200 -
+[2020-08-24 17:05:06,737]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:05:06] "GET /Article/get?artSeqid=1&artUserId=&isPublic=2 HTTP/1.1" 500 -
+[2020-08-24 17:06:07,379]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-24 17:06:10,956]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:06:10] "GET /Article/get?artSeqid=1&artUserId=&isPublic=2 HTTP/1.1" 500 -
+[2020-08-24 17:06:13,475]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 17:06:15,752]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 17:06:15,777]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 17:06:15,806]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 17:06:20,445]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:06:20] "GET /Article/get?artSeqid=1&artUserId=&isPublic=2 HTTP/1.1" 200 -
+[2020-08-24 17:07:52,728]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:07:52] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 500 -
+[2020-08-24 17:10:15,951]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-24 17:10:18,444]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 17:10:20,613]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 17:10:20,650]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 17:10:20,666]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 17:11:02,696]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:11:02] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 200 -
+[2020-08-24 17:11:26,348]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:11:26] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 200 -
+[2020-08-24 17:12:35,487]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-24 17:12:39,554]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:12:39] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 200 -
+[2020-08-24 17:12:40,387]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 17:12:42,651]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 17:12:42,674]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 17:12:42,712]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 17:12:48,443]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:12:48] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 400 -
+[2020-08-24 17:12:58,155]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:12:58] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 400 -
+[2020-08-24 17:13:06,455]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:13:06] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 400 -
+[2020-08-24 17:14:04,955]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:14:04] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 400 -
+[2020-08-24 17:18:21,786]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-24 17:18:24,191]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 17:18:29,870]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 17:18:29,902]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 17:18:30,005]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 17:18:49,542]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-24 17:18:51,019]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 17:18:55,033]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 17:18:55,055]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 17:18:55,089]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 17:19:01,822]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [24/Aug/2020 17:19:01] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 200 -
+[2020-08-24 17:20:10,375]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-24 17:20:11,915]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 17:20:14,376]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 17:20:14,401]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 17:20:14,425]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-24 17:22:19,126]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-24 17:22:21,216]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-24 17:22:23,204]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-24 17:22:23,226]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
+[2020-08-24 17:22:23,253]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)

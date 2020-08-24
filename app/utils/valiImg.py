@@ -6,7 +6,8 @@ import string
 
 # pip install pillow
 from PIL import Image, ImageDraw, ImageFont
-
+from io import BytesIO
+import base64
 
 class Captcha(object):
     # 生成几位数的验证码
@@ -81,9 +82,31 @@ class Captcha(object):
             cls.__gene_line(draw, width, height)
         #绘制噪点
         cls.__gene_points(draw, 20, width, height)
-        return (text, image)
+
+        #将图片保存到内存中
+        f = BytesIO()
+        image.save(f, 'png')
+        #从内存中取出bytes类型的图片
+        data = f.getvalue()
+        #将bytes转成base64
+        data = base64.b64encode(data).decode()
+
+        return (text, data)
 
 if __name__ == "__main__":
     text, image = Captcha.gene_graph_captcha()
+    # print(type(image))
     print(text)
-    image.save('./app/utils/font/image.png')
+
+    from io import BytesIO
+    import base64
+    #将图片保存到内存中
+    f = BytesIO()
+    image.save(f, 'png')
+    #从内存中取出bytes类型的图片
+    data = f.getvalue()
+    #将bytes转成base64
+    data = base64.b64encode(data).decode()
+    print(data)
+
+    # image.save('./app/utils/font/image.png')
