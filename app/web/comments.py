@@ -6,10 +6,8 @@ from flask_restful import Api, Resource
 
 api = Api(webIndex)
 
-class ActComment(Resource):
-    '''
-    评论
-    '''
+class AddComment(Resource):
+
     @check_token
     def post(self):
         '''
@@ -33,21 +31,30 @@ class ActComment(Resource):
 
         if _tmpRes:
             g.retMsg['code'] = 1
+            if not g.tableArticle.update_article(relationArtId, comments = 1):
+                g.retMsg['msg'] = '动态表评论数修改失败'  
         else:
             g.retMsg['msg'] = '评论提交失败'
 
         return jsonify(g.retMsg)
 
+class DeleteComment(Resource):
+
     @check_token
-    def get(self):
+    def post(self):
         '''
         删除评论
         params: commentSeqid  评论seqid
+        params: articlesId
         '''
         seqid = request.args.get('commentSeqid')
+        relationArtId = request.args.get('articlesId')
         _tmpRes = g.tableComment.delete_comment(seqid)
         if _tmpRes:
             g.retMsg['code'] = 1
+            if not g.tableArticle.update_article(relationArtId, comments = -1):
+                g.retMsg['msg'] = '动态表评论数修改失败'  
+
         else:
             g.retMsg['msg'] = '评论删除失败'
         return jsonify(g.retMsg)
@@ -80,5 +87,6 @@ class GetComment(Resource):
         return jsonify(g.retMsg)
 
 
-api.add_resource(ActComment, '/comment/act', endpoint = 'ActComment')
+api.add_resource(AddComment, '/comment/add', endpoint = 'AddComment')
+api.add_resource(DeleteComment, '/comment/delete', endpoint = 'DeleteComment')
 api.add_resource(GetComment, '/comment/get', endpoint = 'GetComment')

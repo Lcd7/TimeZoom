@@ -20,7 +20,7 @@ parser.add_argument('imgPath', type = str)          # 上传图片的本地路�
 parser.add_argument('artText', type = str)          # 动态内容
 parser.add_argument('artSeqid', type = str)         # 动态id
 parser.add_argument('artUserId', type = str)        # 动态所属用户id
-
+parser.add_argument('isPublic', type = str)         # 是否公开 0 1
 
 def check_token(func):
     '''
@@ -31,16 +31,11 @@ def check_token(func):
         if not g.token:
             g.retMsg['msg'] = '请登录'
             return jsonify(g.retMsg)
-        tableUser = TableUser()
-        user = tableUser.get_user_by(token = g.token)
+
+        user = g.tableUser.get_user_by(token = g.token)
         if not user:
             g.retMsg['msg'] = '验证信息错误'
             return jsonify(g.retMsg)
-
-        g.tableArticle = TableArticle()
-        g.tableComment = TableComment()
-        g.tableImg = TableImg()
-        g.tableUser = tableUser
 
         args = parser.parse_args()
         g.user = user
@@ -56,8 +51,10 @@ def check_token(func):
         g.imgName = args.get('imgName')                   
         g.imgPath = args.get('imgPath')                   
         g.artText = args.get('artText')
-        g.artSeqid = args.get('artSeqid')
-        g.artUserId = args.get('artUserId')
+        g.artSeqid = 0 if args.get('artSeqid') in ('', None) else int(args.get('artSeqid'))
+        g.artUserId = 0 if args.get('artUserId') in ('', None) else int(args.get('artUserId'))
+        g.isPublic = None if args.get('isPublic') in ('', None) else int(args.get('isPublic'))
+        
 
         return func(*arg, **kwargs)
     return wrapper
@@ -65,6 +62,10 @@ def check_token(func):
 
 @webIndex.before_request
 def get_base_info():
+    g.tableArticle = TableArticle()
+    g.tableComment = TableComment()
+    g.tableImg = TableImg()
+    g.tableUser = TableUser()
     token = request.headers.get('token')
     g.retMsg = {
         'code': 0,

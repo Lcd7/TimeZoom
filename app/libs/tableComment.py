@@ -47,7 +47,7 @@ def comment_body(func):
 
 class TableComment:
 
-    def add_comment(self, text, isPublic, relationArtId, commentSeqid = ''):
+    def add_comment(self, text, isPublic, relationArtId, commentSeqid = None):
         '''
         新增评论
         text: 评论正文

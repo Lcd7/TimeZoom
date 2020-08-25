@@ -140,5 +140,5 @@ class Register(Resource):
 
 
 api.add_resource(HelloWorld, '/main', endpoint = 'HelloWorld')
-api.add_resource(Login, '/login', endpoint = 'Login')
-api.add_resource(Register, '/register', endpoint = 'Register')
+api.add_resource(Login, '/user/login', endpoint = 'Login')
+api.add_resource(Register, '/index/register', endpoint = 'Register')

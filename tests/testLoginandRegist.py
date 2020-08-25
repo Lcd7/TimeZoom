@@ -55,11 +55,11 @@ def start(url):
     post(phoneNumber, email, nickname, sex, timenow, passw, url)
 
 def login():
-    url = 'http://127.0.0.1:8058/login'
+    url = 'http://127.0.0.1:8058/user/login'
     start(url)
 
 def regist():
-    url = 'http://127.0.0.1:8058/register'
+    url = 'http://127.0.0.1:8058/index/register'
     start(url)
 
 if __name__ == "__main__":

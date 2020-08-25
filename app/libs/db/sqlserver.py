@@ -63,7 +63,8 @@ class SqlServer:
         try:
             self.__cursor.execute(strSql,*args)
             self.__conn.commit()
-            self.__cursor.execute("select @@identity")
+            self.__cursor.execute("select SCOPE_IDENTITY() as seqid")
+            # self.__cursor.execute("select seqid from Article where seqid=SCOPE_IDENTITY()")
             row = self.__cursor.fetchone()
             if row:
                 ret = True

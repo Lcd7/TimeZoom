@@ -14,19 +14,17 @@ class GetUpdateArticle(Resource):
         获取动态
         params: artUserId   获取用户所有动态
         params: artSeqid    获取单个动态
+        params: *isPublic    是否公开
         '''
-        isPublic = request.args.get('isPublic')
-        if not isPublic:
-            if g.user.seqid != int(g.artUserId):
-                isPublic = 1
+        if not g.isPublic:
+            if g.user.seqid != g.artUserId:
+                g.isPublic = 1
             else:
-                isPublic = 2
-        else:
-            isPublic = int(isPublic)
+                g.isPublic = 2
 
         # 获取
         if g.artUserId and not g.artSeqid:            
-            _tmpRes = g.tableArticle.get_user_all_arts(g.artUserId, isPublic)
+            _tmpRes = g.tableArticle.get_user_all_arts(g.artUserId, g.isPublic)
             if _tmpRes:
                 g.retMsg['code'] = 1
                 g.retMsg['data'] = _tmpRes
@@ -37,10 +35,13 @@ class GetUpdateArticle(Resource):
                 g.retMsg['msg'] = '动态获取失败'
 
         elif g.artSeqid:
-            _tmpRes = g.tableArticle.get_user_one_art(g.artSeqid, isPublic)
+            _resDict = g.tableArticle.get_user_one_art(g.artSeqid, 2)
+            if _resDict.get('relationUserId') == g.user.seqid:
+                g.isPublic = 2
+            _tmpRes = g.tableArticle.get_user_one_art(g.artSeqid, g.isPublic)
             if _tmpRes:
                 g.retMsg['code'] = 1
-                g.retMsg['data'] = _tmpRes
+                g.retMsg['msg'] = _tmpRes
                 # 获取评论数
             else:
                 g.retMsg['msg'] = '动态获取失败'
@@ -56,23 +57,22 @@ class GetUpdateArticle(Resource):
         params: *imgName
         params: *imgPath
         '''
-        isPublic = request.form.get('isPublic')
         if g.artText:
             # 保存动态 获取评论seqid
-            if isPublic:
-                _tmpArtId = g.tableArticle.insert_art(g.artText, g.user.seqid, isPublic)
+            if g.isPublic:
+                _tmpArtId = g.tableArticle.insert_art(g.artText, g.user.seqid, g.isPublic)
             else:
                 _tmpArtId = g.tableArticle.insert_art(g.artText, g.user.seqid)
 
             # 上传图片
             if _tmpArtId and g.imgName:
-                Q = QiNiuImage(current_app.config['BUCKET'], current_app.config['AK'], current_app.config['SK'])
+                Q = QiNiuImage(current_app.config['QN_BUCKET'], current_app.config['QN_AK'], current_app.config['QN_KEY'])
                 _tmpResUpload = Q.upload_image(g.imgName, g.imgPath)
 
                 # 保存图片链接
                 if _tmpResUpload:
                     headPic = current_app.config['QN_URL'] + g.imgName
-                    _tmpRes = g.tableImg.insert_img(g.imgName, headPic, g.user.seqid, imgComment = _tmpArtId)
+                    _tmpRes = g.tableImg.insert_img(g.imgName, headPic, g.user.seqid, imgArticle = _tmpArtId)
                     if not _tmpRes:
                         g.retMsg['msg'] = '动态上传失败'
             
@@ -97,6 +97,9 @@ class DeleteArticle(Resource):
             _tmpRes = g.tableArticle.delete_art(g.artSeqid)
             if not _tmpRes:
                 g.retMsg['msg'] = '动态删除失败'
+        else:
+            g.retMsg['msg'] = '无效动态id'
+        return jsonify(g.retMsg)
 
 class GetLikes(Resource):
     '''
@@ -125,12 +128,12 @@ class GetLikes(Resource):
 class SetPublicArt(Resource):
     '''
     设置动态公开效果
-    params: artStatus 01
+    params: isPublic 01
+    params: artSeqid
     '''
     @check_token
     def post(self):
-        artStatus = request.args.get('artStatus')
-        _tmpResSet = g.tableArticle.set_public_art(g.artSeqid, artStatus)
+        _tmpResSet = g.tableArticle.update_article(g.artSeqid, isPublic = g.isPublic)
         if _tmpResSet:
             g.retMsg['code'] = 1
         else:
@@ -148,7 +151,7 @@ class GetAllArt(Resource):
         '''
         artNum = request.args.get('artNum')
         if artNum:
-            _tmpRes = g.tableArticle.getAllArt(artNum)
+            _tmpRes = g.tableArticle.get_all_art(artNum)
             if _tmpRes:
                 g.retMsg['code'] = 1
                 g.retMsg['data'] = _tmpRes
@@ -157,9 +160,12 @@ class GetAllArt(Resource):
                 g.retMsg['msg'] = '暂无动态'
             else:
                 g.retMsg['msg'] = '动态获取失败'
+            
+        return jsonify(g.retMsg)
 
 
-api.add_resource(GetUpdateArticle, '/Article/get', '/Article/delete', '/Article/update', endpoint = 'GetUpdateArticle')
-api.add_resource(DeleteArticle, '/DeleteArticle', endpoint = 'DeleteArticle')
-api.add_resource(GetLikes, '/Article/like', endpoint = 'GetLikes')
-api.add_resource(SetPublicArt, '/Article/set', endpoint = 'SetPublicArt')
+api.add_resource(GetUpdateArticle, '/article/get', '/article/update', '/article/post', endpoint = 'GetUpdateArticle')
+api.add_resource(DeleteArticle, '/article/delete', endpoint = 'DeleteArticle')
+api.add_resource(GetLikes, '/article/like', endpoint = 'GetLikes')
+api.add_resource(SetPublicArt, '/article/set', endpoint = 'SetPublicArt')
+api.add_resource(GetAllArt, '/article/getall', endpoint = 'GetAllArt')

@@ -213,3 +213,485 @@
 [2020-08-24 17:22:23,204]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
 [2020-08-24 17:22:23,226]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 216-631-411
 [2020-08-24 17:22:23,253]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 09:43:20,818]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 09:43:23,322]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 09:43:23,394]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 09:43:23,429]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 09:43:26,285]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 09:43:26] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 09:53:54,040]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 09:53:54] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 500 -
+[2020-08-25 09:54:31,843]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 09:54:31] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 500 -
+[2020-08-25 09:54:47,990]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 09:54:50,720]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 09:54:59,103]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 09:54:59,150]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 09:54:59,301]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 09:55:01,052]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 09:55:01] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 500 -
+[2020-08-25 09:57:12,523]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 09:57:15,175]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 09:57:18,887]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 09:57:18,917]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 09:57:18,988]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 09:57:29,262]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 09:57:29] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 09:58:07,148]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 09:58:07] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 10:05:48,919]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:05:48] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 10:16:56,257]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-25 10:16:58,301]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 10:17:02,547]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 10:17:02,570]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 10:17:02,602]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 10:17:32,712]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:17:32] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 10:19:31,731]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-25 10:19:33,861]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:19:33] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 10:19:34,586]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 10:19:37,149]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 10:19:37,171]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 10:19:37,192]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 10:20:10,057]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-25 10:20:11,462]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:20:11] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 10:20:12,150]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 10:20:14,318]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 10:20:14,355]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 10:20:14,373]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 10:21:08,709]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:21:08] "GET /Article/get?artSeqid=1&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 10:27:29,486]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:27:29] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 200 -
+[2020-08-25 10:28:45,845]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:28:45] "POST /Article/get HTTP/1.1" 500 -
+[2020-08-25 10:29:38,732]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-25 10:29:41,307]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 10:29:48,255]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 10:29:48,296]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 10:29:48,374]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 10:29:51,674]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:29:51] "POST /Article/get HTTP/1.1" 500 -
+[2020-08-25 10:30:15,523]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-25 10:30:17,575]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 10:30:19,952]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 10:30:19,990]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 10:30:20,006]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 10:30:20,075]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:30:20] "POST /Article/get HTTP/1.1" 500 -
+[2020-08-25 10:31:09,428]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:31:09] "POST /Article/get HTTP/1.1" 500 -
+[2020-08-25 10:31:33,886]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-25 10:31:35,538]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 10:31:37,522]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 10:31:37,546]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 10:31:37,564]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 10:31:43,163]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:31:43] "POST /Article/get HTTP/1.1" 500 -
+[2020-08-25 10:31:52,916]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-25 10:31:55,661]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 10:31:57,684]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 10:31:57,706]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 10:31:57,727]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 10:31:58,326]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 10:31:58] "POST /Article/get HTTP/1.1" 200 -
+[2020-08-25 10:36:51,184]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\models\\article.py', reloading
+[2020-08-25 10:36:53,327]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 10:36:55,719]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 10:36:55,745]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 10:36:55,767]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 10:57:15,228]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-25 10:57:17,903]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 11:41:24,791]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 11:41:26,928]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 11:41:27,056]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 11:41:27,244]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 11:41:43,933]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 11:41:43] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 500 -
+[2020-08-25 11:44:34,446]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-25 11:44:35,522]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 11:44:35] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 500 -
+[2020-08-25 11:44:36,541]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 11:44:44,751]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 11:44:44,784]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 11:44:44,896]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 11:44:45,973]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 11:44:45] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 500 -
+[2020-08-25 11:45:08,782]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 11:45:08] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 500 -
+[2020-08-25 11:45:09,865]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-25 11:45:11,983]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 11:45:14,003]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 11:45:14,025]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 11:45:14,051]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 11:45:18,597]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 11:45:18] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 500 -
+[2020-08-25 11:46:23,971]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-25 11:46:25,439]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 11:46:25] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 500 -
+[2020-08-25 11:46:26,064]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 11:46:28,865]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 11:46:28,900]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 11:46:28,916]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 11:46:35,166]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 11:46:35] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 200 -
+[2020-08-25 11:50:32,032]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 11:50:34,267]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 11:50:37,402]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 11:50:37,429]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 11:50:37,450]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 11:54:04,584]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 11:54:04] "POST /Article/post HTTP/1.1" 500 -
+[2020-08-25 11:55:18,903]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 11:55:21,379]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 11:55:24,015]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 11:55:24,047]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 11:55:24,065]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 11:55:31,807]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 11:55:31] "POST /Article/post HTTP/1.1" 500 -
+[2020-08-25 11:55:44,677]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 11:55:53,246]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 11:55:55,513]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 11:55:55,542]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 11:55:55,571]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 11:55:58,655]:[sqlserver.py]:[line:54]:ERROR: ('42S22', "[42S22] [Microsoft][SQL Server Native Client 11.0][SQL Server]列名 'imgComment' 无效。 (207) (SQLExecDirectW); [42S22] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-25 11:55:58,665]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 11:55:58] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 11:59:33,291]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableImg.py', reloading
+[2020-08-25 11:59:35,118]:[sqlserver.py]:[line:54]:ERROR: ('42S22', "[42S22] [Microsoft][SQL Server Native Client 11.0][SQL Server]列名 'imgComment' 无效。 (207) (SQLExecDirectW); [42S22] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-08-25 11:59:35,120]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 11:59:35] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 11:59:36,004]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 11:59:38,191]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 11:59:38,214]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 11:59:38,253]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:11:25,510]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:11:28,710]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:11:29,411]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:11:30,130]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:15:51,267]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:15:51] "POST /Article/post HTTP/1.1" 500 -
+[2020-08-25 13:16:20,505]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 13:16:24,944]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:16:27,383]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:16:27,413]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:16:27,441]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:20:59,858]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:21:02,105]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:21:02,244]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:21:02,377]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:22:36,116]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:22:36] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:27:33,601]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:27:33] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:30:50,897]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:30:55,135]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:31:05,104]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:31:05,168]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:31:05,281]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:31:43,733]:[sqlserver.py]:[line:72]:ERROR: 数据库执行插入异常'NoneType' object is not subscriptable
+[2020-08-25 13:31:43,742]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:31:43] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:31:53,979]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:31:56,645]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:32:00,185]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:32:00,210]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:32:00,230]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:32:42,329]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:32:43,793]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常'NoneType' object is not subscriptable
+[2020-08-25 13:32:43,796]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:32:43] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:32:45,275]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:32:48,820]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:32:48,846]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:32:48,867]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:32:51,648]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常No results.  Previous SQL was not a query.
+[2020-08-25 13:32:51,651]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:32:51] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:32:56,550]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常No results.  Previous SQL was not a query.
+[2020-08-25 13:32:56,552]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:32:56] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:33:44,134]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:33:45,335]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常No results.  Previous SQL was not a query.
+[2020-08-25 13:33:45,347]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:33:45] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:33:46,099]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:33:49,009]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:33:49,034]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:33:49,061]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:34:01,326]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:34:01,823]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常No results.  Previous SQL was not a query.
+[2020-08-25 13:34:01,827]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:34:01] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:34:02,652]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:34:04,987]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:34:05,011]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:34:05,035]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:34:25,990]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常'NoneType' object is not subscriptable
+[2020-08-25 13:34:25,993]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:34:25] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:34:40,417]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:34:41,725]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:34:43,970]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:34:43,995]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:34:44,018]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:34:54,955]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:34:54] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:38:41,785]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:38:44,718]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:38:51,868]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:38:51,921]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:38:52,062]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:38:53,188]:[sqlserver.py]:[line:74]:ERROR: 数据库执行插入异常('HY010', '[HY010] [Microsoft][SQL Server Native Client 11.0]Function sequence error (0) (SQLFetch)')
+[2020-08-25 13:38:53,191]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:38:53] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:39:16,924]:[sqlserver.py]:[line:74]:ERROR: 数据库执行插入异常('HY010', '[HY010] [Microsoft][SQL Server Native Client 11.0]Function sequence error (0) (SQLFetch)')
+[2020-08-25 13:39:16,927]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:39:16] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:39:36,216]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:39:38,133]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:39:42,010]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:39:42,039]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:39:42,067]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:41:19,739]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:41:19] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:46:03,189]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:46:06,912]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:46:18,204]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:46:18,285]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:46:18,868]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:46:26,688]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常('HY010', '[HY010] [Microsoft][SQL Server Native Client 11.0]Function sequence error (0) (SQLFetch)')
+[2020-08-25 13:46:30,404]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:46:30] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:46:38,315]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:46:41,185]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:46:50,582]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:46:50,617]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:46:50,767]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:49:49,113]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:49:50,789]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:49:50] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:49:51,482]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:49:54,434]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:49:54,460]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:49:54,484]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:50:31,057]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:50:31] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:53:13,564]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:53:15,994]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:53:19,493]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:53:19,520]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:53:19,538]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:53:40,663]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:53:40] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:57:16,053]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:57:42,409]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:57:42] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:57:43,351]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:57:53,414]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:57:53,484]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:57:53,589]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 13:57:58,846]:[sqlserver.py]:[line:74]:ERROR: 数据库执行插入异常No results.  Previous SQL was not a query.
+[2020-08-25 13:58:25,943]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 13:58:25] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 13:58:37,986]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 13:58:40,714]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 13:58:45,294]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 13:58:45,320]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 13:58:45,486]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:02:20,789]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:02:26,558]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:02:38,851]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:02:38,885]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:02:39,019]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:02:43,403]:[sqlserver.py]:[line:72]:ERROR: 数据库执行插入异常('42000', '[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]scope_identity 函数要求有 0 个参数。 (174) (SQLExecDirectW)')
+[2020-08-25 14:02:43,429]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:02:43] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:03:14,950]:[sqlserver.py]:[line:72]:ERROR: 数据库执行插入异常('42000', '[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]scope_identity 函数要求有 0 个参数。 (174) (SQLExecDirectW)')
+[2020-08-25 14:03:14,963]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:03:14] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:03:58,907]:[sqlserver.py]:[line:72]:ERROR: 数据库执行插入异常('42000', '[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]scope_identity 函数要求有 0 个参数。 (174) (SQLExecDirectW)')
+[2020-08-25 14:04:06,856]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:04:19,079]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:04:19] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:04:20,044]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:04:26,409]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:04:26,464]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:04:26,719]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:05:32,714]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:05:34,626]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:05:38,796]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:05:38,822]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:05:38,853]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:05:43,159]:[sqlserver.py]:[line:72]:ERROR: 数据库执行插入异常No results.  Previous SQL was not a query.
+[2020-08-25 14:05:59,740]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:05:59] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:06:01,200]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:06:02,844]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:06:07,224]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:06:07,253]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:06:07,273]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:10:42,893]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:10:45,142]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:10:48,554]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:10:48,591]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:10:48,697]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:10:50,198]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常('HY010', '[HY010] [Microsoft][SQL Server Native Client 11.0]Function sequence error (0) (SQLFetch)')
+[2020-08-25 14:10:50,224]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:10:50] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:11:46,277]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常('HY010', '[HY010] [Microsoft][SQL Server Native Client 11.0]Function sequence error (0) (SQLFetch)')
+[2020-08-25 14:11:46,280]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:11:46] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:11:48,488]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:11:50,519]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:11:57,164]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:11:57,194]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:11:57,276]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:14:58,047]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:14:58] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:20:01,838]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:20:10,490]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:20:27,435]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:20:27,472]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:20:27,617]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:21:51,872]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:21:53,154]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:21:53] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:21:53,749]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:21:57,390]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:21:57,416]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:21:57,446]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:22:25,403]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:22:25] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:22:56,073]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:22:58,045]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:23:01,880]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:23:01,916]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:23:02,039]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:23:28,332]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常int() argument must be a string, a bytes-like object or a number, not 'pyodbc.Row'
+[2020-08-25 14:23:39,773]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:23:41,331]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:23:41] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:23:42,606]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:23:45,510]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:23:45,535]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:23:45,581]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:28:21,831]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:28:25,294]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:28:34,606]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:28:34,694]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:28:34,824]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:28:36,606]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常No results.  Previous SQL was not a query.
+[2020-08-25 14:28:36,617]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:28:36] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:28:49,094]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\db\\sqlserver.py', reloading
+[2020-08-25 14:28:51,523]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:28:54,264]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:28:54,289]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:28:54,314]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:28:55,308]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常No results.  Previous SQL was not a query.
+[2020-08-25 14:28:55,312]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:28:55] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:48:23,302]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:48:27,283]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:48:27,338]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:48:27,532]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:48:30,753]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-25 14:48:33,999]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:48:48,854]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:48:48,906]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:48:49,180]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:49:04,479]:[sqlserver.py]:[line:73]:ERROR: 数据库执行插入异常('42000', '[42000] [Microsoft][SQL Server Native Client 11.0][SQL Server]“14”附近有语法错误。 (102) (SQLExecDirectW)')
+[2020-08-25 14:49:59,966]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-25 14:50:01,527]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:50:01] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:50:03,821]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 14:50:18,997]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 14:50:19,058]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 14:50:19,156]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 14:51:34,438]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:51:34] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 14:56:58,582]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:56:58] "GET /Article/get?artSeqid=&artUserId=1&isPublic= HTTP/1.1" 200 -
+[2020-08-25 14:59:33,586]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 14:59:33] "GET /Article/get?artSeqid=47&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 15:00:05,555]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:00:05] "POST /Article/post HTTP/1.1" 200 -
+[2020-08-25 15:00:12,756]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:00:12] "GET /Article/get?artSeqid=48&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 15:02:18,544]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:02:18] "GET /Article/get?artSeqid=48&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 15:03:50,959]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 15:03:51,762]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:03:51] "GET /Article/get?artSeqid=48&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 15:03:53,208]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:03:59,726]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:03:59,775]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:03:59,867]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:04:16,800]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:04:16] "GET /Article/get?artSeqid=48&artUserId=&isPublic= HTTP/1.1" 200 -
+[2020-08-25 15:06:52,919]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 15:06:56,032]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:07:01,895]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:07:01,920]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:07:01,941]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:07:44,084]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:07:44] "POST /article/delete?artSeqid=48 HTTP/1.1" 200 -
+[2020-08-25 15:08:05,635]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:08:05] "POST /article/delete?artSeqid=48 HTTP/1.1" 200 -
+[2020-08-25 15:08:27,210]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:08:27] "POST /article/delete?artSeqid=48 HTTP/1.1" 200 -
+[2020-08-25 15:08:48,347]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 15:08:50,540]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:08:53,166]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:08:53,192]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:08:53,210]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:08:59,336]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:08:59] "POST /article/delete?artSeqid=48 HTTP/1.1" 200 -
+[2020-08-25 15:09:24,594]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:09:24] "POST /Article/post HTTP/1.1" 404 -
+[2020-08-25 15:09:34,636]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:09:34] "POST /article/post HTTP/1.1" 200 -
+[2020-08-25 15:10:11,823]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:10:11] "POST /article/delete?artSeqid=49 HTTP/1.1" 200 -
+[2020-08-25 15:11:24,649]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 15:11:26,058]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:11:29,357]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:11:29,382]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:11:29,406]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:11:43,751]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:11:43] "POST /article/delete?artSeqid=49 HTTP/1.1" 200 -
+[2020-08-25 15:15:25,030]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:15:25] "POST /article/post HTTP/1.1" 200 -
+[2020-08-25 15:23:39,696]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-25 15:23:42,539]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:23:45,059]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:23:45,087]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:23:45,110]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:25:10,771]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:25:10] "POST /article/set?isPublic=1&artSeqid=50 HTTP/1.1" 200 -
+[2020-08-25 15:25:40,265]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:25:40] "POST /article/set?isPublic=1&artSeqid=50 HTTP/1.1" 200 -
+[2020-08-25 15:26:56,710]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-25 15:26:59,791]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:26:59] "POST /article/set?isPublic=1&artSeqid=50 HTTP/1.1" 200 -
+[2020-08-25 15:27:01,322]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:27:13,752]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:27:13,786]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:27:13,894]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:27:39,745]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:27:39] "POST /article/set?isPublic=1&artSeqid=50 HTTP/1.1" 200 -
+[2020-08-25 15:32:18,341]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 15:32:21,849]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:33:17,915]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:33:20,280]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:33:20,304]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:33:20,324]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:33:22,345]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:33:22] "GET /article/getall?artNum=20 HTTP/1.1" 500 -
+[2020-08-25 15:33:51,811]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:33:51] "GET /article/getall?artNum=20 HTTP/1.1" 500 -
+[2020-08-25 15:35:00,741]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-25 15:35:02,939]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:35:05,239]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:35:05,264]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:35:05,295]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:35:08,938]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:35:08] "GET /article/getall?artNum=20 HTTP/1.1" 500 -
+[2020-08-25 15:35:21,881]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\__init__.py', reloading
+[2020-08-25 15:35:24,062]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:35:26,131]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:35:26,157]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:35:26,175]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:35:28,037]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:35:28] "GET /article/getall?artNum=20 HTTP/1.1" 500 -
+[2020-08-25 15:36:01,543]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 15:36:02,945]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:36:04,918]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:36:04,944]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:36:04,966]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:36:05,746]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:36:05] "GET /article/getall?artNum=20 HTTP/1.1" 200 -
+[2020-08-25 15:36:17,226]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:36:17] "GET /article/getall?artNum=20 HTTP/1.1" 200 -
+[2020-08-25 15:36:36,011]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 15:36:37,339]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:36:39,548]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:36:39,573]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:36:39,598]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:36:41,596]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:36:41] "GET /article/getall?artNum=20 HTTP/1.1" 200 -
+[2020-08-25 15:39:37,928]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:39:37] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:39:53,583]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:39:53] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:42:12,420]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:42:12] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:43:14,728]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:43:14] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:44:35,789]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-25 15:44:35,908]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:44:35] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:44:37,500]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:44:40,246]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:44:40,271]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:44:40,308]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:44:43,369]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:44:43] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:48:22,651]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\web\\articles.py', reloading
+[2020-08-25 15:48:26,875]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:48:26] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:48:27,462]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:48:52,141]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:48:54,287]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:48:54,315]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:48:54,333]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:50:18,710]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:50:18] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:50:41,209]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:50:41] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:51:28,366]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-25 15:51:31,096]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:51:31] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:51:31,921]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:51:34,199]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:51:34,228]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:51:34,255]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:51:50,789]:[tableArticle.py]:[line:72]:ERROR: None
+[2020-08-25 15:52:15,750]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:52:15] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:52:34,945]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:52:34] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:52:38,748]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:52:38] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:52:57,446]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:52:57] "POST /login HTTP/1.1" 500 -
+[2020-08-25 15:53:40,660]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:53:40] "POST /login HTTP/1.1" 500 -
+[2020-08-25 15:54:19,000]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableUser.py', reloading
+[2020-08-25 15:54:26,341]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:54:26] "POST /login HTTP/1.1" 500 -
+[2020-08-25 15:54:26,983]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 15:54:29,302]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 15:54:29,327]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 15:54:29,357]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 15:54:37,386]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:54:37] "POST /login HTTP/1.1" 200 -
+[2020-08-25 15:54:58,494]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:54:58] "POST /login HTTP/1.1" 200 -
+[2020-08-25 15:55:13,449]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:55:13] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:56:36,307]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:56:36] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:56:36,357]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:56:36] "POST /login HTTP/1.1" 200 -
+[2020-08-25 15:57:44,539]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:57:44] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:58:03,011]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:58:03] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:58:15,164]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:58:15] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 15:58:25,437]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 15:58:25] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 16:01:49,663]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 16:01:49] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 16:03:41,033]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 16:03:41] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 16:04:57,254]:[_internal.py]:[line:122]:INFO:  * Detected change in 'D:\\Code\\env\\restful-token\\restful-token\\app\\libs\\tableArticle.py', reloading
+[2020-08-25 16:04:59,549]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 16:04:59] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 16:05:01,382]:[_internal.py]:[line:122]:INFO:  * Restarting with stat
+[2020-08-25 16:05:08,344]:[_internal.py]:[line:122]:WARNING:  * Debugger is active!
+[2020-08-25 16:05:08,403]:[_internal.py]:[line:122]:INFO:  * Debugger PIN: 105-287-654
+[2020-08-25 16:05:08,578]:[_internal.py]:[line:122]:INFO:  * Running on http://0.0.0.0:8058/ (Press CTRL+C to quit)
+[2020-08-25 16:05:15,588]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 16:05:15] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 16:05:44,090]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 16:05:44] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 16:05:50,416]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 16:05:50] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 16:05:56,849]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 16:05:56] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 16:06:01,823]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 16:06:01] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -
+[2020-08-25 16:06:20,643]:[_internal.py]:[line:122]:INFO: 127.0.0.1 - - [25/Aug/2020 16:06:20] "POST /article/like?artSeqid=1 HTTP/1.1" 200 -

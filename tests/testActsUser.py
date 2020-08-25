@@ -23,43 +23,43 @@ def ret_info(func):
 
 @ ret_info
 def change_info():
-    url = 'http://127.0.0.1:8058/chageInfo'
+    url = 'http://127.0.0.1:8058/user/chageInfo'
     params['sex'] = '男'
     return requests.post(url, headers = headers, params = params)
     
 @ ret_info
 def logout():
-    url = 'http://127.0.0.1:8058/logout'
+    url = 'http://127.0.0.1:8058/user/logout'
     return requests.get(url, headers = headers)
 
 @ ret_info
 def change_avatar(imgName, imgPath):
-    url = 'http://127.0.0.1:8058/changeAvatar'
+    url = 'http://127.0.0.1:8058/user/changeAvatar'
     params['imgName'] = imgName
     params['imgPath'] = imgPath
     return requests.post(url, headers = headers, params = params)
     
 @ ret_info
 def add_friend():
-    url = 'http://127.0.0.1:8058/addFriend'
+    url = 'http://127.0.0.1:8058/user/addFriend'
     params['friendSeqid'] = 4
     return requests.post(url, headers = headers, params = params)
     
 @ ret_info
 def delete_friend():
-    url = 'http://127.0.0.1:8058/deleteFriend'
+    url = 'http://127.0.0.1:8058/user/deleteFriend'
     params['friendSeqid'] = 4
     return requests.post(url, headers = headers, params = params)
     
 @ ret_info
 def answer_friend():
-    url = 'http://127.0.0.1:8058/answerFriend'
+    url = 'http://127.0.0.1:8058/user/answerFriend'
     params['answer'] = True
     return requests.post(url, headers = headers, params = params)
    
 @ ret_info
 def get_friend():
-    url = 'http://127.0.0.1:8058/getFriends'
+    url = 'http://127.0.0.1:8058/user/getFriends'
     return requests.get(url, headers)
 
 

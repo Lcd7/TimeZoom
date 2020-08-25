@@ -44,7 +44,7 @@ def get_user(func):
 class TableUser:
 
     @get_user
-    def get_user_by(self, seqid = '', phoneNumber = '', email = '', token = '', nickname = ''):
+    def get_user_by(self, seqid = None, phoneNumber = None, email = None, token = None, nickname = None):
         '''
         查询用户信息
         return: 用户对象

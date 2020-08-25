@@ -1,12 +1,14 @@
 from app.libs import DB
 from app.models.article import Article
 import datetime
+from functools import wraps
 from logger import log
 
-def get_art(func):
+def get_art_dict(func):
     '''
     返回 动态的字典数据
     '''
+    @wraps(func)
     def wrapper(*args, **kwargs):
         rows, err = func(*args, **kwargs)
         if not err and rows:
@@ -16,7 +18,9 @@ def get_art(func):
             artDict['isPublic'] = rows[0][2]
             artDict['likes'] = rows[0][3]
             artDict['relationUserId'] = rows[0][4]
-            artDict['commentNum'] = len(rows)
+            artDict['comments'] = rows[0][5]
+            artDict['doTime'] = rows[0][6]
+            artDict['headPic'] = rows[0][7]
             return artDict
         if not err and not rows:
             return '暂无动态'
@@ -24,10 +28,11 @@ def get_art(func):
         return None
     return wrapper
 
-def get_art_dict(func):
+def get_arts_dict(func):
     '''
     返回 动态的字典数据
     '''
+    @wraps(func)
     def wrapper(*args, **kwargs):
         artDict = {}
         rows, err = func(*args, **kwargs)
@@ -39,6 +44,9 @@ def get_art_dict(func):
                 _tmpDict['isPublic'] = row[2]
                 _tmpDict['likes'] = row[3]
                 _tmpDict['relationUserId'] = row[4]
+                _tmpDict['comments'] = row[5]
+                _tmpDict['doTime'] = row[6]
+                _tmpDict['headPic'] = row[7]
                 artDict[row[0]] = _tmpDict
             return artDict
         if not err and not rows:
@@ -51,6 +59,7 @@ def get_likes_list(func):
     '''
     返回 动态的seqid列表
     '''
+    @wraps(func)
     def wrapper(*args, **kwargs):
         likesList = []
         rows, err = func(*args, **kwargs)
@@ -59,10 +68,12 @@ def get_likes_list(func):
                 likesList.append(row[0])
             return likesList
         if not err and not rows:
-            return '暂无动态'
+            return None
         log.error(err)
         return None
     return wrapper
+
+strSqlItem = 'Article.seqid,Article.text,Article.isPublic,Article.likes,Article.relationUserId,Article.comments,Article.doTime,Img.headPic from Article full outer join Img on Article.seqid=Img.imgArticle'
 
 class TableArticle:
     
@@ -75,24 +86,24 @@ class TableArticle:
         return seqid
         '''
         doTime = str(datetime.datetime.strptime(str(datetime.datetime.now()), '%Y-%m-%d %H:%M:%S.%f'))[:-3]
-        strSql = 'insert into Article (text,isPublic,likes,relationUserId,doTime) values (?,?,?,?,?)'
-        ret, seqid = DB.ExecInsertGetLastId(strSql, text, isPublic, 0, userid, doTime)
+        strSql = f"insert into Article (text,isPublic,relationUserId,doTime) values ('{text}',{isPublic},{userid},'{doTime}')"
+        ret, seqid = DB.ExecInsertGetLastId(strSql)
         if ret:
             return seqid
         else:
             return ret
 
-    @get_art_dict
+    @get_arts_dict
     def get_all_art(self, artNum):
         '''
         获取所有用户所有动态
         artNum: 获取的动态数量
         return 多个动态字典
         '''
-        strSql = f'select TOP ({artNum}) * from Article where isPublic=1 order by doTime DESC'
+        strSql = f'select TOP ({artNum}) {strSqlItem} where Article.isPublic=1 order by Article.doTime DESC'
         return DB.ExecSqlQuery(strSql)
 
-    @get_art
+    @get_art_dict
     def get_user_one_art(self, artSeqid, isPublic = 1):
         '''
         获取单个动态
@@ -101,16 +112,15 @@ class TableArticle:
         return 单个动态字典
         '''
         if isPublic == 2:
-            strSql = 'select * from Article where seqid=?'
+            strSql = f'select {strSqlItem} where Article.seqid=?'
         elif isPublic == 1:
-            strSql = 'select * from Article where seqid=? and isPublic=1'
+            strSql = f'select {strSqlItem} where Article.seqid=? and Article.isPublic=1'
         elif isPublic == 0:
-            strSql = 'select * from Article where seqid=? and isPublic=0'
+            strSql = f'select {strSqlItem} where Article.seqid=? and Article.isPublic=0'
 
-        return DB.ExecSqlQuery(strSql, int(artSeqid))
+        return DB.ExecSqlQuery(strSql, artSeqid)
 
-
-    @get_art_dict
+    @get_arts_dict
     def get_user_all_arts(self, relationUserId, isPublic = 1):
         '''
         搜索某个用户所有动态
@@ -119,21 +129,39 @@ class TableArticle:
         return 多个动态字典
         '''
         if isPublic == 2:
-            strSql = 'select * from Article where relationUserId=? order by doTime DESC'
+            strSql = f'select {strSqlItem} where relationUserId=? order by Article.doTime DESC'
         elif isPublic == 1:
-            strSql = 'select * from Article where relationUserId=? and isPublic=1 order by doTime DESC'
+            strSql = f'select {strSqlItem} where relationUserId=? and Article.isPublic=1 order by Article.doTime DESC'
         elif isPublic == 0:
-            strSql = 'select * from Article where relationUserId=? and isPublic=0 order by doTime DESC'
+            strSql = f'select {strSqlItem} where relationUserId=? and Article.isPublic=0 order by Article.doTime DESC'
         return DB.ExecSqlQuery(strSql, int(relationUserId))
 
-    def set_public_art(self, artid, isPublic):
+    def update_article(self, artid, likes = None, isPublic = None, comments = None):
         '''
-        设置动态是否公开
+        更新动态数据
+        设置公开状态、 更新点赞数和评论数。
         artid: 动态id
-        isPublic: 动态状态
+        isPublic: 动态状态 true or false
+        likes: 点赞 1 or -1
+        comments: 评论 1 or -1
         '''
-        strSql = 'update Article set isPublic=? where seqid=?'
-        return DB.ExecSqlNoQuery(strSql, isPublic, int(artid))
+        if isPublic:
+            strSql = 'update Article set isPublic=? where seqid=?'
+            return DB.ExecSqlNoQuery(strSql, isPublic, artid)
+
+        elif likes:
+            resDict = self.get_user_one_art(artid, 2)
+            if isinstance(resDict, dict):
+                likes = resDict.get('likes') + int(likes)
+                strSql = 'update Article set likes=? where seqid=?'
+                return DB.ExecSqlNoQuery(strSql, likes, artid)
+
+        elif comments:
+            resDict = self.get_user_one_art(artid, 2)
+            if isinstance(resDict, dict):
+                comments = resDict.get('comments') + int(comments)
+                strSql = 'update Article set likcommentses=? where seqid=?'
+                return DB.ExecSqlNoQuery(strSql, comments, artid)
 
     def delete_art(self, seqid):
         '''
@@ -145,7 +173,7 @@ class TableArticle:
         return DB.ExecSqlNoQuery(strSql, int(seqid))
 
     @get_likes_list
-    def select_likes(self, seqid = '', artid = ''):
+    def select_likes(self, seqid = None, artid = None):
         '''
         查询点赞记录
         seqid:  用户seqid
@@ -175,15 +203,12 @@ class TableArticle:
         seqid:  用户seqid
         artid:  动态seqid
         '''
-        strSql1 = 'insert into RelationLikes (userid,artid) values (?,?)'
-        if DB.ExecSqlNoQuery(strSql1, seqid, int(artid)):
-            strSql2 = 'select likes from Article where seqid=?'
-            rows, err = DB.ExecSqlQuery(strSql2, int(artid))
-            if not err:
-                likeNum = int(rows[0][0]) + 1
-                strSql3 = 'update Article set likes=? where seqid=?'
-                return DB.ExecSqlNoQuery(strSql3, likeNum, int(artid))
-            return None
+        strSql = 'insert into RelationLikes (userid,artid) values (?,?)'
+        if DB.ExecSqlNoQuery(strSql, seqid, int(artid)):
+            if not self.update_article(artid, likes = 1):
+                return None
+            else:
+                return True
         return None
 
     def reset_like_art(self, seqid, artid):
@@ -192,13 +217,10 @@ class TableArticle:
         seqid:  用户seqid
         artid:  动态seqid
         '''
-        strSql = 'delete RelationLikes where seqid=? and artid=?'
+        strSql = 'delete RelationLikes where userid=? and artid=?'
         if DB.ExecSqlNoQuery(strSql, seqid, int(artid)):
-            strSql2 = 'select likes from Article where seqid=?'
-            rows, err = DB.ExecSqlQuery(strSql2, artid)
-            if not err:
-                likeNum = int(rows[0][0]) - 1
-                strSql3 = 'update Article set likes=? where seqid=?'
-                return DB.ExecSqlNoQuery(strSql3, likeNum, int(artid))
-            return None
+            if not self.update_article(artid, likes = -1):
+                return None
+            else:
+                return True
         return None

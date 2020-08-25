@@ -196,10 +196,10 @@ class GetFriends(Resource):
 
 
 
-api.add_resource(ChageInfo, '/chageInfo', endpoint = 'ChageInfo')
-api.add_resource(Logout, '/logout', endpoint = 'Logout')
-api.add_resource(ChangeAvatar, '/changeAvatar', endpoint = 'ChangeAvatar')
-api.add_resource(AddFriend, '/addFriend', endpoint = 'AddFriend')
-api.add_resource(DeleteFriend, '/deleteFriend', endpoint = 'DeleteFriend')
-api.add_resource(AnswerFriend, '/answerFriend', endpoint = 'AnsweeFriend')
-api.add_resource(GetFriends, '/getFriends', endpoint = 'GetFriends')
+api.add_resource(ChageInfo, '/user/chageInfo', endpoint = 'ChageInfo')
+api.add_resource(Logout, '/user/logout', endpoint = 'Logout')
+api.add_resource(ChangeAvatar, '/user/changeAvatar', endpoint = 'ChangeAvatar')
+api.add_resource(AddFriend, '/user/addFriend', endpoint = 'AddFriend')
+api.add_resource(DeleteFriend, '/user/deleteFriend', endpoint = 'DeleteFriend')
+api.add_resource(AnswerFriend, '/user/answerFriend', endpoint = 'AnsweeFriend')
+api.add_resource(GetFriends, '/user/getFriends', endpoint = 'GetFriends')

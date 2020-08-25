@@ -6,6 +6,7 @@ class Article:
     relationUserId: 评论 关联用户表的seqid
     isPublic: 是否公开，默认否
     likes: 点赞数
+    comments: 评论数
     doTime: 上传时间
     '''
     seqid = ''
@@ -14,4 +15,5 @@ class Article:
     likes = 0
     likesNum = 0
     relationUserId = -1
+    comments = ''
     doTime = ''
