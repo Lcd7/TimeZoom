@@ -51,6 +51,7 @@ def check_token(func):
         g.imgName = args.get('imgName')                   
         g.imgPath = args.get('imgPath')                   
         g.artText = args.get('artText')
+        g.friendSeqid = 0 if args.get('friendSeqid') in ('', None) else int(args.get('friendSeqid'))
         g.artSeqid = 0 if args.get('artSeqid') in ('', None) else int(args.get('artSeqid'))
         g.artUserId = 0 if args.get('artUserId') in ('', None) else int(args.get('artUserId'))
         g.isPublic = None if args.get('isPublic') in ('', None) else int(args.get('isPublic'))
@@ -104,3 +105,4 @@ import app.web.index
 import app.web.users
 import app.web.comments
 import app.web.articles
+import app.web.chat

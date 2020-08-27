@@ -14,6 +14,8 @@ class BaseConfig:
     AES_KEY = env_dist.get('AES_KEY')
     # AES 偏移向量  16
     IV = env_dist.get('IV')
+    # 修改保存之后自动更新加载
+    TEMPLATES_AUTO_RELOAD = True
 
 
 
