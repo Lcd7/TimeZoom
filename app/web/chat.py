@@ -3,7 +3,6 @@ from app.web import webIndex, check_token
 from flask import request, jsonify, g, current_app, render_template, abort
 from flask_restful import Api, Resource
 from logger import log
-# from app.libs.tableLetter
 
 user_dict = {}
 api = Api(webIndex)

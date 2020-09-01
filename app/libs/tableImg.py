@@ -1,11 +1,13 @@
 from app.libs import DB
 from app.models.img import Img
 from logger import log
+from functools import wraps
 
 def get_avatar_img(func):
     '''
     返回图片对象
     '''
+    @wraps(func)
     def wrapper(*args, **kwargs):
         img = Img()
         rows, err = func(*args, **kwargs)
@@ -27,6 +29,7 @@ def get_avatar_img(func):
     return wrapper
 
 def get_all_img(func):
+    @wraps(func)
     def wrapper(*args, **kwargs):
         imgDict = {}
         rows, err = func(*args, **kwargs)

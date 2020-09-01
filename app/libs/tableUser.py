@@ -2,11 +2,13 @@ from app.libs import DB
 from app.models.user import User
 import datetime
 from logger import log
+from functools import wraps
 
 def get_friend_list(func):
     '''
     返回用户seqid列表
     '''
+    @wraps(func)
     def wrapper(*args, **kwargs):
         friendsList = []
         rows, err = func(*args, **kwargs)
@@ -24,6 +26,7 @@ def get_user(func):
     '''
     返回单个用户对象
     '''
+    @wraps(func)
     def wrapper(*args, **kwargs):
         user = User()
         rows, err = func(*args, **kwargs)

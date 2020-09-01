@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify, g, current_app
 webIndex = Blueprint('webIndex', __name__)
 
 import time
+from functools import wraps
 from flask_restful import reqparse
 from app.libs import TableUser, TableArticle, TableComment, TableImg, TableLetter
 
@@ -65,6 +66,7 @@ def check_token(func):
     '''
     验证token装饰器
     '''
+    @wraps(func)
     def wrapper(*arg, **kwargs):
         token = request.headers.get('token')
         if not token:

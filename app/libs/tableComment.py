@@ -2,11 +2,13 @@ from app.libs import DB
 from app.models.tcomment import TComment
 from logger import log
 import datetime
+from functools import wraps
 
 def all_comments_body(func):
     '''
     返回多个评论的字典数据
     '''
+    @wraps(func)
     def wrapper(*args):
         bodyDict = {}
         rows, err = func(*args)
@@ -29,6 +31,7 @@ def comment_body(func):
     '''
     返回单个评论的字典数据
     '''
+    @wraps(func)
     def wrapper(*args):
         bodyDict = {}
         rows, err = func(*args)
