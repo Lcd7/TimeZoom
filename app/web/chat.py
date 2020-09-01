@@ -54,12 +54,115 @@ class Chat(Resource):
                     user_dict.pop(mySeqid)
                 log.error(e)
 
+class GetLetter(Resource):
+    '''
+    获取聊天记录
+    '''
+    @check_token
+    def get(self):
+        if g.friendSeqid:
+            letterDict = g.tableLetter.get_letter_by(g.user.seqid, g.friendSeqid)
+        else:
+            g.retMsg['msg'] = '没有好友id'
+            return jsonify(g.retMsg)
 
-api.add_resource(Chat, '/user/chat', endpoint = 'Chat')
+        g.retMsg['status'] = 1
+        g.retMSg['code'] = 200
+        g.retMsg['data'] = letterDict
+        return jsonify(g.retMsg)
 
-@webIndex.route('/webchat')
-def webchat():
-    return render_template('webChat.html')
+class GetUnreadLetter(Resource):
+    '''
+    获取未读聊天记录
+    '''
+    @check_token
+    def get(self):
+        if g.friendSeqid:
+            letterDict = g.tableLetter.get_letter_by(g.user.seqid, g.friendSeqid, status = 0)
+        else:
+            g.retMsg['msg'] = '没有好友id'
+            return jsonify(g.retMsg)
+
+        g.retMsg['status'] = 1
+        g.retMSg['code'] = 200
+        g.retMsg['data'] = letterDict
+        return jsonify(g.retMsg)
+
+class DeleteUserLetter(Resource):
+    '''
+    删除用户聊天记录
+    '''
+    @check_token
+    def post(self):
+        if g.friendSeqid:
+            _tmpRes = g.tableLetter.delete_letter(userid = g.user.seqid, friendid = g.friendSeqid)
+            if not _tmpRes:
+                g.retMsg['msg'] = '删除失败'
+        else:
+            g.retMsg['msg'] = '没有好友id'
+            return jsonify(g.retMsg)
+
+        g.retMsg['status'] = 1
+        g.retMSg['code'] = 200
+        return jsonify(g.retMsg)
+    
+class DeleteOneLetter(Resource):
+    '''
+    删除一条聊天记录
+    '''
+    @check_token
+    def post(self):
+        letterid = int(request.args.get('letterid'))
+        if letterid:
+            _tmpRes = g.tableLetter.delete_letter(seqid = letterid)
+            if not _tmpRes:
+                g.retMsg['msg'] = '删除失败'
+        else:
+            g.retMsg['msg'] = '记录不存在'
+
+        g.retMsg['status'] = 1
+        g.retMSg['code'] = 200
+        return jsonify(g.retMsg)
+
+class Withdrawn(Resource):
+    '''
+    撤回消息
+    '''
+    @check_token
+    def post(self):
+        sendTime = request.args.get('sendTime')
+        _tmpRes = g.tableLetter.withdrawn_letter(g.user.seqid, g.friendSeqid, sendTime)
+        if not _tmpRes:
+            g.retMsg['msg'] = '撤回失败'
+
+        g.retMsg['status'] = 1
+        g.retMSg['code'] = 200
+        return jsonify(g.retMsg)
+
+class SaveLetter(Resource):
+    '''
+    保存聊天记录
+    '''
+    @check_token
+    def post(self):
+        text = request.args.get('text')
+        status = int(request.args.get('status'))
+        _tmpRes = g.tableLetter.save_letter(g.user.seqid, g.friendSeqid, text, status)
+        if not _tmpRes:
+            g.retMsg['msg'] = '保存失败'
+
+        g.retMsg['status'] = 1
+        g.retMSg['code'] = 200
+        return jsonify(g.retMsg)
+
+api.add_resource(Chat, '/letter', endpoint = 'Chat')
+api.add_resource(GetLetter, '/letter/get', endpoint = 'GetLetter')
+api.add_resource(GetUnreadLetter, '/letter/unread/get', endpoint = 'GetUnreadLetter')
+api.add_resource(DeleteUserLetter, '/letter/deleteall', endpoint = 'DeleteUserLetter')
+api.add_resource(DeleteOneLetter, '/letter/deleteone', endpoint = 'DeleteOneLetter')
+api.add_resource(Withdrawn, '/letter/withdrawn', endpoint = 'Withdrawn')
+api.add_resource(SaveLetter, '/letter/save', endpoint = 'SaveLetter')
+
 
 if __name__ == '__main__':
     pass

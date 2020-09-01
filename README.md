@@ -48,9 +48,9 @@ TimeZoom 接口文档
 4. 私信表
 	* 获取未读信息      /letter/unread/get         
     * 获取聊天信息      /letter/get  
-    * 删除用户聊天记录  /letter/delete?userid=
-    * 删除一条聊天记录  /letter/delete?leteetid=
-    * 撤回一条聊天信息  /letter/delete?sendTime=X&userid=X&friendid=X
+    * 删除用户聊天记录  /letter/deleteall?userid=
+    * 删除一条聊天记录  /letter/deleteone?leteetid=
+    * 撤回一条聊天信息  /letter/withdrawn?sendTime=X&userid=X&friendid=X
     * 保存聊天记录      /letter/save
 
 

@@ -19,7 +19,7 @@ def all_comments_body(func):
                 _tmpDict['relationArticlesId'] = row[3]
                 _tmpDict['relationComment'] = row[4]
                 _tmpDict['doTime'] = row[5]
-                bodyDict['row[0]'] = _tmpDict
+                bodyDict[row[0]] = _tmpDict
             return bodyDict
         log.error(err)
         return None

@@ -3,7 +3,7 @@ webIndex = Blueprint('webIndex', __name__)
 
 import time
 from flask_restful import reqparse
-from app.libs import TableUser, TableArticle, TableComment, TableImg
+from app.libs import TableUser, TableArticle, TableComment, TableImg, TableLetter
 
 parser = reqparse.RequestParser()
 parser.add_argument('phoneNumber', type = str)      # 用户账号 （电话）
@@ -21,6 +21,7 @@ parser.add_argument('artText', type = str)          # 动态内容
 parser.add_argument('artSeqid', type = str)         # 动态id
 parser.add_argument('artUserId', type = str)        # 动态所属用户id
 parser.add_argument('isPublic', type = str)         # 是否公开 0 1
+parser.add_argument('friendSeqid', type = str)      # 好友id
 
 
 import jwt
@@ -108,6 +109,7 @@ def get_base_info():
     g.tableComment = TableComment()
     g.tableImg = TableImg()
     g.tableUser = TableUser()
+    g.tableLetter = TableLetter()
     g.retMsg = {
         'status': 0,
         'code': 404,
