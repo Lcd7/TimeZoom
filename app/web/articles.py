@@ -26,10 +26,10 @@ class GetUpdateArticle(Resource):
         if g.artUserId and not g.artSeqid:            
             _tmpRes = g.tableArticle.get_user_all_arts(g.artUserId, g.isPublic)
             if _tmpRes:
-                g.retMsg['code'] = 1
+                g.retMsg['status'] = 1
                 g.retMsg['data'] = _tmpRes
             elif isinstance(_tmpRes, str):
-                g.retMsg['code'] = 1
+                g.retMsg['status'] = 1
                 g.retMsg['msg'] = '暂无动态'
             else:
                 g.retMsg['msg'] = '动态获取失败'
@@ -40,7 +40,7 @@ class GetUpdateArticle(Resource):
                 g.isPublic = 2
             _tmpRes = g.tableArticle.get_user_one_art(g.artSeqid, g.isPublic)
             if _tmpRes:
-                g.retMsg['code'] = 1
+                g.retMsg['status'] = 1
                 g.retMsg['msg'] = _tmpRes
                 # 获取评论数
             else:
@@ -79,7 +79,7 @@ class GetUpdateArticle(Resource):
             elif not _tmpArtId:
                 g.retMsg['msg'] = '动态上传失败'
             
-            g.retMsg['code'] = 1
+            g.retMsg['status'] = 1
             g.retMsg['msg'] = '动态上传成功'
         else:
             g.retMsg['msg'] = '动态上传失败'
@@ -112,15 +112,19 @@ class GetLikes(Resource):
         if not g.tableArticle.select_likes(g.user.seqid, g.artSeqid):
             _tmpResLike = g.tableArticle.like_art(g.user.seqid, g.artSeqid)
             if _tmpResLike:
-                g.retMsg['code'] = 1
+                g.retMsg['status'] = 1
+                g.retMsg['code'] = 200
             else:
+                
                 g.retMsg['msg'] = '点赞失败'
         else:
             # 取消点赞
             _tmpResResetLike = g.tableArticle.reset_like_art(g.user.seqid, g.artSeqid)
             if _tmpResResetLike:
-                g.retMsg['code'] = 1
+                g.retMsg['status'] = 1
+                g.retMsg['code'] = 200
             else:
+                
                 g.retMsg['msg'] = '取消点赞失败'
 
         return jsonify(g.retMsg)
@@ -135,8 +139,10 @@ class SetPublicArt(Resource):
     def post(self):
         _tmpResSet = g.tableArticle.update_article(g.artSeqid, isPublic = g.isPublic)
         if _tmpResSet:
-            g.retMsg['code'] = 1
+            g.retMsg['status'] = 1
+            g.retMsg['code'] = 200
         else:
+            
             g.retMsg['msg'] = '动态状态设置失败'
 
         return jsonify(g.retMsg)
@@ -153,12 +159,15 @@ class GetAllArt(Resource):
         if artNum:
             _tmpRes = g.tableArticle.get_all_art(artNum)
             if _tmpRes:
-                g.retMsg['code'] = 1
+                g.retMsg['status'] = 1
+                g.retMsg['code'] = 200
                 g.retMsg['data'] = _tmpRes
             elif isinstance(_tmpRes, str):
-                g.retMsg['code'] = 1
+                g.retMsg['status'] = 1
+                g.retMsg['code'] = 200
                 g.retMsg['msg'] = '暂无动态'
             else:
+                
                 g.retMsg['msg'] = '动态获取失败'
             
         return jsonify(g.retMsg)

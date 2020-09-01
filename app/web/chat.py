@@ -50,7 +50,8 @@ class Chat(Resource):
                 except:
                     user_dict.pop(to_user)
             except Exception as e:
-                user_dict.pop(mySeqid)
+                if mySeqid in user_dict:
+                    user_dict.pop(mySeqid)
                 log.error(e)
 
 
@@ -58,7 +59,7 @@ api.add_resource(Chat, '/user/chat', endpoint = 'Chat')
 
 @webIndex.route('/webchat')
 def webchat():
-    return render_template('web_chat.html')
+    return render_template('webChat.html')
 
 if __name__ == '__main__':
     pass

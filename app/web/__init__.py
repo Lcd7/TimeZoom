@@ -22,19 +22,61 @@ parser.add_argument('artSeqid', type = str)         # 动态id
 parser.add_argument('artUserId', type = str)        # 动态所属用户id
 parser.add_argument('isPublic', type = str)         # 是否公开 0 1
 
+
+import jwt
+from jwt import exceptions
+def create_token(payload):
+    '''
+    创建token
+    '''
+    headers = {
+        "alg": "HS256",
+        "typ": "JWT"
+    }
+    exp = int(time.time() + 86400)
+    payload['exp'] = exp
+    token = jwt.encode(
+        payload = payload,
+        key = current_app.config['IV'],
+        algorithm = "HS256",
+        headers = headers
+        ).decode('utf-8')
+    return token
+
+def validate_token(token):
+    '''
+    校验token
+    '''
+    payload = None
+    msg = None
+    try:
+        payload = jwt.decode(token, current_app.config['IV'], True, algorithm = 'HS256')
+
+    except exceptions.ExpiredSignatureError:
+        msg = 'token已失效'
+    except jwt.DecodeError:
+        msg = 'token认证失败'
+    except jwt.InvalidTokenError:
+        msg = '非法的token'
+    return payload, msg
+
 def check_token(func):
     '''
     验证token装饰器
     '''
     def wrapper(*arg, **kwargs):
-        # token = request.headers.get('token')
-        if not g.token:
-            g.retMsg['msg'] = '请登录'
+        token = request.headers.get('token')
+        if not token:
+            g.retMsg = '请登录'
             return jsonify(g.retMsg)
 
-        user = g.tableUser.get_user_by(token = g.token)
+        payload, msg = validate_token(token)
+        if msg:
+            g.retMsg = msg
+        nickname = int(payload['nickname'])
+        user = g.tableUser.get_user_by(nickname = nickname)
         if not user:
-            g.retMsg['msg'] = '验证信息错误'
+            g.retMsg = '用户不存在'
             return jsonify(g.retMsg)
 
         args = parser.parse_args()
@@ -56,7 +98,6 @@ def check_token(func):
         g.artUserId = 0 if args.get('artUserId') in ('', None) else int(args.get('artUserId'))
         g.isPublic = None if args.get('isPublic') in ('', None) else int(args.get('isPublic'))
         
-
         return func(*arg, **kwargs)
     return wrapper
 
@@ -67,39 +108,13 @@ def get_base_info():
     g.tableComment = TableComment()
     g.tableImg = TableImg()
     g.tableUser = TableUser()
-    token = request.headers.get('token')
     g.retMsg = {
-        'code': 0,
+        'status': 0,
+        'code': 404,
         'msg': '',
         'data': {}
     }
-    if token:
-        tableUser = TableUser()
-        user = tableUser.get_user_by(token = token)
-        if user:
-            if int(user.timenow) > (int(time.time()) - (3600 * 24)):
-                g.user = user
-                g.token = token
-            else:
-                g.retMsg['msg'] = '请重新登录'
-                return jsonify(g.retMsg)
-        else:
-            g.retMsg['msg'] = '请重新登录'
-            return jsonify(g.retMsg)
-    else:
-        g.token = None
-        g.user = None
-    # return {}
 
-# @webIndex.after_request
-# def clear_g.retMsg(response):
-#     global g.retMsg
-#     g.retMsg = {
-#         'code': 0,
-#         'msg': '',
-#         'data': {}
-#     }
-#     return response
 
 import app.web.index
 import app.web.users

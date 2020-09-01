@@ -6,6 +6,7 @@ class BaseConfig:
     """
     配置基类，公用配置写在这里
     """
+    # SECRET_KEY = '123456789100aancdefghijkl'
     # MODELS字典，存放模型名称：模型
     MODELS = {'User': User}
     # json 返回中文

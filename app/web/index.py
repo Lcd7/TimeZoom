@@ -3,7 +3,7 @@ from flask_restful import Api, Resource
 from app.web import webIndex, parser
 from app.libs import TableUser, Validator
 from app.utils import getHash, aesEncrypt, valiImg
-from app.web import check_token
+from app.web import check_token, create_token
 from Crypto.Cipher import AES
 import time
 
@@ -47,7 +47,7 @@ class HelloWorld(Resource):
         img_text, image_base64 = valiImg.Captcha.gene_graph_captcha()
         g.retMsg['img_text'] = img_text
         g.retMsg['img_base64'] = image_base64
-        g.retMsg['code'] = 1
+        g.retMsg['status'] = 1
         return jsonify(g.retMsg)
 
     def post(self):
@@ -80,18 +80,18 @@ class Login(Resource):
             g.retMsg['msg'] = '密码错误'
             return jsonify(g.retMsg)
 
-        token = getHash.get_md5(g.phoneNumber, g.password, g.timenow)
-        # 将token保存到数据库
-        _tmpTokenDict = {'token': token, 'timenow': g.timenow}
-        _tmpRes = g.tableUser.update_user(user.seqid, _tmpTokenDict)
-        if _tmpRes:
-            g.retMsg['code'] = 1
-            g.retMsg['msg'] = '成功登录'
-            g.retMsg['nickname'] = user.nickname
-            g.retMsg['token'] = token
-        else:
-            g.retMsg['msg'] = '数据库错误'
-        return jsonify(g.retMsg)
+        payload = {
+            'nickname': user.nickname,
+        }
+        token = create_token(payload)
+
+        g.retMsg['status'] = 1
+        g.retMsg['code'] = 200
+        g.retMsg['msg'] = '成功登录'        
+        g.retMsg['data']['token'] = token
+        
+        return jsonify()
+
 
 class Register(Resource):
     '''
@@ -135,7 +135,7 @@ class Register(Resource):
             g.retMsg['msg'] = '数据库错误'
             return jsonify(g.retMsg)
         
-        g.retMsg['code'] = 1
+        g.retMsg['status'] = 1
         return jsonify(g.retMsg)
 
 

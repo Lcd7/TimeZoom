@@ -136,3 +136,103 @@ Traceback (most recent call last):
   File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\json\__init__.py", line 341, in loads
     raise TypeError(f'the JSON object must be str, bytes or bytearray, '
 TypeError: the JSON object must be str, bytes or bytearray, not NoneType
+[2020-08-28 09:48:00,434]:[chat.py]:[line:54]:ERROR: the JSON object must be str, bytes or bytearray, not NoneType
+[2020-08-28 09:48:00,442]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
+Traceback (most recent call last):
+  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 30, in get
+    msg = user_socket.receive()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\geventwebsocket\websocket.py", line 298, in receive
+    raise WebSocketError(MSG_ALREADY_CLOSED)
+geventwebsocket.exceptions.WebSocketError: Connection is already closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 53, in get
+    user_dict.pop(mySeqid)
+KeyError: '1'
+[2020-08-28 09:52:28,240]:[chat.py]:[line:55]:ERROR: the JSON object must be str, bytes or bytearray, not NoneType
+[2020-08-28 09:52:28,244]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
+Traceback (most recent call last):
+  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 30, in get
+    msg = user_socket.receive()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\geventwebsocket\websocket.py", line 298, in receive
+    raise WebSocketError(MSG_ALREADY_CLOSED)
+geventwebsocket.exceptions.WebSocketError: Connection is already closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 54, in get
+    user_dict.pop(mySeqid)
+KeyError: '2'
+[2020-08-28 09:53:05,953]:[chat.py]:[line:55]:ERROR: the JSON object must be str, bytes or bytearray, not NoneType
+[2020-08-28 09:53:27,744]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
+Traceback (most recent call last):
+  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 30, in get
+    msg = user_socket.receive()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\geventwebsocket\websocket.py", line 298, in receive
+    raise WebSocketError(MSG_ALREADY_CLOSED)
+geventwebsocket.exceptions.WebSocketError: Connection is already closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 54, in get
+    user_dict.pop(mySeqid)
+KeyError: '1'
+[2020-08-28 09:55:16,222]:[chat.py]:[line:55]:ERROR: the JSON object must be str, bytes or bytearray, not NoneType
+[2020-08-28 09:55:16,224]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
+Traceback (most recent call last):
+  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 30, in get
+    msg = user_socket.receive()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\geventwebsocket\websocket.py", line 298, in receive
+    raise WebSocketError(MSG_ALREADY_CLOSED)
+geventwebsocket.exceptions.WebSocketError: Connection is already closed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 54, in get
+    user_dict.pop(mySeqid)
+KeyError: '2'

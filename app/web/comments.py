@@ -30,10 +30,13 @@ class AddComment(Resource):
             _tmpRes = g.tableComment.add_comment(commentText, isPublic, relationArtId)
 
         if _tmpRes:
-            g.retMsg['code'] = 1
+            g.retMsg['status'] = 1
+            g.retMsg['code'] = 200
             if not g.tableArticle.update_article(relationArtId, comments = 1):
+                
                 g.retMsg['msg'] = '动态表评论数修改失败'  
         else:
+            g.retMsg['code'] = 403
             g.retMsg['msg'] = '评论提交失败'
 
         return jsonify(g.retMsg)
@@ -51,11 +54,14 @@ class DeleteComment(Resource):
         relationArtId = request.args.get('articlesId')
         _tmpRes = g.tableComment.delete_comment(seqid)
         if _tmpRes:
-            g.retMsg['code'] = 1
+            g.retMsg['status'] = 1
+            g.retMsg['code'] = 200
             if not g.tableArticle.update_article(relationArtId, comments = -1):
+                g.retMsg['code'] = 403
                 g.retMsg['msg'] = '动态表评论数修改失败'  
 
         else:
+            g.retMsg['code'] = 403
             g.retMsg['msg'] = '评论删除失败'
         return jsonify(g.retMsg)
 
@@ -71,17 +77,21 @@ class GetComment(Resource):
         if seqid:
             _tmpDict = g.tableComment.get_comment(seqid)
             if _tmpDict:
-                g.retMsg['code'] = 1
+                g.retMsg['status'] = 1
+                g.retMsg['code'] = 200
                 g.retMsg['data'] = _tmpDict
             else:
+                g.retMsg['code'] = 403
                 g.retMsg['msg'] = '评论获取失败'
 
         elif relationArtId:
             _tmpDict = g.tableComment.get_all_comments(relationArtId)
             if _tmpDict:
-                g.retMsg['code'] = 1
+                g.retMsg['status'] = 1
+                g.retMsg['code'] = 200
                 g.retMsg['data'] = _tmpDict
             else:
+                g.retMsg['code'] = 403
                 g.retMsg['msg'] = '评论获取失败'
         
         return jsonify(g.retMsg)

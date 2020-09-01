@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
 <body>
 
+<center>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
@@ -34,14 +34,15 @@
         </div>
     </div>
 </div>
-
+</center>
 
 <script type="application/javascript">
-    var ws_url = "ws://127.0.0.1:8058/ws/";
+    var ws_url = "ws://127.0.0.1:8058/user/chat?mySeqid=";
     var ws = null;
     function go_to() {
         var username = document.getElementById('username');
         ws = new WebSocket(ws_url + username.value);
+        alert(ws)
         ws.onmessage = function (serv_msg) {
             msg = JSON.parse(serv_msg.data);
             //console.log(serv_msg.data);
@@ -59,8 +60,7 @@
         } else {
             self = "left";
             var spantag = document.createElement("span");
-            spantag.innerText = content.send_user + ':';
-
+            spantag.innerText = content.from_user + ':';
             var spantag1 = document.createElement("span");
             spantag1.innerText = content.send_msg;
 

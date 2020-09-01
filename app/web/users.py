@@ -46,12 +46,14 @@ class ChageInfo(Resource):
                     g.retMsg['msg'] = '密码修改失败'
                     return jsonify(g.retMsg)
             else:
+                g.retMsg['code'] = 400
                 g.retMsg['msg'] = '原密码错误'
                 return jsonify(g.retMsg)
 
         # 修改昵称
         if g.nickname:
             if g.tableUser.get_user_by('nickname'):
+                g.retMsg['code'] = 400
                 g.retMsg['msg'] = '该昵称已存在'
                 return jsonify(g.retMsg)
             else:
@@ -67,7 +69,8 @@ class ChageInfo(Resource):
                 g.retMsg['msg'] = '性别修改失败'
                 return jsonify(g.retMsg)
 
-        g.retMsg['code'] = 1 
+        g.retMsg['status'] = 1 
+        g.retMsg['code'] = 200
         g.retMsg['msg'] = '修改成功'
         return jsonify(g.retMsg)
  
@@ -81,7 +84,8 @@ class Logout(Resource):
         _tmpUpdateDict = {'token': ''}
         _ret = g.tableUser.update_user(g.user.seqid, _tmpUpdateDict)
         if _ret:
-            g.retMsg['code'] = 1
+            g.retMsg['status'] = 1
+            g.retMsg['code'] = 200
             g.retMsg['msg'] = '成功注销'
         else:
             g.retMsg['msg'] = '数据库错误'
@@ -110,7 +114,8 @@ class ChangeAvatar(Resource):
                 if not _tmpRes:
                     g.retMsg['msg'] = '头像上传失败'
                 else:
-                    g.retMsg['code'] = 1
+                    g.retMsg['status'] = 1
+                    g.retMsg['code'] = 200
         else:
             g.retMsg['msg'] = '头像上传失败：没有文件名'
 
@@ -135,11 +140,13 @@ class AddFriend(Resource):
                     return jsonify(g.retMsg)
             else:
                 g.retMsg['msg'] = '好友超过上限'
+                g.retMsg['code'] = 405
                 return jsonify(g.retMsg)
         else:
             g.retMsg['msg'] = f"无效id：'{friendId}'"
 
-        g.retMsg['code'] = 1
+        g.retMsg['status'] = 1
+        g.retMsg['code'] = 200
         return jsonify(g.retMsg)
     
 class DeleteFriend(Resource):
@@ -153,7 +160,8 @@ class DeleteFriend(Resource):
         if g.tableUser.get_friend(g.user.seqid, friendId):
             _tmpRes = g.tableUser.delete_friend(g.user.seqid, friendId)
             if _tmpRes:
-                g.retMsg['code'] = 1
+                g.retMsg['status'] = 1
+                g.retMsg['code'] = 200
             else:
                 g.retMsg['msg'] = '删除好友失败'
 
@@ -171,7 +179,8 @@ class AnswerFriend(Resource):
         answer = bool(request.args.get('answer'))
         _tmpRes = g.tableUser.answer_friend(g.user.seqid, friendId, answer)
         if _tmpRes:
-            g.retMsg['code'] = 1
+            g.retMsg['status'] = 1
+            g.retMsg['code'] = 200
         else:
             g.retMsg['msg'] = '请求失败'
                 
@@ -191,7 +200,8 @@ class GetFriends(Resource):
         else:
             _tmpRes = [str(x) for x in _tmpRes]
             g.retMsg['data'] = ','.join(_tmpRes)
-            g.retMsg['code'] = 1
+            g.retMsg['status'] = 1
+            g.retMsg['code'] = 200
         return jsonify(g.retMsg)
 
 
