@@ -12,19 +12,19 @@ class GetUpdateArticle(Resource):
     def get(self):
         '''
         获取动态
-        params: artUserId   获取用户所有动态
+        params: artUserid   获取用户所有动态
         params: artSeqid    获取单个动态
         params: *isPublic    是否公开
         '''
         if not g.isPublic:
-            if g.user.seqid != g.artUserId:
+            if g.user.seqid != g.artUserid:
                 g.isPublic = 1
             else:
                 g.isPublic = 2
 
         # 获取
-        if g.artUserId and not g.artSeqid:            
-            _tmpRes = g.tableArticle.get_user_all_arts(g.artUserId, g.isPublic)
+        if g.artUserid and not g.artSeqid:            
+            _tmpRes = g.tableArticle.get_user_all_arts(g.artUserid, g.isPublic)
             if _tmpRes:
                 g.retMsg['status'] = 1
                 g.retMsg['data'] = _tmpRes

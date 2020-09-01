@@ -19,32 +19,39 @@ TimeZoom 接口文档
 ================
 根据操作不同的数据表来分类接口
 1. 用户表
-	* 注册				Register				o
-	* 登录				Login					o
-    * 获取用户信息      getInfo        			o
-    * 修改用户信息      changeInfo      		o
-    * 更换头像          ChangeAvatar      		o
-    * 登出              Logout           		o
-    * 添加好友          AddFriend       		o
-    * 删除好友          DeleteFriend    		o
-    * 回应好友请求      AnswerFriend      		o
-	* 获取好友列表		GetFriends				o
+	* 注册				/index/register				o
+	* 登录				/user/login					o
+    * 获取用户信息      /user/getInfo        		o
+    * 修改用户信息      /user/changeInfo      		o
+    * 更换头像          /user/changeAvatar      	o
+    * 登出              /user/logout           		o
+    * 添加好友          /user/addFriend       		o
+    * 删除好友          /user/deleteFriend    		o
+    * 回应好友请求      /user/answerFriend      	o
+	* 获取好友列表		/user/getFriends			o
 	
 2. 动态表
-	* 获取用户所有动态	GetUpdateArticle/get	o
-	* 获取单个动态		GetUpdateArticle/get	o
-	* 发布动态			GetUpdateArticle/post	o
-	* 删除动态			DeleteArticle			o
-	* 点赞动态			GetLikes				o
-	* 设置动态是否公开  SetPublicArt			o
+	* 获取用户所有动态	/article/get?artUserid=	    o
+	* 获取单个动态		/article/get?artSeqid=      o
+	* 发布动态			/article/post	            o
+	* 删除动态			/article/delete			    o
+	* 点赞动态			/article/like			    o
+	* 设置动态是否公开  /article/set			    o
 	
 3. 评论表
-	* 提交/回复评论		ActComment/post			o
-	* 删除评论			ActComment/get			o
-	* 获取动态所有评论	GetComment				o
-	* 获取单个评论		GetComment				o 
+	* 提交评论		    /comment/add			    o
+    * 回复评论          /comment/update             o
+	* 删除评论			/comment/delete		    	o
+	* 获取动态所有评论	/comment/get?relationArtId= o
+	* 获取单个评论		/comment/get?commentSeqid=	o 
     
-
+4. 私信表
+	* 获取未读信息      /letter/unread/get         
+    * 获取聊天信息      /letter/get  
+    * 删除用户聊天记录  /letter/delete?userid=
+    * 删除一条聊天记录  /letter/delete?leteetid=
+    * 撤回一条聊天信息  /letter/delete?sendTime=X&userid=X&friendid=X
+    * 保存聊天记录      /letter/save
 
 
 TimeZoom 编码规范

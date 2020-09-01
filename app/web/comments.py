@@ -72,10 +72,10 @@ class GetComment(Resource):
     params: articlesId  动态seqid
     '''
     def get(self):
-        seqid = request.args.get('commentSeqid')
+        commentSeqid = request.args.get('commentSeqid')
         relationArtId = request.args.get('articlesId')
-        if seqid:
-            _tmpDict = g.tableComment.get_comment(seqid)
+        if commentSeqid:
+            _tmpDict = g.tableComment.get_comment(commentSeqid)
             if _tmpDict:
                 g.retMsg['status'] = 1
                 g.retMsg['code'] = 200
