@@ -1,13 +1,12 @@
-[2020-08-27 15:43:03,805]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 15:43:03] "GET /webchat HTTP/1.1" 200 1832 0.091450
-[2020-08-27 15:43:04,274]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 15:43:04] "GET /favicon.ico HTTP/1.1" 404 341 0.002990
-[2020-08-27 15:45:20,792]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 15:45:20] "GET /webchat HTTP/1.1" 200 1832 0.015958
-[2020-08-27 15:45:36,176]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 15:45:36] "GET /webchat HTTP/1.1" 200 1832 1.934370
-[2020-08-27 15:47:14,851]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 15:47:14] "GET /webchat HTTP/1.1" 200 1831 0.014985
-[2020-08-27 16:09:12,117]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:09:12] "GET /webchat HTTP/1.1" 200 1832 0.016954
-[2020-08-27 16:09:14,218]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:09:14] "GET /webchat HTTP/1.1" 200 1832 0.000997
-[2020-08-27 16:13:15,640]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:13:15] "GET /webchat HTTP/1.1" 200 1844 0.023609
-[2020-08-27 16:13:16,902]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:13:16] "GET /webchat HTTP/1.1" 200 1844 0.001994
-[2020-08-27 16:13:25,766]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
+[2020-09-03 14:49:19,434]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 14:49:19] "GET /main?a=1 HTTP/1.1" 200 7139 0.463994
+[2020-09-03 14:49:19,757]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 14:49:19] "GET /favicon.ico HTTP/1.1" 404 341 0.001991
+[2020-09-03 15:05:03,934]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 15:05:03] "GET /main?a=1 HTTP/1.1" 200 7551 0.101727
+[2020-09-03 15:05:26,114]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 15:05:26] "POST /user/login HTTP/1.1" 200 110 0.089821
+[2020-09-03 15:06:45,017]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 15:06:45] "POST /user/login HTTP/1.1" 200 110 0.005980
+[2020-09-03 15:07:22,725]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 15:07:22] "POST /user/login HTTP/1.1" 200 322 0.008976
+[2020-09-03 15:08:14,564]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 15:08:14] "POST /user/login HTTP/1.1" 200 346 0.004987
+[2020-09-03 15:15:28,076]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 15:15:28] "POST /user/login HTTP/1.1" 200 346 7.951148
+[2020-09-03 15:23:03,434]:[app.py]:[line:1890]:ERROR: Exception on /article/post [POST]
 Traceback (most recent call last):
   File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
     rv = self.dispatch_request()
@@ -19,17 +18,37 @@ Traceback (most recent call last):
     return self.dispatch_request(*args, **kwargs)
   File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
     resp = meth(*args, **kwargs)
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 15, in get
-    username = g.friendSeqid
+  File "d:\Code\env\restful-token\restful-token\app\web\__init__.py", line 79, in wrapper
+    nickname = int(payload['nickname'])
+ValueError: invalid literal for int() with base 10: '被李子吃了吗'
+[2020-09-03 15:23:03,609]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 15:23:03] "POST /article/post HTTP/1.1" 500 164 43.125006
+[2020-09-03 15:26:19,282]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 15:26:19] "POST /article/post HTTP/1.1" 200 169 22.486805
+[2020-09-03 15:30:31,960]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 15:30:31] "POST /article/post HTTP/1.1" 200 169 3.736797
+[2020-09-03 15:35:56,352]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 15:35:56] "POST /article/post HTTP/1.1" 200 169 0.008974
+[2020-09-03 15:50:40,719]:[sqlserver.py]:[line:54]:ERROR: ('42S22', "[42S22] [Microsoft][SQL Server Native Client 11.0][SQL Server]列名 'likcommentses' 无效。 (207) (SQLExecDirectW); [42S22] [Microsoft][SQL Server Native Client 11.0][SQL Server]无法预定义语句。 (8180)")
+[2020-09-03 15:51:05,889]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 15:51:05] "POST /comment/add HTTP/1.1" 200 181 274.586961
+[2020-09-03 16:05:01,644]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:05:01] "POST /article/post HTTP/1.1" 200 169 0.148526
+[2020-09-03 16:05:52,451]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:05:52] "POST /comment/add HTTP/1.1" 200 151 2.958027
+[2020-09-03 16:08:13,554]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:08:13] "POST /comment/add HTTP/1.1" 200 151 0.009954
+[2020-09-03 16:15:34,298]:[app.py]:[line:1890]:ERROR: Exception on /comment/get [GET]
+Traceback (most recent call last):
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "d:\Code\env\restful-token\restful-token\app\web\comments.py", line 75, in get
+    relationArtId = g.artSeqid
   File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 348, in __getattr__
     return getattr(self._get_current_object(), name)
-AttributeError: '_AppCtxGlobals' object has no attribute 'friendSeqid'
-[2020-08-27 16:14:29,271]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:14:29] "GET /webchat HTTP/1.1" 200 1844 0.015986
-[2020-08-27 16:14:30,719]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:14:30] "GET /webchat HTTP/1.1" 200 1844 0.001993
-[2020-08-27 16:44:51,477]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:44:51] "GET /webchat HTTP/1.1" 200 1840 0.073686
-[2020-08-27 16:44:53,173]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:44:53] "GET /favicon.ico HTTP/1.1" 404 341 0.002008
-[2020-08-27 16:45:18,038]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:45:18] "GET /webchat HTTP/1.1" 200 1840 0.030794
-[2020-08-27 16:47:52,124]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
+AttributeError: '_AppCtxGlobals' object has no attribute 'artSeqid'
+[2020-09-03 16:15:34,343]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:15:34] "GET /comment/get?commentSeqid&artSeqid=1006 HTTP/1.1" 500 164 0.049835
+[2020-09-03 16:16:13,702]:[app.py]:[line:1890]:ERROR: Exception on /comment/get [GET]
 Traceback (most recent call last):
   File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
     rv = self.dispatch_request()
@@ -41,198 +60,21 @@ Traceback (most recent call last):
     return self.dispatch_request(*args, **kwargs)
   File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
     resp = meth(*args, **kwargs)
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 24, in get
-    msg_dict = json.loads(msg)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\json\__init__.py", line 341, in loads
-    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
-TypeError: the JSON object must be str, bytes or bytearray, not NoneType
-[2020-08-27 16:49:41,960]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
-Traceback (most recent call last):
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 24, in get
-    msg_dict = json.loads(msg)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\json\__init__.py", line 341, in loads
-    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
-TypeError: the JSON object must be str, bytes or bytearray, not NoneType
-[2020-08-27 16:51:05,413]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:51:05] "GET /main HTTP/1.1" 200 7086 9.976118
-[2020-08-27 16:51:06,015]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:51:06] "GET /favicon.ico HTTP/1.1" 404 341 0.002991
-[2020-08-27 16:51:18,134]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:51:18] "GET /main HTTP/1.1" 200 7650 0.046267
-[2020-08-27 16:52:46,689]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:52:46] "GET /webchat HTTP/1.1" 200 1840 0.001997
-[2020-08-27 16:53:07,229]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-08-27 16:53:07] "GET /webchat HTTP/1.1" 200 1840 0.001994
-[2020-08-27 16:58:56,964]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
-Traceback (most recent call last):
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 24, in get
-    msg_dict = json.loads(msg)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\json\__init__.py", line 341, in loads
-    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
-TypeError: the JSON object must be str, bytes or bytearray, not NoneType
-[2020-08-27 16:59:15,168]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
-Traceback (most recent call last):
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 24, in get
-    msg_dict = json.loads(msg)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\json\__init__.py", line 341, in loads
-    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
-TypeError: the JSON object must be str, bytes or bytearray, not NoneType
-[2020-08-27 16:59:15,176]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
-Traceback (most recent call last):
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 24, in get
-    msg_dict = json.loads(msg)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\json\__init__.py", line 341, in loads
-    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
-TypeError: the JSON object must be str, bytes or bytearray, not NoneType
-[2020-08-27 16:59:36,684]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
-Traceback (most recent call last):
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 24, in get
-    msg_dict = json.loads(msg)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\json\__init__.py", line 341, in loads
-    raise TypeError(f'the JSON object must be str, bytes or bytearray, '
-TypeError: the JSON object must be str, bytes or bytearray, not NoneType
-[2020-08-28 09:48:00,434]:[chat.py]:[line:54]:ERROR: the JSON object must be str, bytes or bytearray, not NoneType
-[2020-08-28 09:48:00,442]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
-Traceback (most recent call last):
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 30, in get
-    msg = user_socket.receive()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\geventwebsocket\websocket.py", line 298, in receive
-    raise WebSocketError(MSG_ALREADY_CLOSED)
-geventwebsocket.exceptions.WebSocketError: Connection is already closed
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 53, in get
-    user_dict.pop(mySeqid)
-KeyError: '1'
-[2020-08-28 09:52:28,240]:[chat.py]:[line:55]:ERROR: the JSON object must be str, bytes or bytearray, not NoneType
-[2020-08-28 09:52:28,244]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
-Traceback (most recent call last):
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 30, in get
-    msg = user_socket.receive()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\geventwebsocket\websocket.py", line 298, in receive
-    raise WebSocketError(MSG_ALREADY_CLOSED)
-geventwebsocket.exceptions.WebSocketError: Connection is already closed
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 54, in get
-    user_dict.pop(mySeqid)
-KeyError: '2'
-[2020-08-28 09:53:05,953]:[chat.py]:[line:55]:ERROR: the JSON object must be str, bytes or bytearray, not NoneType
-[2020-08-28 09:53:27,744]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
-Traceback (most recent call last):
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 30, in get
-    msg = user_socket.receive()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\geventwebsocket\websocket.py", line 298, in receive
-    raise WebSocketError(MSG_ALREADY_CLOSED)
-geventwebsocket.exceptions.WebSocketError: Connection is already closed
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 54, in get
-    user_dict.pop(mySeqid)
-KeyError: '1'
-[2020-08-28 09:55:16,222]:[chat.py]:[line:55]:ERROR: the JSON object must be str, bytes or bytearray, not NoneType
-[2020-08-28 09:55:16,224]:[app.py]:[line:1890]:ERROR: Exception on /user/chat [GET]
-Traceback (most recent call last):
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 30, in get
-    msg = user_socket.receive()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\geventwebsocket\websocket.py", line 298, in receive
-    raise WebSocketError(MSG_ALREADY_CLOSED)
-geventwebsocket.exceptions.WebSocketError: Connection is already closed
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 458, in wrapper
-    resp = resource(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask\views.py", line 89, in view
-    return self.dispatch_request(*args, **kwargs)
-  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\flask_restful\__init__.py", line 573, in dispatch_request
-    resp = meth(*args, **kwargs)
-  File "d:\Code\env\restful-token\restful-token\app\web\chat.py", line 54, in get
-    user_dict.pop(mySeqid)
-KeyError: '2'
+  File "d:\Code\env\restful-token\restful-token\app\web\comments.py", line 75, in get
+    relationArtId = g.artSeqid
+  File "C:\Users\user\AppData\Local\Programs\Python\Python38\lib\site-packages\werkzeug\local.py", line 348, in __getattr__
+    return getattr(self._get_current_object(), name)
+AttributeError: '_AppCtxGlobals' object has no attribute 'artSeqid'
+[2020-09-03 16:16:13,720]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:16:13] "GET /comment/get?commentSeqid&artSeqid=1006 HTTP/1.1" 500 164 9.254753
+[2020-09-03 16:16:37,962]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:16:37] "GET /comment/get?commentSeqid&artSeqid=1006 HTTP/1.1" 200 473 0.016958
+[2020-09-03 16:18:48,313]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:18:48] "GET /comment/get?commentSeqid=2&artSeqid= HTTP/1.1" 200 300 0.005984
+[2020-09-03 16:21:03,844]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:21:03] "POST /comment/add HTTP/1.1" 200 151 0.016905
+[2020-09-03 16:29:41,275]:[sqlserver.py]:[line:54]:ERROR: ('23000', '[23000] [Microsoft][SQL Server Native Client 11.0][SQL Server]DELETE 语句与 SAME TABLE REFERENCE 约束"FK_T_Comment_T_Comment"冲突。该冲突发生于数据库"crawler_test"，表"dbo.T_Comment", column \'relationComment\'。 (547) (SQLExecDirectW); [23000] [Microsoft][SQL Server Native Client 11.0][SQL Server]语句已终止。 (3621)')
+[2020-09-03 16:29:41,343]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:29:41] "POST /comment/delete?commentSeqid=1 HTTP/1.1" 200 169 0.302116
+[2020-09-03 16:31:32,669]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:31:32] "POST /comment/delete?commentSeqid=1 HTTP/1.1" 200 178 2.775610
+[2020-09-03 16:31:54,525]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:31:54] "POST /comment/delete?commentSeqid=3 HTTP/1.1" 200 178 0.004985
+[2020-09-03 16:32:42,343]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:32:42] "POST /comment/delete?commentSeqid=3 HTTP/1.1" 200 178 2.702364
+[2020-09-03 16:33:53,302]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:33:53] "POST /comment/delete?commentSeqid=1 HTTP/1.1" 200 178 2.419363
+[2020-09-03 16:33:57,100]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:33:57] "POST /comment/delete?commentSeqid=3 HTTP/1.1" 200 181 0.016954
+[2020-09-03 16:36:28,228]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:36:28] "POST /comment/add HTTP/1.1" 200 151 0.038132
+[2020-09-03 16:37:26,526]:[handler.py]:[line:242]:INFO: 127.0.0.1 - - [2020-09-03 16:37:26] "POST /comment/delete?commentSeqid=4&artSeqid=1006 HTTP/1.1" 200 151 0.008977

@@ -48,6 +48,7 @@ class HelloWorld(Resource):
         g.retMsg['img_text'] = img_text
         g.retMsg['img_base64'] = image_base64
         g.retMsg['status'] = 1
+        g.retMsg['code'] = 200
         return jsonify(g.retMsg)
 
     def post(self):
@@ -55,6 +56,8 @@ class HelloWorld(Resource):
         b = request.form.get('b')
         g.retMsg['a'] = a
         g.retMsg['b'] = b
+        g.retMsg['status'] = 1
+        g.retMsg['code'] = 200
         return jsonify(g.retMsg)
 
 class Login(Resource):
@@ -90,8 +93,7 @@ class Login(Resource):
         g.retMsg['msg'] = '成功登录'        
         g.retMsg['data']['token'] = token
         
-        return jsonify()
-
+        return jsonify(g.retMsg)
 
 class Register(Resource):
     '''

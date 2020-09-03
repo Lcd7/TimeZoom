@@ -80,6 +80,7 @@ class GetUpdateArticle(Resource):
                 g.retMsg['msg'] = '动态上传失败'
             
             g.retMsg['status'] = 1
+            g.retMsg['code'] = 200
             g.retMsg['msg'] = '动态上传成功'
         else:
             g.retMsg['msg'] = '动态上传失败'
@@ -97,8 +98,13 @@ class DeleteArticle(Resource):
             _tmpRes = g.tableArticle.delete_art(g.artSeqid)
             if not _tmpRes:
                 g.retMsg['msg'] = '动态删除失败'
+            else:
+                # 删除动态的评论
+                g.tableComment.delete_comments(g.artSeqid)
         else:
             g.retMsg['msg'] = '无效动态id'
+        g.retMsg['status'] = 1
+        g.retMsg['code'] = 200
         return jsonify(g.retMsg)
 
 class GetLikes(Resource):
@@ -115,7 +121,6 @@ class GetLikes(Resource):
                 g.retMsg['status'] = 1
                 g.retMsg['code'] = 200
             else:
-                
                 g.retMsg['msg'] = '点赞失败'
         else:
             # 取消点赞
@@ -124,7 +129,6 @@ class GetLikes(Resource):
                 g.retMsg['status'] = 1
                 g.retMsg['code'] = 200
             else:
-                
                 g.retMsg['msg'] = '取消点赞失败'
 
         return jsonify(g.retMsg)
@@ -142,7 +146,6 @@ class SetPublicArt(Resource):
             g.retMsg['status'] = 1
             g.retMsg['code'] = 200
         else:
-            
             g.retMsg['msg'] = '动态状态设置失败'
 
         return jsonify(g.retMsg)
@@ -167,7 +170,6 @@ class GetAllArt(Resource):
                 g.retMsg['code'] = 200
                 g.retMsg['msg'] = '暂无动态'
             else:
-                
                 g.retMsg['msg'] = '动态获取失败'
             
         return jsonify(g.retMsg)

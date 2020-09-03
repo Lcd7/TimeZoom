@@ -15,6 +15,7 @@ def ret_info(func):
     def wrapper():
         response = func()
         response = response.json()
+        print(f'响应数据{response}')
         if response.get('code') == 1:
             print('成功')
         else:

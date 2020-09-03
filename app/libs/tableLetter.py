@@ -78,17 +78,18 @@ class TableLetter():
         sendTime = str(datetime.datetime.strptime(str(datetime.datetime.now()), '%Y-%m-%d %H:%M:%S.%f'))[:-3]
         strSql = "insert into Letter (userid,friendid,senderid,receiverid,msgType,text,sendTime,status) values ()"
         _res1 = DB.ExecSqlNoQuery(strSql, userid, friendid, userid, friendid, msgType, text, sendTime, 1)
-        _res2 = DB.ExecSqlNoQuery(strSql, userid, friendid, friendid, userid, msgType, text, sendTime, status)
+        _res2 = DB.ExecSqlNoQuery(strSql, friendid, userid, friendid, userid, msgType, text, sendTime, status)
         if _res1 and _res1:
             return True
         else:
             return False
 
-    def set_read(self, seqid):
+    def set_read(self, userid, friendid):
         '''
         设置已读
-        seqid: 信息seqid
+        userid: 用户seqid
+        friendid: 好于seqid
         return True or false
         '''
-        strSql = f"update Letter set status=1 where seqid={seqid}"
+        strSql = f"update Letter set status=1 where userid={userid} and friendid={friendid}"
         return DB.ExecSqlNoQuery(strSql)

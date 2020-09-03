@@ -18,9 +18,10 @@ def all_comments_body(func):
                 _tmpDict['seqid'] = row[0]
                 _tmpDict['text'] = row[1]
                 _tmpDict['isPublic'] = row[2]
-                _tmpDict['relationArticlesId'] = row[3]
-                _tmpDict['relationComment'] = row[4]
-                _tmpDict['doTime'] = row[5]
+                _tmpDict['userid'] = row[3]
+                _tmpDict['relationArticlesId'] = row[4]
+                _tmpDict['relationComment'] = row[5]
+                _tmpDict['doTime'] = row[6]
                 bodyDict[row[0]] = _tmpDict
             return bodyDict
         log.error(err)
@@ -39,9 +40,10 @@ def comment_body(func):
             bodyDict['seqid'] = rows[0][0]
             bodyDict['text'] = rows[0][1]
             bodyDict['isPublic'] = rows[0][2]
-            bodyDict['relationArticlesId'] = rows[0][3]
-            bodyDict['relationComment'] = rows[0][4]
-            bodyDict['doTime'] = rows[0][5]
+            bodyDict['userid'] = rows[0][3]
+            bodyDict['relationArticlesId'] = rows[0][4]
+            bodyDict['relationComment'] = rows[0][5]
+            bodyDict['doTime'] = rows[0][6]
             return bodyDict
         log.error(err)
         return None
@@ -50,7 +52,7 @@ def comment_body(func):
 
 class TableComment:
 
-    def add_comment(self, text, isPublic, relationArtId, commentSeqid = None):
+    def add_comment(self, userid, text, isPublic, relationArtId, commentSeqid = None):
         '''
         新增评论
         text: 评论正文
@@ -61,11 +63,11 @@ class TableComment:
         '''
         doTime = str(datetime.datetime.strptime(str(datetime.datetime.now()), '%Y-%m-%d %H:%M:%S.%f'))[:-3]
         if commentSeqid:
-            strSql = 'insert into T_Comment (text,isPublic,relationArticlesId,relationComment,doTime) values (?,?,?,?,?)'
-            return DB.ExecSqlNoQuery(strSql, text, isPublic, relationArtId, commentSeqid, doTime)
+            strSql = 'insert into T_Comment (userId,text,isPublic,relationArticlesId,relationComment,doTime) values (?,?,?,?,?,?)'
+            return DB.ExecSqlNoQuery(strSql, userid, text, isPublic, relationArtId, commentSeqid, doTime)
         else:
-            strSql = 'insert into T_Comment (text,isPublic,relationArticlesId,doTime) values (?,?,?,?)'
-            return DB.ExecSqlNoQuery(strSql, text, isPublic, relationArtId, doTime)
+            strSql = 'insert into T_Comment (userId,text,isPublic,relationArticlesId,doTime) values (?,?,?,?,?)'
+            return DB.ExecSqlNoQuery(strSql, userid, text, isPublic, relationArtId, doTime)
 
     def delete_comment(self, seqid):
         '''
@@ -75,6 +77,14 @@ class TableComment:
         '''
         strSql = 'delete T_Comment where seqid=?'
         return DB.ExecSqlNoQuery(strSql, seqid)
+
+    def delete_comments(self, relationArtId):
+        '''
+        删除动态的所有评论
+        return true or false
+        '''
+        strSql = 'delete T_Comment where relationArticlesId=?'
+        return DB.ExecSqlNoQuery(strSql, relationArtId)
 
     @comment_body
     def get_comment(self, seqid):

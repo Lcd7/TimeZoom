@@ -76,7 +76,7 @@ def check_token(func):
         payload, msg = validate_token(token)
         if msg:
             g.retMsg = msg
-        nickname = int(payload['nickname'])
+        nickname = payload['nickname']
         user = g.tableUser.get_user_by(nickname = nickname)
         if not user:
             g.retMsg = '用户不存在'
@@ -124,4 +124,4 @@ import app.web.index
 import app.web.users
 import app.web.comments
 import app.web.articles
-import app.web.chat
+import app.web.letter

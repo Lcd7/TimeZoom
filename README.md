@@ -46,12 +46,12 @@ TimeZoom 接口文档
 	* 获取单个评论		/comment/get?commentSeqid=	o 
     
 4. 私信表
-	* 获取未读信息      /letter/unread/get         
-    * 获取聊天信息      /letter/get  
-    * 删除用户聊天记录  /letter/deleteall?userid=
-    * 删除一条聊天记录  /letter/deleteone?leteetid=
-    * 撤回一条聊天信息  /letter/withdrawn?sendTime=X&userid=X&friendid=X
-    * 保存聊天记录      /letter/save
+	* 获取未读信息      /letter/unread/get                                      o
+    * 获取聊天信息      /letter/get                                             o
+    * 删除用户聊天记录  /letter/deleteall?userid=                               o
+    * 删除一条聊天记录  /letter/deleteone?leteetid=                             o
+    * 撤回一条聊天信息  /letter/withdrawn?sendTime=X&userid=X&friendid=X        o
+    * 保存聊天记录      /letter/save                                            o
 
 
 TimeZoom 编码规范

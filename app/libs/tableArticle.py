@@ -160,7 +160,7 @@ class TableArticle:
             resDict = self.get_user_one_art(artid, 2)
             if isinstance(resDict, dict):
                 comments = resDict.get('comments') + int(comments)
-                strSql = 'update Article set likcommentses=? where seqid=?'
+                strSql = 'update Article set comments=? where seqid=?'
                 return DB.ExecSqlNoQuery(strSql, comments, artid)
 
     def delete_art(self, seqid):

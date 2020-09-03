@@ -11,11 +11,10 @@ class Chat(Resource):
     '''
     聊天
     '''
-    # @check_token
+    @check_token
     def get(self):
-        mySeqid = request.args.get('mySeqid')
-        # 删除未读聊天
-            # pass
+        # mySeqid = request.args.get('mySeqid')
+        mySeqid = g.user.seqid
 
         user_socket = request.environ.get('wsgi.websocket') # type:WebSocket
         if not user_socket:
@@ -40,14 +39,18 @@ class Chat(Resource):
                 #     continue
 
                 to_user_socket = user_dict.get(to_user)
-                if not to_user_socket:  # 判断用户字典中是否存在用户的websocket连接
-                    continue
-                    # 记录存在数据库
-                    # g.tableLetter.insert(g.user.seqid, mySeqid, 1, msg_dict['message'])
                 try:
+                    status = 1
                     to_user_socket.send(json.dumps(msg_dict))
                 except:
-                    user_dict.pop(to_user)
+                    status = 0
+                    if to_user in user_dict:
+                        user_dict.pop(to_user)
+                finally:
+                    pass
+                    # 聊天记录存在数据库
+                    g.tableLetter.save_letter(g.user.seqid, to_user, msg_dict['message'], status)
+
             except Exception as e:
                 if mySeqid in user_dict:
                     user_dict.pop(mySeqid)
@@ -77,6 +80,7 @@ class GetUnreadLetter(Resource):
     @check_token
     def get(self):
         if g.friendSeqid:
+            # 
             letterDict = g.tableLetter.get_letter_by(g.user.seqid, g.friendSeqid, status = 0)
         else:
             g.retMsg['msg'] = '没有好友id'
@@ -154,6 +158,23 @@ class SaveLetter(Resource):
         g.retMSg['code'] = 200
         return jsonify(g.retMsg)
 
+class SetRead(Resource):
+    '''
+    删除未读聊天
+    '''
+    @check_token
+    def post(self):
+        _tmpRes = g.tableLetter.set_read(g.user.seqid, g.friendSeqid)
+        if not _tmpRes:
+            g.retMsg['msg'] = '未读信息消除失败'
+            g.retMSg['code'] = 400
+
+        g.retMsg['status'] = 1
+        g.retMSg['code'] = 200
+        return jsonify(g.retMsg)
+
+
+
 api.add_resource(Chat, '/letter', endpoint = 'Chat')
 api.add_resource(GetLetter, '/letter/get', endpoint = 'GetLetter')
 api.add_resource(GetUnreadLetter, '/letter/unread/get', endpoint = 'GetUnreadLetter')
@@ -161,6 +182,7 @@ api.add_resource(DeleteUserLetter, '/letter/deleteall', endpoint = 'DeleteUserLe
 api.add_resource(DeleteOneLetter, '/letter/deleteone', endpoint = 'DeleteOneLetter')
 api.add_resource(Withdrawn, '/letter/withdrawn', endpoint = 'Withdrawn')
 api.add_resource(SaveLetter, '/letter/save', endpoint = 'SaveLetter')
+api.add_resource(SetRead, '/letter/read', endpoint = 'SetRead')
 
 
 if __name__ == '__main__':
