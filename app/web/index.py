@@ -87,6 +87,7 @@ class Login(Resource):
             'nickname': user.nickname,
         }
         token = create_token(payload)
+        g.tableUser.update_user(g.user.seqid, {'token': token})
 
         g.retMsg['status'] = 1
         g.retMsg['code'] = 200

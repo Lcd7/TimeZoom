@@ -1,10 +1,11 @@
 from flask import Blueprint, request, jsonify, g, current_app
 webIndex = Blueprint('webIndex', __name__)
+webBack = Blueprint('webBack', __name__, url_prefix = '/admin')
 
 import time
 from functools import wraps
 from flask_restful import reqparse
-from app.libs import TableUser, TableArticle, TableComment, TableImg, TableLetter
+from app.libs import TableUser, TableArticle, TableComment, TableImg, TableLetter, TableAdmin
 
 parser = reqparse.RequestParser()
 parser.add_argument('phoneNumber', type = str)      # 用户账号 （电话）
@@ -70,16 +71,16 @@ def check_token(func):
     def wrapper(*arg, **kwargs):
         token = request.headers.get('token')
         if not token:
-            g.retMsg = '请登录'
+            g.retMsg['msg'] = '请登录'
             return jsonify(g.retMsg)
 
         payload, msg = validate_token(token)
         if msg:
-            g.retMsg = msg
+            g.retMsg['msg'] = msg
         nickname = payload['nickname']
         user = g.tableUser.get_user_by(nickname = nickname)
         if not user:
-            g.retMsg = '用户不存在'
+            g.retMsg['msg'] = '用户不存在'
             return jsonify(g.retMsg)
 
         args = parser.parse_args()
@@ -104,6 +105,35 @@ def check_token(func):
         return func(*arg, **kwargs)
     return wrapper
 
+def admin_login(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        token = request.headers.get('token')
+        if not token:
+            g.retMsg['msg'] = '请登录'
+            return jsonify(g.retMsg)
+
+        payload, msg = validate_token(token)
+        if msg:
+            g.retMsg['msg'] = msg
+        userName = payload['userName']
+        admin = g.tableAdmin.get_admin(userName = userName)
+        if not admin:
+            g.retMsg['msg'] = '用户不存在'
+            return jsonify(g.retMsg)
+        g.admin = admin
+        args = parser.parse_args()
+        g.userName = args.get('userName')           
+        g.password = args.get('password')   
+        g.userSeqid = args.get('userSeqid')                                                              
+        g.artText = args.get('artText')
+        g.friendSeqid = 0 if args.get('friendSeqid') in ('', None) else int(args.get('friendSeqid'))
+        g.artSeqid = 0 if args.get('artSeqid') in ('', None) else int(args.get('artSeqid'))
+        g.artUserid = 0 if args.get('artUserid') in ('', None) else int(args.get('artUserid'))
+        g.isPublic = None if args.get('isPublic') in ('', None) else int(args.get('isPublic'))
+
+        return func(*args, **kwargs)
+    return wrapper
 
 @webIndex.before_request
 def get_base_info():
@@ -114,11 +144,24 @@ def get_base_info():
     g.tableLetter = TableLetter()
     g.retMsg = {
         'status': 0,
-        'code': 404,
+        'code': 500,
         'msg': '',
         'data': {}
     }
 
+@webBack.before_request
+def back_base():
+    g.tableArticle = TableArticle()
+    g.tableImg = TableImg()
+    g.tableUser = TableUser()
+    g.tableAdmin = TableAdmin()
+    g.retMsg = {
+        'status': 0,
+        'code': 500,
+        'msg': '',
+        'data': {}
+    }
+    
 
 import app.web.index
 import app.web.users
