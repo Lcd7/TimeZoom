@@ -30,8 +30,11 @@ class TableAdmin:
             strSql = f'select * from T_admin where seqid={seqid}'
         elif userName:
             strSql = f'select * from T_admin where userName={userName}'
-
         return DB.ExecSqlQuery(strSql)
+
+    def update_token(self, seqid, token):
+        strSql = f'update T_admin set token={token} where seqid ={seqid}'
+        return DB.ExecSqlNoQuery(strSql)
 
     def add_admin(self, userName = None, password = None, superadmin = None):
         strSql = 'insert into T_admin (userName,password,superadmin) values(?,?,?)'
@@ -43,4 +46,12 @@ class TableAdmin:
 
     def ban_admin(self, seqid, ban = 1):
         strSql = f'update T_admin set ban={ban} where seqid={seqid}'
+        return DB.ExecSqlNoQuery(strSql)
+
+    def ban_user(self, seqid, ban):
+        strSql = f'update [User] set ban={ban} where seqid={seqid}'
+        return DB.ExecSqlNoQuery(strSql)
+
+    def ban_art(self, seqid, ban):
+        strSql = f'update Articles set ban={ban} where seqid={seqid}'
         return DB.ExecSqlNoQuery(strSql)

@@ -6,3 +6,4 @@ class Admin:
     password = ''
     superadmin = ''
     token = ''
+    ban = ''

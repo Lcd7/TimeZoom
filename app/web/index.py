@@ -83,6 +83,12 @@ class Login(Resource):
             g.retMsg['msg'] = '密码错误'
             return jsonify(g.retMsg)
 
+        if user.ban == 1:
+            g.retMsg['msg'] = '账号被封禁，请联系管理员'
+            g.retMsg['status'] = 1
+            g.retMsg['code'] = 200
+            return jsonify(g.retMsg)
+
         payload = {
             'nickname': user.nickname,
         }

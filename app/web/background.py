@@ -28,7 +28,7 @@ class AdminLogin(Resource):
             'userName': admin.userName,
         }
         token = create_token(payload)
-
+        g.tableAdmin.update_token(admin['seqid'], token)
         g.retMsg['status'] = 1
         g.retMsg['code'] = 200
         g.retMsg['msg'] = '成功登录'        
@@ -54,19 +54,6 @@ class AddAdmin(Resource):
         g.retMsg['msg'] = '成功登录'        
         return jsonify(g.retMsg)
 
-class DeleteAdmin(Resource):
-    @admin_login
-    def post(self):
-        ban = request.args.get('ban')
-        userSeqid = request.args.get('userSeqid')
-        _tmpRes = g.tableAdmin.ban_admin(userSeqid, ban)
-        if not _tmpRes:
-            g.retMsg['msg'] = '设置失败'
-        
-        g.retMsg['status'] = 1
-        g.retMsg['code'] = 200
-        return jsonify(g.retMsg)
-
 class ChangePassw(Resource):
     @admin_login
     def post(self):
@@ -86,8 +73,49 @@ class ChangePassw(Resource):
         g.retMsg['msg'] = '修改成功'
         return jsonify(g.retMsg)
 
+class BanAdmin(Resource):
+    @admin_login
+    def post(self):
+        ban = request.args.get('ban')
+        userSeqid = request.args.get('userSeqid')
+        _tmpRes = g.tableAdmin.ban_admin(userSeqid, ban)
+        if not _tmpRes:
+            g.retMsg['msg'] = '设置失败'
+        
+        g.retMsg['status'] = 1
+        g.retMsg['code'] = 200
+        return jsonify(g.retMsg)
+
+class BanUser(Resource):
+    @admin_login
+    def post(self):
+        ban = request.args.get('ban')
+        userSeqid = request.args.get('userSeqid')
+        _tmpRes = g.tableAdmin.ban_user(userSeqid, ban)
+        if not _tmpRes:
+            g.retMsg['msg'] = '设置失败'
+        
+        g.retMsg['status'] = 1
+        g.retMsg['code'] = 200
+        return jsonify(g.retMsg)
+
+class BanArticle(Resource):
+    @admin_login
+    def post(self):
+        ban = request.args.get('ban')
+        artSeqid = g.artSeqid
+        _tmpRes = g.tableAdmin.ban_art(artSeqid, ban)
+        if not _tmpRes:
+            g.retMsg['msg'] = '设置失败'
+        
+        g.retMsg['status'] = 1
+        g.retMsg['code'] = 200
+        return jsonify(g.retMsg)
+
 
 api.add_resource(AdminLogin, '/login', 'AdminLogin')
-api.add_resource(AddAdmin, '/login', 'AddAdmin')
-api.add_resource(DeleteAdmin, '/login', 'DeleteAdmin')
-api.add_resource(ChangePassw, '/login', 'ChangePassw')
+api.add_resource(AddAdmin, '/add', 'AddAdmin')
+api.add_resource(BanAdmin, '/banadmin', 'BanAdmin')
+api.add_resource(BanArticle, '/Banart', 'BanArticle')
+api.add_resource(BanUser, '/Banuser', 'BanUser')
+api.add_resource(ChangePassw, '/changeinfo', 'ChangePassw')

@@ -40,6 +40,7 @@ def get_user(func):
             user.registerTime = rows[0][6]
             user.token = rows[0][7]
             user.timenow = rows[0][8]
+            user.ban = rows[0][9]
             return user
         return None
     return wrapper

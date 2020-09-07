@@ -20,7 +20,7 @@ def get_art_dict(func):
             artDict['relationUserId'] = rows[0][4]
             artDict['comments'] = rows[0][5]
             artDict['doTime'] = rows[0][6]
-            artDict['headPic'] = rows[0][7]
+            artDict['ban'] = rows[0][7]
             return artDict
         if not err and not rows:
             return '暂无动态'
@@ -46,7 +46,7 @@ def get_arts_dict(func):
                 _tmpDict['relationUserId'] = row[4]
                 _tmpDict['comments'] = row[5]
                 _tmpDict['doTime'] = row[6]
-                _tmpDict['headPic'] = row[7]
+                _tmpDict['ban'] = row[7]
                 artDict[row[0]] = _tmpDict
             return artDict
         if not err and not rows:
