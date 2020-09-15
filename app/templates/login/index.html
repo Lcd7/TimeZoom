@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Taped Login Form Flat Responsive Widget Template::w3layouts</title>
+<!-- Meta tag Keywords -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<!-- <meta name="keywords" content="taped login form Widget a Flat Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" /> -->
+<!-- <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+function hideURLbar(){ window.scrollTo(0,1); } </script> -->
+<!-- Meta tag Keywords -->
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" /><!-- Style-CSS -->
+<link rel="stylesheet" href="css/font-awesome.css" type="text/css" media="all" />
+<!-- <link href="//fonts.googleapis.com/css?family=Snippet" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Barlow" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"> -->
+<script>
+	// 自动获取验证码
+
+	// 登录
+	function login1(){
+		username = document.getElementById("username").value;
+		alert(username);
+		$.ajax({  
+			type: "POST",  
+			url:"http://127.0.0.1:8058/user/login",  
+			data:JSON.stringify($('#loginfo').serializeObject()),  
+			dataType: 'json',
+			contentType: "application/json",
+			async: false,  
+			error: function(request) {  
+				alert("Connection error");  
+			},  
+			success: function(data) {  
+				alert("成功了，小伙子")
+				//接收后台返回的结果  
+				// 给到用户主页
+			}  
+		})
+	}
+
+</script>
+
+</head>
+<body background="./img/冰淇淋背景.jpg">
+<section class="login-maintop">
+	<div class="login-main">
+		<header><h1>taped login form</h1></header>
+		<div class="login-form">
+			<h2>login now</h2>
+			<form action="#" method="post" id="loginfo">
+				<!-- <img id="checkimg" type="checkimg" name="checkimg" src=""></img>s -->
+				<!-- <input id="checknum" type="checknum" name="checknum" placeholder="enter valinum" required=""> -->
+				<span><i class="fa fa-user-o" aria-hidden="true"></i></span>
+				<input id="username" type="text" name="phoneNumber" placeholder="enter your name" required="">
+				<span><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+				<input id="password" type="password" name="password" placeholder="enter your password" required="">
+				
+				<input id="login" type="submit" value="login" onclick="login1()">
+			</form>
+			<div class="login-password">
+				<span><a href="#">forgot password</a></span>
+			</div>
+			<div class="login-input">
+			
+			</div>
+			<div class="social-icons">
+				<ul>
+					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+				</ul>
+				
+			</div>
+		</div>
+		<!--footer-->
+		<div class="footer">
+			<p>&copy; 2020 Taped Login Form. All rights reserved | Design by <a href="">EatYou7</a></p>
+		</div>
+		<!--//footer-->
+	</div>
+	<p style="font-size:10px;color:pink">范赔欠我5k</p>
+</section>
+<!-- <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script> -->
+<!-- <script src="js/jquery.vide.min.js"></script> -->
+</body>
+</html>

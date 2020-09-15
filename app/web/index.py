@@ -1,4 +1,4 @@
-from flask import request, jsonify, g, current_app
+from flask import request, jsonify, g, current_app, render_template
 from flask_restful import Api, Resource
 from app.web import webIndex, parser
 from app.libs import TableUser, Validator
@@ -43,13 +43,14 @@ class HelloWorld(Resource):
         登录表单页
         params: none
         '''
-        print(request.args.get('a'))
-        img_text, image_base64 = valiImg.Captcha.gene_graph_captcha()
-        g.retMsg['img_text'] = img_text
-        g.retMsg['img_base64'] = image_base64
-        g.retMsg['status'] = 1
-        g.retMsg['code'] = 200
-        return jsonify(g.retMsg)
+        # print(request.args.get('a'))
+        # img_text, image_base64 = valiImg.Captcha.gene_graph_captcha()
+        # g.retMsg['img_text'] = img_text
+        # g.retMsg['img_base64'] = image_base64
+        # g.retMsg['status'] = 1
+        # g.retMsg['code'] = 200
+        # return jsonify(g.retMsg)
+        render_template('login/login.html')
 
     def post(self):
         a = request.args.get('a')
