@@ -16,5 +16,6 @@ class User:
     password = ''
     nickname = ''
     sex = ''
+    interview = ''
     registerTime = ''
     token = ''

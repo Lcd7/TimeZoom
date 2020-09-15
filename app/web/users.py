@@ -9,7 +9,7 @@ from app.utils.qiNiu import QiNiuImage
 
 api = Api(webIndex)
 
-class getInfo(Resource):
+class GetInfo(Resource):
     '''
     获取用户信息
     params: none 
@@ -21,6 +21,7 @@ class getInfo(Resource):
             'email': g.user.email,
             'nickname': g.user.nickname,
             'sex': g.user.sex,
+            'interview': g.user.interview
             }
         avatar = g.tableImg.get_avatar(g.user.seqid)
         if avatar:
@@ -205,7 +206,7 @@ class GetFriends(Resource):
         return jsonify(g.retMsg)
 
 
-
+api.add_resource(GetInfo, '/user/getinfo', endpoint = 'GetInfo')
 api.add_resource(ChageInfo, '/user/chageInfo', endpoint = 'ChageInfo')
 api.add_resource(Logout, '/user/logout', endpoint = 'Logout')
 api.add_resource(ChangeAvatar, '/user/changeAvatar', endpoint = 'ChangeAvatar')

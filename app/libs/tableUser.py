@@ -38,9 +38,10 @@ def get_user(func):
             user.nickname = rows[0][4]
             user.sex = rows[0][5]
             user.registerTime = rows[0][6]
-            user.token = rows[0][7]
-            user.timenow = rows[0][8]
-            user.ban = rows[0][9]
+            user.interview = rows[0][7]
+            user.token = rows[0][8]
+            user.timenow = rows[0][9]
+            user.ban = rows[0][10]
             return user
         return None
     return wrapper
